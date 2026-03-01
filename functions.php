@@ -120,17 +120,17 @@ add_action( 'after_setup_theme', 'boundr_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function boundr_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'boundr' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'boundr' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
+//	register_sidebar(
+//		array(
+//			'name'          => esc_html__( 'Sidebar', 'boundr' ),
+//			'id'            => 'sidebar-1',
+//			'description'   => esc_html__( 'Add widgets here.', 'boundr' ),
+//			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+//			'after_widget'  => '</section>',
+//			'before_title'  => '<h2 class="widget-title">',
+//			'after_title'   => '</h2>',
+//		)
+//	);
 }
 add_action( 'widgets_init', 'boundr_widgets_init' );
 
@@ -139,40 +139,11 @@ add_action( 'widgets_init', 'boundr_widgets_init' );
  */
 function boundr_scripts() {
 	wp_enqueue_style( 'boundr-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'boundr-style', 'rtl', 'replace' );
+//	wp_style_add_data( 'boundr-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'boundr-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+//	wp_enqueue_script( 'boundr-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'boundr_scripts' );
 
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
 require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
-
+require get_template_directory() . '/inc/scripts.php';
