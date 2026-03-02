@@ -5,16 +5,267 @@ Template Name: Home
 get_header();
 ?>
 
-<h1>Title</h1>
+<section class="pb-[93px] pt-[171px]">
+	<div class="container">
+		<div class="mb-[186px]">
+			<h1 class="text-[75px] leading-[129%] font_suisse text-center">
+				Every request clarified instantly. Scope creep, contained.
+			</h1>
+		</div>
+		<div>
+			<div class="flex max-w-[945px] mx-auto">
+				<div class="w-[433px]">
+					<div class="pr-[50px] font-medium">
+						Boundr lives inside your project <br>
+						emails and flags what’s in scope, <br>
+						what’s not, and what needs a <br>
+						decision.
+					</div>
+					<div class="mt-10">
+						<a href="#!" class="btn_site bg_cta min-w-[247px]">
+							Join the waitlist
+						</a>
+					</div>
+				</div>
+				<div class="w-[calc(100%-433px)]">
+					<div>
+						<img class="w-full h-auto" src="<?php echo get_template_directory_uri(); ?>/assets/img/gmail_bg.jpg" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mt-[96px]">
+			<div class="grid grid-cols-3 max-w-[1114px] mx-auto">
+				<div class="py-[27px] px-10 gap-[23px] flex items-center">
+					<div class="flex-none w-[56px] h-[56px] rounded-[6px] bg-white flex items-center justify-center">
+						<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M27.3279 5.18034C23.2003 4.04936 19.0484 2.28833 15.3211 0.0876707C15.1231 -0.0292236 14.8774 -0.0292236 14.6795 0.0876707C10.8447 2.35155 6.91712 4.01731 2.6723 5.18034C2.39809 5.2554 2.20801 5.50465 2.20801 5.78901V12.237C2.20801 18.877 5.27122 23.2722 7.84102 25.7901C10.6076 28.5009 13.8302 30 15.0003 30C16.1702 30 19.3929 28.5009 22.1594 25.7901C24.7292 23.2723 27.7922 18.8771 27.7922 12.237V5.78895C27.7922 5.50465 27.6021 5.2554 27.3279 5.18034ZM26.5301 12.2369C26.5301 18.4387 23.673 22.5399 21.2761 24.8885C18.5555 27.5542 15.6468 28.7378 15.0003 28.7378C14.3538 28.7378 11.4449 27.5542 8.72426 24.8885C6.32737 22.5399 3.47017 18.4387 3.47017 12.2369V6.26801C7.52942 5.11547 11.3098 3.50702 15.0004 1.36232C18.5989 3.45013 22.5678 5.13856 26.5301 6.26778V12.2369Z" fill="black"/>
+							<path d="M9.40689 6.19731C9.27915 5.873 8.91277 5.71368 8.58839 5.84148C7.46105 6.28567 6.30394 6.69454 5.14924 7.05677C4.88609 7.13938 4.70703 7.38313 4.70703 7.65887V10.0958C4.70703 10.4444 4.98963 10.7269 5.33808 10.7269C5.68654 10.7269 5.96914 10.4444 5.96914 10.0958V8.12007C7.00501 7.78491 8.03978 7.41419 9.05105 7.01569C9.37536 6.88802 9.53468 6.52163 9.40689 6.19731Z" fill="black"/>
+							<path d="M10.6052 6.31707C10.6898 6.31707 10.7758 6.30001 10.8582 6.26404L10.8698 6.259C11.1891 6.11908 11.3329 5.74742 11.193 5.42826C11.0529 5.10898 10.6792 4.96455 10.3602 5.10435L10.35 5.10875C10.0306 5.24826 9.88633 5.61963 10.0258 5.93896C10.1294 6.17603 10.3617 6.31707 10.6052 6.31707Z" fill="black"/>
+							<path d="M22.519 20.3487C22.2274 20.1581 21.8363 20.24 21.6455 20.5318C21.1255 21.3277 20.5154 22.0899 19.832 22.797C19.2699 23.3783 18.6609 23.9202 18.0218 24.4074C17.7447 24.6187 17.6914 25.0147 17.9027 25.2919C18.0269 25.4547 18.2148 25.5404 18.4049 25.5404C18.5384 25.5404 18.6729 25.4982 18.7871 25.411C19.4765 24.8854 20.1333 24.301 20.7393 23.6742C21.4782 22.9099 22.1386 22.0849 22.7021 21.2221C22.8928 20.9303 22.8107 20.5393 22.519 20.3487Z" fill="black"/>
+							<path d="M16.5563 25.3971L16.5201 25.4184C16.2185 25.5931 16.1155 25.9791 16.2901 26.2807C16.4071 26.4828 16.6189 26.5957 16.8368 26.5957C16.944 26.5957 17.0529 26.5683 17.1523 26.5106L17.1941 26.4861C17.4949 26.3099 17.5959 25.9234 17.4198 25.6226C17.2435 25.322 16.8569 25.2211 16.5563 25.3971Z" fill="black"/>
+							<path d="M10.6983 13.7121C10.3108 13.3246 9.79549 13.1113 9.2474 13.1113C8.69932 13.1113 8.18393 13.3246 7.79627 13.7121C6.99629 14.5123 6.99629 15.8142 7.79627 16.6143L11.5226 20.3405C11.9101 20.7279 12.4255 20.9413 12.9736 20.9413C13.5218 20.9413 14.0371 20.7279 14.4247 20.3404L22.2036 12.5614C23.0035 11.761 23.0035 10.4593 22.2035 9.65941C21.816 9.27187 21.3006 9.05859 20.7524 9.05859C20.2043 9.05859 19.689 9.27193 19.3014 9.65941L12.9735 15.9872L10.6983 13.7121ZM20.1939 10.5519C20.343 10.4028 20.5414 10.3207 20.7525 10.3207C20.9637 10.3207 21.162 10.4028 21.3112 10.5519C21.6191 10.8598 21.6191 11.361 21.3111 11.6691L13.5322 19.4479C13.3831 19.5971 13.1847 19.6792 12.9736 19.6792C12.7626 19.6792 12.5641 19.5971 12.4149 19.4479L8.68871 15.7219C8.38069 15.4138 8.38069 14.9126 8.6886 14.6047C8.83777 14.4556 9.03623 14.3734 9.24734 14.3734C9.45846 14.3734 9.6568 14.4555 9.80592 14.6046L12.5273 17.326C12.6457 17.4443 12.8061 17.5108 12.9735 17.5108C13.141 17.5108 13.3014 17.4444 13.4197 17.326L20.1939 10.5519Z" fill="black"/>
+						</svg>
+					</div>
+					<div class="text-base font-medium">
+						Protect your margins
+					</div>
+				</div>
+				<div class="py-[27px] px-10 gap-[23px] flex items-center">
+					<div class="flex-none w-[56px] h-[56px] rounded-[6px] bg-white flex items-center justify-center">
+						<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M16.9229 14.7172C19.4872 13.2977 23.7891 10.1528 23.7891 5.03906V3.51562C24.4352 3.51562 24.9609 2.98992 24.9609 2.34375V1.17188C24.9609 0.525703 24.4352 0 23.7891 0H6.21094C5.56477 0 5.03906 0.525703 5.03906 1.17188V2.34375C5.03906 2.98992 5.56477 3.51562 6.21094 3.51562V5.03906C6.21094 10.1528 10.5128 13.2977 13.0771 14.7173C13.1789 14.7736 13.2422 14.8819 13.2422 15C13.2422 15.1181 13.1789 15.2264 13.0771 15.2828C12.2981 15.714 11.5587 16.1937 10.8796 16.7085C10.6217 16.9039 10.5711 17.2714 10.7665 17.5294C10.8818 17.6814 11.0568 17.7614 11.2339 17.7614C11.3572 17.7614 11.4816 17.7226 11.5874 17.6424C12.2222 17.1613 12.9144 16.7123 13.6446 16.308C14.0698 16.0727 14.3499 15.6459 14.4039 15.1684C14.5907 15.1969 14.7897 15.2135 14.9999 15.2135C15.0104 15.2135 15.021 15.2135 15.0316 15.2134C15.2303 15.2118 15.4187 15.1951 15.5962 15.168C15.65 15.6457 15.9302 16.0727 16.3554 16.308C18.6939 17.6026 22.6172 20.4482 22.6172 24.9609V26.4844H21.1355C18.8395 23.7931 15.6337 23.6531 15 23.6531C11.6791 23.6531 9.56414 25.6917 8.86758 26.4844H7.38281V24.9609C7.38281 23.5467 7.77205 22.1843 8.53969 20.9118C8.70686 20.6347 8.61773 20.2746 8.34064 20.1074C8.06355 19.9403 7.70344 20.0294 7.53627 20.3065C6.65684 21.7642 6.21094 23.3302 6.21094 24.9609V26.4844C5.56477 26.4844 5.03906 27.0101 5.03906 27.6562V28.8281C5.03906 29.4743 5.56477 30 6.21094 30H23.7891C24.4352 30 24.9609 29.4743 24.9609 28.8281V27.6562C24.9609 27.0101 24.4352 26.4844 23.7891 26.4844V24.9609C23.7891 19.8472 19.4872 16.7023 16.9229 15.2827C16.8211 15.2264 16.7578 15.1181 16.7578 15C16.7578 14.8819 16.8211 14.7736 16.9229 14.7172ZM15 24.8249C15.4743 24.8249 17.6346 24.9168 19.4821 26.4844H10.5437C11.4513 25.7261 12.9586 24.8249 15 24.8249ZM23.7898 28.8281C23.7898 28.8281 23.7896 28.8281 23.7891 28.8281H6.21094V27.6562H23.7891L23.7898 28.8281ZM6.21094 1.17188H23.7891L23.7898 2.34375C23.7898 2.34375 23.7896 2.34375 23.7891 2.34375H6.21094V1.17188ZM7.38281 3.51562H22.6172V5.03906C22.6172 6.23344 22.3423 7.31098 21.8947 8.27396C20.8507 8.03637 19.7825 7.91602 18.7125 7.91602C17.4012 7.91602 16.0958 8.09607 14.8326 8.45115C13.673 8.77723 12.4743 8.94258 11.2699 8.94258C10.2576 8.94258 9.24709 8.82387 8.26184 8.59248C7.72271 7.55033 7.38281 6.36697 7.38281 5.03906V3.51562ZM15.0222 14.0416C14.416 14.0465 13.9379 13.8539 13.6441 13.6917C12.3132 12.955 10.4696 11.7156 9.12762 9.95291C9.83625 10.06 10.5527 10.1145 11.2699 10.1145C12.5815 10.1145 13.8869 9.93439 15.1497 9.57932C16.3097 9.25324 17.5083 9.08789 18.7124 9.08789C19.581 9.08789 20.4482 9.17455 21.3 9.34523C19.9467 11.4338 17.8346 12.873 16.3557 13.6917C16.0716 13.8486 15.6094 14.037 15.0222 14.0416Z" fill="black"/>
+							<path d="M15 18.8608C15.3236 18.8608 15.5859 18.5985 15.5859 18.2749V17.689C15.5859 17.3654 15.3236 17.103 15 17.103C14.6764 17.103 14.4141 17.3654 14.4141 17.689V18.2749C14.4141 18.5985 14.6764 18.8608 15 18.8608Z" fill="black"/>
+							<path d="M14.4141 21.55C14.4141 21.8737 14.6764 22.136 15 22.136C15.3236 22.136 15.5859 21.8737 15.5859 21.55V20.9641C15.5859 20.6405 15.3236 20.3782 15 20.3782C14.6764 20.3782 14.4141 20.6405 14.4141 20.9641V21.55Z" fill="black"/>
+							<path d="M9.47852 19.3215C9.80212 19.3215 10.0645 19.0592 10.0645 18.7356C10.0645 18.412 9.80212 18.1497 9.47852 18.1497C9.15491 18.1497 8.89258 18.412 8.89258 18.7356C8.89258 19.0592 9.15491 19.3215 9.47852 19.3215Z" fill="black"/>
+						</svg>
+					</div>
+					<div class="text-base font-medium">
+						Protect your team’s time
+					</div>
+				</div>
+				<div class="py-[27px] px-10 gap-[23px] flex items-center">
+					<div class="flex-none w-[56px] h-[56px] rounded-[6px] bg-white flex items-center justify-center">
+						<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M27.7466 15.5068C27.4746 15.5527 27.291 15.8105 27.3369 16.083C27.4453 16.7236 27.5 17.3682 27.5 18C27.5 21.5242 25.9292 24.7053 23.3983 26.8234C22.9563 23.9535 20.9187 21.6517 18.213 20.8279C19.2887 20.1104 20 18.8877 20 17.5C20 15.2939 18.2056 13.5 16 13.5C13.7944 13.5 12 15.2939 12 17.5C12 18.8877 12.7113 20.1104 13.787 20.8279C11.0813 21.6517 9.0437 23.9535 8.60169 26.8234C6.0708 24.7053 4.5 21.5242 4.5 18C4.5 17.3682 4.55469 16.7236 4.66309 16.083C4.70898 15.8105 4.52539 15.5527 4.25342 15.5068C3.9751 15.46 3.72314 15.6445 3.67676 15.917C3.55957 16.6113 3.5 17.3125 3.5 18C3.5 24.1406 7.88574 29.3232 13.9282 30.3232C13.9556 30.3281 13.9834 30.3301 14.0103 30.3301C14.2505 30.3301 14.4624 30.1562 14.5029 29.9121C14.5483 29.6396 14.3638 29.3818 14.0913 29.3369C12.4064 29.058 10.8651 28.421 9.53021 27.5174C9.77142 24.1242 12.5601 21.5 16 21.5C19.4399 21.5 22.2286 24.1242 22.4698 27.5174C21.1349 28.421 19.5936 29.058 17.9087 29.3369C17.6362 29.3818 17.4517 29.6396 17.4971 29.9121C17.5376 30.1562 17.7495 30.3301 17.9897 30.3301C18.0166 30.3301 18.0444 30.3281 18.0718 30.3232C24.1143 29.3232 28.5 24.1406 28.5 18C28.5 17.3125 28.4404 16.6113 28.3232 15.917C28.2769 15.6445 28.022 15.459 27.7466 15.5068ZM13 17.5C13 15.8457 14.3457 14.5 16 14.5C17.6543 14.5 19 15.8457 19 17.5C19 19.1543 17.6543 20.5 16 20.5C14.3457 20.5 13 19.1543 13 17.5Z" fill="black"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M21.4756 5.47852C21.4165 5.29688 21.2602 5.16504 21.0718 5.1377L17.8769 4.67383L16.4482 1.77832C16.2803 1.43848 15.7197 1.43848 15.5517 1.77832L14.123 4.67383L10.9282 5.1377C10.7397 5.16504 10.5835 5.29688 10.5244 5.47852C10.4658 5.65918 10.5146 5.8584 10.6509 5.99121L12.9629 8.24414L12.417 11.4258C12.3847 11.6143 12.4619 11.8037 12.6157 11.915C12.7705 12.0273 12.9741 12.0439 13.1426 11.9531L16 10.4502L18.8574 11.9531C18.9306 11.9922 19.0107 12.0107 19.0903 12.0107C19.1938 12.0107 19.2969 11.9785 19.3843 11.915C19.5381 11.8037 19.6152 11.6143 19.583 11.4258L19.0371 8.24414L21.3491 5.99121C21.4853 5.8584 21.5342 5.65918 21.4756 5.47852ZM18.1509 7.71094C18.0332 7.82617 17.9795 7.99121 18.0073 8.1543L18.4262 10.5967L16.2329 9.44336C16.1596 9.40527 16.0801 9.38574 16 9.38574C15.9199 9.38574 15.8403 9.40527 15.7671 9.44336L13.5737 10.5967L13.9927 8.1543C14.0205 7.99121 13.9668 7.82617 13.8491 7.71094L12.0747 5.98242L14.5268 5.62598C14.6899 5.60156 14.8305 5.5 14.9033 5.35254L16 3.12988L17.0967 5.35254C17.1694 5.5 17.31 5.60156 17.4731 5.62598L19.9253 5.98242L18.1509 7.71094Z" fill="black"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M4.03513 13.5234C4.00291 13.7119 4.08006 13.9014 4.23387 14.0127C4.38914 14.125 4.59324 14.1406 4.76072 14.0508L6.99998 12.873L9.23924 14.0508C9.31248 14.0898 9.39256 14.1084 9.47215 14.1084C9.57566 14.1084 9.67869 14.0762 9.76609 14.0127C9.9199 13.9014 9.99705 13.7119 9.96482 13.5234L9.53709 11.0303L11.3491 9.26465C11.4853 9.13184 11.5342 8.93262 11.4756 8.75195C11.4165 8.57031 11.2602 8.43848 11.0718 8.41113L8.56785 8.04785L7.44822 5.77832C7.28025 5.43848 6.71971 5.43848 6.55174 5.77832L5.43211 8.04785L2.9282 8.41113C2.73972 8.43848 2.58347 8.57031 2.52439 8.75195C2.4658 8.93262 2.51463 9.13184 2.65086 9.26465L4.46287 11.0303L4.03513 13.5234ZM4.07469 9.25586L5.83592 9C5.999 8.97559 6.13963 8.87402 6.21238 8.72656L6.99998 7.12988L7.78758 8.72656C7.86033 8.87402 8.00096 8.97559 8.16404 9L9.92527 9.25586L8.65086 10.4971C8.53318 10.6123 8.47947 10.7773 8.5073 10.9404L8.80808 12.6943L7.23289 11.8662C7.15965 11.8281 7.08006 11.8086 6.99998 11.8086C6.9199 11.8086 6.84031 11.8281 6.76707 11.8662L5.19187 12.6943L5.49265 10.9404C5.52049 10.7773 5.46678 10.6123 5.3491 10.4971L4.07469 9.25586Z" fill="black"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M29.0718 8.41113L26.5678 8.04785L25.4482 5.77832C25.2803 5.43848 24.7197 5.43848 24.5517 5.77832L23.4321 8.04785L20.9282 8.41113C20.7397 8.43848 20.5835 8.57031 20.5244 8.75195C20.4658 8.93262 20.5146 9.13184 20.6509 9.26465L22.4629 11.0303L22.0351 13.5234C22.0029 13.7119 22.0801 13.9014 22.2339 14.0127C22.3887 14.125 22.5923 14.1406 22.7607 14.0508L25 12.873L27.2392 14.0508C27.3125 14.0898 27.3926 14.1084 27.4721 14.1084C27.5757 14.1084 27.6787 14.0762 27.7661 14.0127C27.9199 13.9014 27.997 13.7119 27.9648 13.5234L27.5371 11.0303L29.3491 9.26465C29.4853 9.13184 29.5342 8.93262 29.4756 8.75195C29.4165 8.57031 29.2602 8.43848 29.0718 8.41113ZM26.6509 10.4971C26.5332 10.6123 26.4795 10.7773 26.5073 10.9404L26.8081 12.6943L25.2329 11.8662C25.1596 11.8281 25.0801 11.8086 25 11.8086C24.9199 11.8086 24.8403 11.8281 24.7671 11.8662L23.1919 12.6943L23.4927 10.9404C23.5205 10.7773 23.4668 10.6123 23.3491 10.4971L22.0747 9.25586L23.8359 9C23.999 8.97559 24.1396 8.87402 24.2124 8.72656L25 7.12988L25.7876 8.72656C25.8603 8.87402 26.001 8.97559 26.164 9L27.9253 9.25586L26.6509 10.4971Z" fill="black"/>
+							<path d="M16 30.5C16.2761 30.5 16.5 30.2761 16.5 30C16.5 29.7239 16.2761 29.5 16 29.5C15.7239 29.5 15.5 29.7239 15.5 30C15.5 30.2761 15.7239 30.5 16 30.5Z" fill="black"/>
+						</svg>
+					</div>
+					<div class="text-base font-medium">
+						Keep clients aligned
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mt-[130px]">
+			<div class="max-w-[660px] ml-auto">
+				<div class="mb-10">
+					<div class="label"> 
+						OUR MISSION
+					</div>
+				</div>
+				<div class="text-[28px] leading-[128%] space-y-[37px] font_suisse">
+					<p>
+						Boundr exists to bring clarity and fairness to project scope.
+					</p>
+					<p>
+						Agreements should not rely on memory. Work should not depend on assumptions. Alignment should not require constant renegotiation.
+					</p>
+					<p>
+						Boundr turns static agreements into a living, shared reference — so teams and clients stay aligned without friction.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="my-[93px]">
+	<div class="container">
+		<div class="flex">
+			<div class="w-[calc(100%-660px)] pr-[100px]">
+				<div class="mb-10">
+					<div class="label"> 
+						THE PROBLEM
+					</div>
+				</div>
+				<div>
+					<h2 class="heading_h2 font_suisse">
+						The hidden cost of <br>
+						loose scope
+					</h2>
+				</div>
+			</div>
+			<div class="w-[660px]"></div>
+		</div>
+	</div>
+</section>
+
+<section class="mt-[100px]">
+	<div class="container">
+		<div class="mb-10">
+			<div class="label"> 
+				The solution
+			</div>
+		</div>
+		<div>
+			<h2 class="heading_h2 font_suisse">
+				What Boundr <br>
+				Does
+			</h2>
+		</div>
+	</div>
+</section>
 
 <div class="bg-dark pb-[110px] pt-[80px] text-white">
 	<div class="container">
 		<div class="flex">
-			<div class="w-[calc(100%-592px)]">
-				<h2 class="heading_h1 font_suisse">FAQ</h2>
+			<div class="w-[calc(100%-592px)] pr-[100px]">
+				<div class="sticky top-[50px]">
+					<h2 class="heading_h1 font_suisse">FAQ</h2>
+				</div>
 			</div>
-			<div class="w-[592px]">
-				<div>Will this add work to my process?</div>
+			<div class="w-[592px] text_base accordion_section">
+				<div class="item_accordion js_accordion__group">
+					<div class="toggle_accordion js_accordion__menu">
+						<div class="inside_toggl_acr">
+							Will this add work to my process?
+							<div class="arrow_accord js_accordion__icon"></div>
+						</div>
+					</div>
+					<div class="accordion_description js_accordion__content">
+						<div class="inside_acc_descr">
+							Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Repudiandae nam doloribus quibusdam commodi doloremque maiores alias illum quisquam praesentium aliquam ipsam, est nemo, corporis quia eveniet fugiat.
+						</div>
+					</div>
+				</div>
+				<div class="item_accordion js_accordion__group">
+					<div class="toggle_accordion js_accordion__menu">
+						<div class="inside_toggl_acr">
+							Do my clients need to use this too?
+							<div class="arrow_accord js_accordion__icon"></div>
+						</div>
+					</div>
+					<div class="accordion_description js_accordion__content">
+						<div class="inside_acc_descr">
+							Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Repudiandae nam doloribus quibusdam commodi doloremque maiores alias illum quisquam praesentium aliquam ipsam, est nemo, corporis quia eveniet fugiat nesciunt rem.
+						</div>
+					</div>
+				</div>
+				<div class="item_accordion js_accordion__group">
+					<div class="toggle_accordion js_accordion__menu">
+						<div class="inside_toggl_acr">
+							How does Boundr track requests?
+							<div class="arrow_accord js_accordion__icon"></div>
+						</div>
+					</div>
+					<div class="accordion_description js_accordion__content">
+						<div class="inside_acc_descr">
+							Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Repudiandae nam doloribus quibusdam commodi doloremque maiores alias illum quisquam praesentium aliquam ipsam, est nemo, corporis quia eveniet fugiat.
+						</div>
+					</div>
+				</div>
+				<div class="item_accordion js_accordion__group">
+					<div class="toggle_accordion js_accordion__menu">
+						<div class="inside_toggl_acr">
+							Who is Boundr for?
+							<div class="arrow_accord js_accordion__icon"></div>
+						</div>
+					</div>
+					<div class="accordion_description js_accordion__content">
+						<div class="inside_acc_descr">
+							Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Repudiandae nam doloribus quibusdam commodi doloremque maiores alias illum quisquam praesentium aliquam ipsam, est nemo, corporis quia eveniet fugiat nesciunt rem.
+						</div>
+					</div>
+				</div>
+				<div class="item_accordion js_accordion__group">
+					<div class="toggle_accordion js_accordion__menu">
+						<div class="inside_toggl_acr">
+							Is Boundr a project management tool?
+							<div class="arrow_accord js_accordion__icon"></div>
+						</div>
+					</div>
+					<div class="accordion_description js_accordion__content">
+						<div class="inside_acc_descr">
+							Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Repudiandae nam doloribus quibusdam commodi doloremque maiores alias illum quisquam praesentium aliquam ipsam, est nemo, corporis quia eveniet fugiat.
+						</div>
+					</div>
+				</div>
+				<div class="item_accordion js_accordion__group">
+					<div class="toggle_accordion js_accordion__menu">
+						<div class="inside_toggl_acr">
+							How does Boundr track requests?
+							<div class="arrow_accord js_accordion__icon"></div>
+						</div>
+					</div>
+					<div class="accordion_description js_accordion__content">
+						<div class="inside_acc_descr">
+							Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Repudiandae nam doloribus quibusdam commodi doloremque maiores alias illum quisquam praesentium aliquam ipsam, est nemo, corporis quia eveniet fugiat nesciunt rem.
+						</div>
+					</div>
+				</div>
+				<div class="item_accordion js_accordion__group">
+					<div class="toggle_accordion js_accordion__menu">
+						<div class="inside_toggl_acr">
+							What If my client doesn’t CC boundr during projects?
+							<div class="arrow_accord js_accordion__icon"></div>
+						</div>
+					</div>
+					<div class="accordion_description js_accordion__content">
+						<div class="inside_acc_descr">
+							Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Repudiandae nam doloribus quibusdam commodi doloremque maiores alias illum quisquam praesentium aliquam ipsam, est nemo, corporis quia eveniet fugiat.
+						</div>
+					</div>
+				</div>
+				<div class="item_accordion js_accordion__group">
+					<div class="toggle_accordion js_accordion__menu">
+						<div class="inside_toggl_acr">
+							Which communication platforms Boundr works on?
+							<div class="arrow_accord js_accordion__icon"></div>
+						</div>
+					</div>
+					<div class="accordion_description js_accordion__content">
+						<div class="inside_acc_descr">
+							Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Repudiandae nam doloribus quibusdam commodi doloremque maiores alias illum quisquam praesentium aliquam ipsam, est nemo, corporis quia eveniet fugiat nesciunt rem.
+						</div>
+					</div>
+				</div>
+				<div class="item_accordion js_accordion__group">
+					<div class="toggle_accordion js_accordion__menu">
+						<div class="inside_toggl_acr">
+							How can Boundr help me protect my margins?
+							<div class="arrow_accord js_accordion__icon"></div>
+						</div>
+					</div>
+					<div class="accordion_description js_accordion__content">
+						<div class="inside_acc_descr">
+							Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Repudiandae nam doloribus quibusdam commodi doloremque maiores alias illum quisquam praesentium aliquam ipsam, est nemo, corporis quia eveniet fugiat.
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="mt-[134px] text-center">
@@ -23,7 +274,7 @@ get_header();
 				changing how you work.
 			</h4>
 			<div class="mt-[48px]">
-				<a href="#!">
+				<a href="#!" class="btn_site bg_cta min-w-[247px]">
 					Join the waitlist
 				</a>
 			</div>

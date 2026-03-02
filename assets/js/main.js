@@ -6,7 +6,7 @@ $(window).on('resize', function() {
 gsap.config({ nullTargetWarn: false })
 let textSplit, linesSplit
 let transitionOffset = 600
-let scroll, localhost = (window.location.host === '1rd-legal:8888')
+let scroll, localhost = (window.location.host === 'boundr.io:8888')
 
 initPageTransitions()
 
@@ -265,9 +265,11 @@ function initPageTransitions()  {
 
 
 function initScript() {
+
     initOther()
     // initSplitText()
     scrollTriggerAnimations()
+    initAccordion()
 }
 
 function animationOnPageLoad() {
@@ -342,11 +344,6 @@ function initBarbaNavUpdate(data) {
 
 function initOther() {
     const header_top = document.querySelector('.header_top')
-    
-    buttonsVertical()
-    initMenuFollowArrow()
-    aboutSliderSticky()
-    resizeVhHeight()
 
     $('.wrapper_heading_top').parent('').addClass('parent_heading_tp')
 
@@ -359,33 +356,6 @@ function initOther() {
             }, 100);
         }
     }, false);
-
-    const header_white = document.getElementById('header_white');
-    if (header_white && header_top && typeof scroll !== 'undefined') {
-        updateHeader(scroll.scroll);
-
-        scroll.on('scroll', ({ scroll: scrollY }) => {
-            updateHeader(scrollY);
-        });
-
-        function updateHeader(scrollY) {
-            if (scrollY > 10) {
-                header_top.classList.remove('header-white');
-            } else {
-                header_top.classList.add('header-white');
-            }
-        }
-    }
-
-    $('.style_content ul > li').each(function () {
-        $(this).append('<span class="decor_list decor_star_global"></span>')
-    })
-
-    $('.style_content p img').each(function () {
-        $(this).parent('p').addClass('article_image')
-    })
-
-    $('#menu_mobile .menu-header li').append('<span class="item_menu_line"></span>')
 
     $('.menu_burger').on('click', function () {
         $(this).toggleClass('opened')
@@ -409,356 +379,10 @@ function initOther() {
             gsap.to('#menu_mobile', {autoAlpha:0,duration:.5,ease: 'power4'})
         }
     })
-
-    $('[data-open-categories]').on('click', function () {
-        $(this).toggleClass('active')
-        $('#categories_blog').slideToggle(300)
-    })
-
-    function equalizeContentHeights() {
-        if(windowWidth >= 1024) {
-            const items = $('[data-wrapper-services] .content-area');
-            let maxHeight = 0;
-
-            items.css('height', 'auto');
-
-            items.each(function () {
-                const thisHeight = $(this).outerHeight();
-                if (thisHeight > maxHeight) maxHeight = thisHeight;
-            });
-            items.css('height', maxHeight + 'px');
-        }
-    }
-    equalizeContentHeights()
-    $(window).on('resize', function () {
-        setTimeout(equalizeContentHeights, 100);
-    });
 }
 
 function scrollTriggerAnimations() {
 
-    $('img, video').each(function () {
-        const $media = $(this);
-
-        if ($media.is('video')) {
-            $media.on('loadedmetadata', function () {
-                ScrollTrigger.refresh();
-            });
-        } else {
-            $media.on('load', function () {
-                ScrollTrigger.refresh();
-            });
-        }
-    })
-
-    const have_project_content = document.getElementById('have_project_content');
-    if (have_project_content) {
-        if(windowWidth >= 1024) {
-            gsap.set('[data-proj-fullline]', {width:0})
-            gsap.set('[data-proj-vertline]', {height:0})
-            gsap.set('.item_proj_info', {autoAlpha:0,y:-20})
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: have_project_content,
-                    start: 'top 90%',
-                    scrub: false
-                }
-            })
-            .to('[data-proj-fullline]', { width: '100%',duration:1.5,ease: 'power4'})
-            .to('[data-proj-vertline]', { height: '100%',duration:1.5,ease: 'power4'},'<+=.3')
-            .to('.item_proj_info', { autoAlpha:1,y:0,stagger:.2,duration:1.5,ease: 'power4'},'<+=.3')
-        }else {
-            gsap.set('.proj-mob-line-1', {width:0})
-            gsap.set('.proj-mob-line-2', {height:0})
-            gsap.set('.item_col_mbl', {autoAlpha:0,y:-20})
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: '[data-wrapper-mob-str]',
-                    start: 'top 90%',
-                    scrub: false
-                }
-            })
-            .to('.proj-mob-line-1', { width: '100%',duration:1.5,ease: 'power4'})
-            .to('.proj-mob-line-2', { height: '100%',duration:1.5,ease: 'power4'},'<+=.3')
-            .to('.item_col_mbl', { autoAlpha:1,y:0,stagger:.2,duration:1.5,ease: 'power4'},'<+=.3')
-        }
-    }
-
-    gsap.to('.anim_star_decor', {
-        rotate: 360,
-        scale:.2,
-        ease: 'none',
-        scrollTrigger: {
-            trigger: 'body',
-            start: 'top top',
-            end: '+=50%',
-            scrub: 1
-        }
-    });
-
-    gsap.utils.toArray('.decor_star_global').forEach((item, i) => {
-        gsap.fromTo(item,
-            { rotate: -360 },
-            {
-                rotate: 0,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: item,
-                    start: 'top bottom',
-                    end: '+=200%',
-                    scrub: 1
-                }
-            }
-            );
-    });
-
-
-    const about_animation = document.getElementById('about_animation');
-    if (about_animation && windowWidth >= 1024) {
-        const items = gsap.utils.toArray('.item_about_dec');
-        const aboutSectionHeight = $('#about_section').height() * 1.5;
-
-        const rotators = items.map((el, i) => {
-            return gsap.quickTo(el, "rotation", {
-                duration: .2 + i * 0.15,
-                ease: "power3.out"
-            });
-        });
-
-        ScrollTrigger.create({
-            trigger: about_animation,
-            start: 'top 100%',
-            end: `+=${aboutSectionHeight}`,
-            scrub: true,
-            onUpdate: self => {
-                const rotation = -720 * self.progress;
-                rotators.forEach(to => to(rotation));
-            }
-        });
-    }
-
-    const wrapper_projects = document.getElementById('wrapper_projects')
-    const projects = document.querySelectorAll('.item__project')
-    if(projects.length && windowWidth >= 1024) {
-        projects.forEach((item, index) => {
-            gsap.set(item, {zIndex:index,ease:'none'})
-
-            if(index === projects.length - 1) return
-                gsap.timeline({
-                    scrollTrigger: {
-                        trigger: item,
-                        scrub: true,
-                        start: `top top+=${$('.header_top').height() + 40}px`,
-                        end: `+=${$(item).height() * 1.5}px`
-                    }
-                }).to(item, {autoAlpha:0,ease:'none'})
-        })
-    }
-
-
-    const services = document.getElementById('services');
-    if (services) {
-      const wrapper = $(services).find('[data-wrapper-services]');
-      const wrapperW = $(wrapper).width();
-      const wrapperOffset = $(wrapper).offset();
-      const headerHeight = $('.header_top').height();
-
-      const icon_part_1 = [...services.querySelectorAll('.icon_serv_1')];
-      const icon_part_2 = [...services.querySelectorAll('.icon_serv_2')];
-      const icon_part_3 = [...services.querySelectorAll('.icon_serv_3')];
-
-      const allIcons = [...icon_part_1, ...icon_part_2, ...icon_part_3];
-
-      const rotators = allIcons.map((el, i) => {
-          return gsap.quickTo(el, "rotation", {
-            duration: 0.2 + i * 0.15,
-            ease: "power3.out"
-        });
-      });
-
-      if(windowWidth >= 1024) {
-          gsap.set(services, {height: ($('.item_service').length + 0.5) * $(window).height()});
-      }
-
-      ScrollTrigger.create({
-          trigger: services,
-          start: 'top center',
-          end: 'bottom bottom',
-          scrub: true,
-          onUpdate: self => {
-            const rotation = -720 * self.progress;
-            rotators.forEach(to => to(rotation));
-        }
-    });
-
-      if(windowWidth >= 1024) {
-          const tl_services = gsap.timeline({
-            scrollTrigger: {
-              trigger: services,
-              start: `top top+=${headerHeight}px`,
-              end: 'bottom bottom',
-              scrub: true
-          }
-      }).to('[data-wrapper-services]', { x: -(wrapperW - ($(window).width() - wrapperOffset.left)), ease: 'none' });
-
-          gsap.utils.toArray('.item_service').forEach((item, i) => {
-            const imageWrapper = item.querySelector('.service_image');
-            const gradient = item.querySelector('.service_gradient');
-            const description = item.querySelector('.service_description');
-            const iconService = item.querySelectorAll('.icon_service');
-            const buttonService = item.querySelector('.button_service');
-
-            gsap.set(item, { yPercent: i * 5 });
-            gsap.set(item, { maxHeight: `${Math.max(70, 100 - i * 30)}%` });
-            gsap.set([iconService, buttonService], { yPercent: 30, autoAlpha: 0.2 });
-
-            gsap.timeline({
-              scrollTrigger: {
-                containerAnimation: tl_services,
-                trigger: item,
-                start: i === 1 ? 'left right-=20%' : 'left right',
-                end: 'left 40%',
-                scrub: true
-            }
-        })
-            .to(item, { maxHeight: '100%', ease: 'none' })
-            .to(item, { yPercent: 0, ease: 'none' }, 0)
-            .to(gradient, { autoAlpha: 0, ease: 'none' }, 0)
-            .to(description, { autoAlpha: 1, ease: 'none' }, 0)
-            .to([iconService, buttonService], { yPercent: 0, autoAlpha: 1, ease: 'none', stagger: 0.2 }, 0);
-        });
-      }
-    }
-
-    if(windowWidth >= 1024) {
-        const parallax_wrapper_text_image = document.querySelectorAll('[data-parallax-wrapper-text-image]')
-        if(parallax_wrapper_text_image.length) {
-            parallax_wrapper_text_image.forEach(wrapper => {
-                const img = wrapper.querySelector('[data-parallax-target]')
-                if(img) {
-                    if (img.complete) {
-                        imageResOnScr(img, wrapper)
-                    } else {
-                        img.addEventListener('load', imgLoaded => {
-                            imageResOnScr(img, wrapper)
-                        })
-                    }
-                }
-            })
-        }
-
-        function imageResOnScr(img, wrapper) {
-            gsap.set(img, {transformOrigin:'center center'})
-            wrapper.style.height = img.height + 'px'
-            gsap.set(img, {height:img.height + 100,y:-100})
-
-            const tlGo = gsap.timeline({
-                scrollTrigger: {
-                    trigger: wrapper,
-                    scrub: true
-                }
-            })
-            tlGo.to(img, {
-                y: 0,
-                overwrite: true,
-                ease: 'none'
-            })
-            tlGo.scrollTrigger.refresh()
-        }
-    }
-
-    if(windowWidth >= 1024) {
-        gsap.utils.toArray('[data-parallax-wrapper]').forEach(container => {
-            if(windowWidth >= 1024) {
-                const img = container.querySelector('[data-parallax-target]')
-
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: container,
-                        scrub: true
-                    }
-                })
-
-                tl.fromTo(img, {
-                    yPercent: -10,
-                    ease: 'none'
-                }, {
-                    yPercent: 10,
-                    ease: 'none'
-                })
-            }
-        })
-    }
-
-    if(windowWidth >= 1024) {
-        gsap.utils.toArray('[data-parallax-dynamic]').forEach(container => {
-            const img = container.querySelector('[data-parallax-target]')
-
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: container,
-                    scrub: true
-                }
-            })
-
-            tl.fromTo(img, {
-                top: '-20%',
-                ease: 'none'
-            }, {
-                top: '0%',
-                ease: 'none'
-            })
-        })
-    }
-
-    gsap.utils.toArray('[data-slide-down]').forEach(item => {
-        const count = item.getAttribute('data-slide-down')
-        const delay = item.getAttribute('data-delay')
-        gsap.from(item, {
-            y:count ? count : 20,
-            delay: delay ? delay : 0,
-            duration:1.4,
-            autoAlpha:0,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: item,
-                start: 'top 90%',
-                scrub: false
-            },
-        })
-    })
-
-    if(windowWidth < 768) {
-        gsap.utils.toArray('.wrapper_head_star').forEach(item => {
-            const line = item.querySelectorAll('.hdl-line')
-            gsap.set(line, {width:0})
-
-            gsap.to(line, {
-                width:'100%',
-                duration:1.5,
-                ease:'power3.inOut',
-                scrollTrigger: {
-                    trigger: item,
-                    start: 'top 95%',
-                    scrub: false
-                },
-            })
-        })
-
-        gsap.utils.toArray('.anim-simple-line').forEach(item => {
-            gsap.set(item, {width:0})
-            gsap.to(item, {
-                width:'100%',
-                duration:1.5,
-                ease:'power3.inOut',
-                scrollTrigger: {
-                    trigger: item,
-                    start: 'top 95%',
-                    scrub: false
-                },
-            })
-        })
-    }
 }
 
 function splittingLinesOverflow() {
@@ -809,14 +433,6 @@ function delay(n) {
     })
 }
 
-function resizeVhHeight() {
-    $('.one-height-screen').css('height', $(window).height())
-    document.documentElement.style.setProperty('--window-height', $(window).height() + 'px');
-    $(window).on('resize', function() {
-        // $('.one-height-screen').css('height', $(window).height())
-    })
-}
-
 function headingWithText() {
     function res_g() {
         $('.wrapper_headl').each(function() {
@@ -846,178 +462,58 @@ function headingWithText() {
     })
 }
 
+function initAccordion() {
+    const accordion_section = document.querySelector('.accordion_section');
+    if (!accordion_section) return
 
-function buttonsVertical() {
-    const buttons = document.querySelectorAll(".btn-vertical");
-    if (!buttons.length) return;
-    // if (!buttons.length || windowWidth < 1024) return;
+    const groups = gsap.utils.toArray('.js_accordion__group');
+    const menus = gsap.utils.toArray('.js_accordion__menu');
+    const animations = [];
 
-    const DURATION = 0.5;
-    const EASE = "power3";
+    groups.forEach(group => createAnimation(group));
 
-    buttons.forEach(button => {
-        const mainBg = button.querySelector(".main-bg");
-        const labelIn = button.querySelector(".label-wrap span:first-of-type");
-        const labelOut = button.querySelector(".label-wrap span:nth-of-type(2)");
-        const arr1 = button.querySelector(".arrow-icon:nth-child(1)");
-        const arr2 = button.querySelector(".arrow-icon:nth-child(2)");
+    menus.forEach(menu => {
+        menu.addEventListener('click', () => toggleAnimation(menu));
+    })
 
-        gsap.set(arr1, { xPercent: -150, scale: 0.2, opacity: 0 });
-        gsap.set(labelIn, { opacity: 0, y: "100%" });
-        gsap.set(mainBg, { scaleY: 0, transformOrigin: "bottom center" });
+    function toggleAnimation(menu) {
+        const selectedReversedState = menu.animation.reversed();
+        animations.forEach(animation => animation.reverse());
 
-        button.addEventListener("mouseenter", () => {
-          const tl = gsap.timeline();
-          tl.to(labelIn, { y: "0%", opacity: 1, duration: DURATION, ease: EASE }, 0)
-          .to(labelOut, { y: "-100%", opacity: 0, duration: DURATION, ease: EASE }, 0)
-          .to(arr2, { xPercent: 150, scale: 0.2, opacity: 0, duration: DURATION, ease: EASE }, 0)
-          .to(arr1, { xPercent: 0, scale: 1, opacity: 1, duration: DURATION, ease: EASE }, 0)
-          .to(mainBg, { scaleY: 1, duration: DURATION, ease: EASE }, 0);
-      });
-
-        button.addEventListener("mouseleave", () => {
-          const tl = gsap.timeline();
-          tl.to(labelIn, { y: "100%", opacity: 0, duration: DURATION, ease: EASE }, 0)
-          .to(labelOut, { y: "0%", opacity: 1, duration: DURATION, ease: EASE }, 0)
-          .to(arr2, { xPercent: 0, scale: 1, opacity: 1, duration: DURATION, ease: EASE }, 0)
-          .to(arr1, { xPercent: -150, scale: 0.2, opacity: 0, duration: DURATION, ease: EASE }, 0)
-          .to(mainBg, { scaleY: 0, duration: DURATION, ease: EASE }, 0);
-      });
-    });
-}
-
-function initMenuFollowArrow() {
-    const menu = document.querySelector(".menu-header");
-    const underline = document.querySelector("#menu-follow");
-    if (!menu || !underline) return;
-
-    const items = menu.querySelectorAll("li");
-    const DURATION = 0.4;
-    const EASE = "power3.out";
-
-    function getOffsetX(link) {
-        const linkRect = link.getBoundingClientRect();
-        const menuRect = menu.getBoundingClientRect();
-        const arrowWidth = underline.offsetWidth;
-        return linkRect.left - menuRect.left + linkRect.width / 2 - arrowWidth / 2;
+        menu.animation.reversed(!selectedReversedState);
     }
 
-    function moveUnderlineTo(link, animate = true) {
-        const offsetX = getOffsetX(link);
-        const props = { x: offsetX, scaleY: 1, scaleX: 1 };
-        if (animate) {
-            gsap.to(underline, { ...props, duration: DURATION, ease: EASE });
-        } else {
-            gsap.set(underline, props);
-        }
-    }
+    function createAnimation(element) {
+        const menu = element.querySelector('.js_accordion__menu');
+        const box = element.querySelector('.js_accordion__content');
+        const icon_line = element.querySelector('.js_accordion__icon_line');
+        const icon = element.querySelector('.js_accordion__icon');
+        const content = element.querySelectorAll('.js_accordion__content p');
 
-    function hideUnderline() {
-        gsap.to(underline, { scaleY: 0, duration: DURATION, ease: EASE });
-    }
+        gsap.set(box, {height: 'auto'})
 
-    function getActiveLink() {
-        return (
-            menu.querySelector("li.current-menu-item a") ||
-            menu.querySelector("li.current_page_parent1 a")
-            );
-    }
-
-    function setInitialUnderline() {
-        const activeItem = getActiveLink();
-        const firstItem = menu.querySelector("li a");
-
-        if (activeItem) {
-            requestAnimationFrame(() => moveUnderlineTo(activeItem, false));
-        } else if (firstItem) {
-            const offsetX = getOffsetX(firstItem);
-            gsap.set(underline, { x: offsetX, scaleY: 0, scaleX: 1 });
-        } else {
-            hideUnderline();
-        }
-    }
-
-    setInitialUnderline();
-
-    items.forEach((item) => {
-        const link = item.querySelector("a");
-        if (!link) return;
-        item.addEventListener("mouseenter", () => moveUnderlineTo(link));
-    });
-
-    menu.addEventListener("mouseleave", () => {
-        const activeLink = getActiveLink();
-        if (activeLink) {
-            moveUnderlineTo(activeLink);
-        } else {
-            hideUnderline();
-        }
-    });
-
-    window.addEventListener("resize", () => {
-        const activeLink = getActiveLink();
-        if (activeLink) {
-            moveUnderlineTo(activeLink, false);
-        }
-    });
-}
-
-
-function aboutSliderSticky() {
-    const team_slider = document.getElementById('slider_testimonial')
-    let isAnimating = false;
-    if(!team_slider) return
-
-        const nextBtn = document.querySelector('#next_testimonial');
-    const prevBtn = document.querySelector('#prev_testimonial');
-
-    const swiper = new Swiper(team_slider, {
-        speed: windowWidth >= 1024 ? 800 : 600,
-        touchRatio: windowWidth >= 1024 ? 0 : 1,
-        spaceBetween: 0,
-        slidesPerView: 'auto',
-        on: {
-            slideChangeTransitionStart() {
-                if(window.innerWidth >= 1024) {
-                    isAnimating = true;
-                }
-            },
-            slideChangeTransitionEnd() {
-                isAnimating = false;
-                updateNavButtons();
+        const tlAccordion = gsap.timeline({
+            reversed: true,
+            paused: !0,
+            onComplete: () => {
+                ScrollTrigger.refresh()
             }
-        }
-    });
+        });
 
-    updateNavButtons();
+        tlAccordion
+            .from(box, {
+                height: 0,
+                duration: .4,
+                ease: 'power3.inOut'
+            })
+            .to(icon, {
+                duration: .4,
+                rotate: 45,
+                ease: 'power3.inOut',
+                autoAlpha: 1
+            }, '<')
 
-    function updateNavButtons() {
-        if (swiper.isBeginning) {
-            prevBtn.classList.add('swiper-button-disabled');
-        } else {
-            prevBtn.classList.remove('swiper-button-disabled');
-        }
-
-        if (swiper.isEnd) {
-            nextBtn.classList.add('swiper-button-disabled');
-        } else {
-            nextBtn.classList.remove('swiper-button-disabled');
-        }
+        menu.animation = tlAccordion;
+        animations.push(tlAccordion);
     }
-
-    nextBtn.addEventListener('click', (e) => {
-        if (isAnimating || swiper.isEnd) {
-            e.preventDefault();
-            return;
-        }
-        swiper.slideNext();
-    });
-
-    prevBtn.addEventListener('click', (e) => {
-        if (isAnimating || swiper.isBeginning) {
-            e.preventDefault();
-            return;
-        }
-        swiper.slidePrev();
-    });
 }

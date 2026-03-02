@@ -21,7 +21,7 @@
 							</div>
 						</div>
 						<div class="w-[calc(100%-513px-433px)] pr-[100px]">
-							<ul class="space-y-3">
+							<ul class="space-y-3 menu_line_a">
 								<li>
 									<a href="#">Our Mission</a>
 								</li>
