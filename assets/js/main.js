@@ -343,9 +343,34 @@ function initBarbaNavUpdate(data) {
 }
 
 function initOther() {
-    const header_top = document.querySelector('.header_top')
 
-    $('.wrapper_heading_top').parent('').addClass('parent_heading_tp')
+    $('.menu_header a,.go_to_screen').on('click', function (e) {
+        e.preventDefault()
+        const id = $(this).attr('href')
+        scroll.scrollTo(id, {
+            offset: -($('.header_top').height() + 40),
+            duration: 1.3
+        })
+    })
+
+    const header_top = document.querySelector('.header_top')
+    if (header_top && typeof scroll !== 'undefined') {
+        updateHeader(scroll.scroll);
+
+        scroll.on('scroll', ({ scroll: scrollY }) => {
+            updateHeader(scrollY);
+        });
+
+        function updateHeader(scrollY) {
+            if (scrollY > 10) {
+                header_top.classList.add('is_scrolled');
+            } else {
+                header_top.classList.remove('is_scrolled');
+            }
+        }
+    }
+
+
 
     document.addEventListener('wpcf7invalid', (event) => {
         const unitTag = event.detail.unitTag;
@@ -503,12 +528,12 @@ function initAccordion() {
         tlAccordion
             .from(box, {
                 height: 0,
-                duration: .4,
+                duration: .5,
                 ease: 'power3.inOut'
             })
             .to(icon, {
-                duration: .4,
-                rotate: 45,
+                duration: .5,
+                rotate: 135,
                 ease: 'power3.inOut',
                 autoAlpha: 1
             }, '<')

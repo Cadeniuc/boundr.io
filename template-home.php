@@ -5,7 +5,7 @@ Template Name: Home
 get_header();
 ?>
 
-<section class="pb-[93px] pt-[171px]">
+<section class="pb-[93px] pt-[171px]" id="top">
 	<div class="container">
 		<div class="mb-[186px]">
 			<h1 class="text-[75px] leading-[129%] font_suisse text-center">
@@ -80,7 +80,7 @@ get_header();
 				</div>
 			</div>
 		</div>
-		<div class="mt-[130px]">
+		<div class="mt-[130px]" id="mission">
 			<div class="max-w-[660px] ml-auto">
 				<div class="mb-10">
 					<div class="label"> 
@@ -107,44 +107,77 @@ get_header();
 	<div class="container">
 		<div class="flex">
 			<div class="w-[calc(100%-660px)] pr-[100px]">
-				<div class="mb-10">
-					<div class="label"> 
-						THE PROBLEM
+				<div class="sticky top-[var(--sticky-headings)]">
+					<div class="mb-10">
+						<div class="label"> 
+							THE PROBLEM
+						</div>
+					</div>
+					<div>
+						<h2 class="heading_h2 font_suisse">
+							The hidden cost of <br>
+							loose scope
+						</h2>
 					</div>
 				</div>
-				<div>
-					<h2 class="heading_h2 font_suisse">
-						The hidden cost of <br>
-						loose scope
-					</h2>
+			</div>
+			<div class="w-[660px]">
+				<div class="space-y-4 mt-[100px]">
+					<div class="rounded-[5px] min-h-[154px] px-10 text-center flex items-center justify-center bg-white">
+						<div>
+							The <strong>contract</strong> fades into the background
+						</div>
+					</div>
+					<div class="rounded-[5px] min-h-[154px] px-10 text-center flex items-center justify-center bg-[#F8F5F5]">
+						<div>
+							Misunderstandings <strong>start</strong> to occur
+						</div>
+					</div>
+					<div class="rounded-[5px] min-h-[154px] px-10 text-center flex items-center justify-center bg-white">
+						<div>
+							Your team <strong>absorbs</strong>, without proof
+						</div>
+					</div>
+					<div class="rounded-[5px] min-h-[154px] px-10 text-center flex items-center justify-center bg-[#F8F5F5]">
+						<div>
+							Extra <strong>hours</strong> vanish into goodwill.
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="w-[660px]"></div>
 		</div>
 	</div>
 </section>
 
 <section class="mt-[100px]">
-	<div class="container">
-		<div class="mb-10">
-			<div class="label"> 
-				The solution
+	<div class="mb-10" id="solution">
+		<div class="container">
+			<div class="mb-10">
+				<div class="label"> 
+					The solution
+				</div>
+			</div>
+			<div>
+				<h2 class="heading_h2 font_suisse">
+					What Boundr <br>
+					Does
+				</h2>
 			</div>
 		</div>
+	</div>
+	<div class="grid grid-cols-3">
 		<div>
-			<h2 class="heading_h2 font_suisse">
-				What Boundr <br>
-				Does
-			</h2>
+			
 		</div>
+		<div></div>
 	</div>
 </section>
 
 <div class="bg-dark pb-[110px] pt-[80px] text-white">
 	<div class="container">
-		<div class="flex">
+		<div class="flex" id="faq">
 			<div class="w-[calc(100%-592px)] pr-[100px]">
-				<div class="sticky top-[50px]">
+				<div class="sticky top-[var(--sticky-headings)]">
 					<h2 class="heading_h1 font_suisse">FAQ</h2>
 				</div>
 			</div>

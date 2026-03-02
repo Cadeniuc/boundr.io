@@ -24,6 +24,7 @@
     --animation-ease: 0.2s ease;
     --animation-ease-double: 0.4s ease;
     --cubic-bounce: linear(0, 0.5737 7.6%, 0.8382 11.87%, 0.9463 14.19%, 1.0292 16.54%, 1.0886 18.97%, 1.1258 21.53%, 1.137 22.97%, 1.1424 24.48%, 1.1423 26.1%, 1.1366 27.86%, 1.1165 31.01%, 1.0507 38.62%, 1.0219 42.57%, 0.9995 46.99%, 0.9872 51.63%, 0.9842 58.77%, 1.0011 81.26%, 1);
+    --sticky-headings: 120px;
 }
 @theme {
     --color-primary: #DBC5FF;
@@ -68,6 +69,21 @@ body {
     @apply text-[16px] h-[59px] px-10 rounded-[5px] font-medium text-white flex justify-center items-center inline-flex;
     &.small {
         @apply px-4 h-[42px];
+    }
+}
+.header_top {
+    .bg_header,
+    .in_to_header {
+        @apply duration-[var(--duration-default)] ease-[var(--cubic-default)] duration-300;
+    }
+    &.is_scrolled {
+        .bg_header {
+            @apply inset-y-2 inset-x-1;
+        }
+        .in_to_header {
+            @apply -translate-y-4;
+            /*@apply max-w-[1500px] min-w-[1340px] -translate-y-6;*/
+        }
     }
 }
 .menu_header {
