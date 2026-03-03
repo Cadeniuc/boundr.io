@@ -74,7 +74,7 @@
 					</ul>
 				</div>
 				<div class="flex-none">
-					<a href="#!" class="btn_site small bg_cta">
+					<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site small bg_cta">
 						Join the waitlist
 					</a>
 				</div>

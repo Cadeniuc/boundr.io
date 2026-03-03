@@ -61,6 +61,12 @@ body {
 }
 .heading_h3 {
     @apply text-[32px] leading-[131%];
+    &.bigger {
+        @apply text-[36px];
+    }
+}
+.heading_h4 {
+    @apply text-[24px] leading-[121%];
 }
 .input_foott {
     @apply border-b text-[16px] pr-[35px] h-[70px] placeholder:text-black font-light block w-full outline-0;
@@ -82,7 +88,6 @@ body {
         }
         .in_to_header {
             @apply -translate-y-4;
-            /*@apply max-w-[1500px] min-w-[1340px] -translate-y-6;*/
         }
     }
 }
@@ -123,6 +128,21 @@ body {
 .label {
     @apply text-[15px] px-4 h-[38px] uppercase bg-primary inline-flex items-center;
 }
+.item_solution {
+    @apply border;
+}
+.remove_bg {
+    filter: contrast(120%) brightness(105%);
+    mix-blend-mode: multiply;
+}
+/*.item_solution {
+    &:nth-child(3n) {
+        @apply border-r-0;
+    }
+    &:nth-child(6) {
+        @apply border-r-0;
+    }
+}*/
 @media(min-width: 1024px) {
     [data-parallax-projects] img[default-resize-parallax] {
         transform: translateY(-10%);

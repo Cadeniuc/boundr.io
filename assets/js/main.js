@@ -348,7 +348,7 @@ function initOther() {
         e.preventDefault()
         const id = $(this).attr('href')
         scroll.scrollTo(id, {
-            offset: -($('.header_top').height() + 40),
+            offset: -($('.header_top').height() + 50),
             duration: 1.3
         })
     })
