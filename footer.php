@@ -21,24 +21,36 @@
 							</div>
 						</div>
 						<div class="w-[calc(100%-(var(--px)*513)-(var(--px)*433))] pr-[calc(var(--px)*100)]">
-							<ul class="space-y-[calc(var(--px)*12)] menu_line_a">
+							<ul class="site_menu space-y-[calc(var(--px)*12)] menu_line_a">
 								<li>
-									<a href="#">Our Mission</a>
+									<a href="#mission">
+										Our Mission
+									</a>
 								</li>
 								<li>
-									<a href="#">What it does</a>
+									<a href="#solution">
+										What it does
+									</a>
 								</li>
 								<li>
-									<a href="#">How it works</a>
+									<a href="#how_works">
+										How it works
+									</a>
 								</li>
 								<li>
-									<a href="#">Features</a>
+									<a href="#features">
+										Features
+									</a>
 								</li>
 								<li>
-									<a href="#">Pricing</a>
+									<a href="#pricing">
+										Pricing
+									</a>
 								</li>
 								<li>
-									<a href="#">FAQ</a>
+									<a href="#faq">
+										FAQ
+									</a>
 								</li>
 							</ul>
 						</div>

@@ -4,10 +4,20 @@
     font-display: swap;
     font-style: normal;
     font-weight: 400;
-    src: url("../fonts/SuisseWorksTrial/SuisseWorksTrial.eot");
-    src: url("../fonts/SuisseWorksTrial/SuisseWorksTrial.eot?#iefix")format("embedded-opentype"),
-    url("../fonts/SuisseWorksTrial/SuisseWorksTrial.woff") format("woff"),
-    url("../fonts/SuisseWorksTrial/SuisseWorksTrial.ttf") format("truetype");
+    src: url("../fonts/SuisseWorksTrialRegular/SuisseWorksTrialRegular.eot");
+    src: url("../fonts/SuisseWorksTrialRegular/SuisseWorksTrialRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/SuisseWorksTrialRegular/SuisseWorksTrialRegular.woff") format("woff"),
+    url("../fonts/SuisseWorksTrialRegular/SuisseWorksTrialRegular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Suisse Works Trial";
+    font-display: swap;
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/SuisseWorksTrialBold/SuisseWorksTrialBold.eot");
+    src: url("../fonts/SuisseWorksTrialBold/SuisseWorksTrialBold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/SuisseWorksTrialBold/SuisseWorksTrialBold.woff") format("woff"),
+    url("../fonts/SuisseWorksTrialBold/SuisseWorksTrialBold.ttf") format("truetype");
 }
 :root {
     --px: 0.06944444444444445vw;
@@ -41,6 +51,7 @@ body {
     -webkit-font-smoothing: antialiased;
     font-family: "Inter", sans-serif;
     @apply text-[calc(var(--px)*20)] leading-[calc(var(--px)*26)] text-black bg-bg;
+    background-color: #EFEFEA;
 }
 .font_suisse {
     font-family: "Suisse Works Trial", sans-serif;
@@ -106,6 +117,9 @@ body {
 }
 .item_accordion {
     @apply border-b border-gray;
+    &:first-child .toggle_accordion {
+        @apply pt-0;
+    }
     .toggle_accordion {
         @apply relative font-medium pt-[calc(var(--px)*30)] pb-[calc(var(--px)*16)] cursor-pointer;
         .inside_toggl_acr {
@@ -118,11 +132,13 @@ body {
         @apply absolute right-0 top-[calc(var(--px)*3)] opacity-50 w-[calc(var(--px)*15)] h-[calc(var(--px)*15)] bg-center bg-no-repeat;
     }
     .accordion_description {
-        @apply h-0 overflow-hidden;
         .inside_acc_descr {
             @apply pt-[calc(var(--px)*4)] pb-[calc(var(--px)*16)] opacity-60;
         }
     }
+}
+.js_accordion__content {
+    @apply h-0 overflow-hidden;
 }
 .menu_line_a {
     a {
@@ -130,7 +146,7 @@ body {
     }
 }
 .label {
-    @apply text-[calc(var(--px)*15)] px-[calc(var(--px)*16)] h-[calc(var(--px)*38)] uppercase bg-primary inline-flex items-center;
+    @apply text-black text-[calc(var(--px)*15)] px-[calc(var(--px)*16)] h-[calc(var(--px)*38)] uppercase bg-primary inline-flex items-center;
 }
 .item_solution {
     @apply border-[calc(var(--px)*0.5)];
@@ -138,6 +154,36 @@ body {
 .remove_bg {
     filter: contrast(120%) brightness(105%);
     mix-blend-mode: multiply;
+}
+.plan_list_compar {
+    li {
+        @apply relative;
+        &:before {
+            background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='16' height='16' rx='8' fill='%23D9F7E9'/%3E%3Cpath d='M2.61932 8.57812L3.42898 7.74716L6.24148 10.517L12.0582 4.72159L12.8892 5.55256L6.24148 12.179L2.61932 8.57812Z' fill='black'/%3E%3C/svg%3E%0A");
+            background-size: 100%;
+            @apply bg-no-repeat bg-center absolute -left-[calc(var(--px)*36)] top-0 w-[calc(var(--px)*16)] h-[calc(var(--px)*16)] content-[''];
+        }
+        &:not(:last-child) {
+            @apply mb-[calc(var(--px)*14)]
+        }
+    }
+}
+.wrap_tooltip {
+    @apply relative;
+    .text_tooltip {
+        @apply border-b border-dotted transition duration-300;
+    }
+    .tooltip_wrapper {
+        @apply opacity-0 invisible translate-y-1 absolute top-full mt-[calc(var(--px)*4)] left-1/2 -translate-x-1/2 text-[calc(var(--px)*12)] px-[calc(var(--px)*17)] py-[calc(var(--px)*8.5)] rounded-[calc(var(--px)*6)] leading-[142%] text-white bg-black min-w-[calc(var(--px)*155)] z-[1] transition duration-300;
+    }
+    &:hover {
+        .tooltip_wrapper {
+            @apply opacity-100 visible translate-y-0;
+        }
+        .text_tooltip {
+            @apply border-transparent;
+        }
+    }
 }
 @media(min-width: 1024px) {
     [data-parallax-projects] img[default-resize-parallax] {

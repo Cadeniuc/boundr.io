@@ -40,7 +40,7 @@
 					</a>
 				</div>
 				<div class="flex-1">
-					<ul class="menu_header text_base font-medium">
+					<ul class="menu_header site_menu text_base font-medium">
 						<li>
 							<a href="#mission">
 								Our Mission

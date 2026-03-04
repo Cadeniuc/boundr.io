@@ -187,7 +187,7 @@ function initPageTransitions()  {
 
     barba.init({
         sync: true,
-        debug: true,
+        // debug: true,
         timeout: 7000,
         transitions: [
             {
@@ -347,7 +347,7 @@ function initBarbaNavUpdate(data) {
 
 function initOther() {
 
-    $('.menu_header a,.go_to_screen').on('click', function (e) {
+    $('.site_menu a,.go_to_screen').on('click', function (e) {
         e.preventDefault()
         const id = $(this).attr('href')
         scroll.scrollTo(id, {
@@ -491,57 +491,62 @@ function headingWithText() {
 }
 
 function initAccordion() {
-    const accordion_section = document.querySelector('.accordion_section');
-    if (!accordion_section) return
+  const sections = gsap.utils.toArray('.accordion_section');
+  if (!sections.length) return;
 
-    const groups = gsap.utils.toArray('.js_accordion__group');
-    const menus = gsap.utils.toArray('.js_accordion__menu');
+  sections.forEach((section) => {
+    const groups = gsap.utils.toArray(section.querySelectorAll('.js_accordion__group'));
+    const menus  = gsap.utils.toArray(section.querySelectorAll('.js_accordion__menu'));
     const animations = [];
 
-    groups.forEach(group => createAnimation(group));
+    groups.forEach((group) => createAnimation(group));
 
-    menus.forEach(menu => {
-        menu.addEventListener('click', () => toggleAnimation(menu));
-    })
+    menus.forEach((menu) => {
+      menu.addEventListener('click', () => toggleAnimation(menu));
+    });
 
     function toggleAnimation(menu) {
-        const selectedReversedState = menu.animation.reversed();
-        animations.forEach(animation => animation.reverse());
+      const selectedReversedState = menu.animation.reversed();
 
-        menu.animation.reversed(!selectedReversedState);
+      animations.forEach((anim) => anim.reverse());
+
+      menu.animation.reversed(!selectedReversedState);
     }
 
-    function createAnimation(element) {
-        const menu = element.querySelector('.js_accordion__menu');
-        const box = element.querySelector('.js_accordion__content');
-        const icon_line = element.querySelector('.js_accordion__icon_line');
-        const icon = element.querySelector('.js_accordion__icon');
-        const content = element.querySelectorAll('.js_accordion__content p');
+    function createAnimation(groupEl) {
+      const menu = groupEl.querySelector('.js_accordion__menu');
+      const box  = groupEl.querySelector('.js_accordion__content');
+      const icon = groupEl.querySelector('.js_accordion__icon');
 
-        gsap.set(box, {height: 'auto'})
+      if (!menu || !box) return;
 
-        const tlAccordion = gsap.timeline({
-            reversed: true,
-            paused: !0,
-            onComplete: () => {
-                ScrollTrigger.refresh()
-            }
-        });
+      gsap.set(box, { height: 'auto' });
 
-        tlAccordion
-            .from(box, {
-                height: 0,
-                duration: .5,
-                ease: 'power3.inOut'
-            })
-            .to(icon, {
-                duration: .5,
-                rotate: 135,
-                ease: 'power3.inOut',
-                autoAlpha: 1
-            }, '<')
+      const tlAccordion = gsap.timeline({
+        reversed: true,
+        paused: true,
+        onComplete: () => ScrollTrigger.refresh(),
+      });
 
-        menu.animation = tlAccordion;
-        animations.push(tlAccordion);
+      tlAccordion
+        .from(box, {
+          height: 0,
+          duration: 0.5,
+          ease: 'power3.inOut',
+        })
+        .to(
+          icon,
+          {
+            duration: 0.5,
+            rotate: 135,
+            ease: 'power3.inOut',
+            autoAlpha: 1,
+          },
+          '<'
+        );
+
+      menu.animation = tlAccordion;
+      animations.push(tlAccordion);
     }
+  });
 }

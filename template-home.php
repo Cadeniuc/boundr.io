@@ -7,7 +7,7 @@ get_header();
 
 <section class="pb-[calc(var(--px)*93)] pt-[calc(var(--px)*171)]" id="top">
 	<div class="container">
-		<div class="mb-[calc(var(--px)*186)]">
+		<div class="mb-[calc(var(--px)*120)]">
 			<h1 class="text-[calc(var(--px)*75)] leading-[129%] font_suisse text-center">
 				Every request clarified instantly. Scope creep, contained.
 			</h1>
@@ -103,7 +103,7 @@ get_header();
 	</div>
 </section>
 
-<section class="my-[calc(var(--px)*93)]">
+<section class="my-[calc(var(--px)*130)]">
 	<div class="container">
 		<div class="flex">
 			<div class="w-[calc(100%-(var(--px)*660))] pr-[calc(var(--px)*100)]">
@@ -304,9 +304,121 @@ get_header();
 	</div>
 </section>
 
-<section class="bg-dark text-white min-h-[500px]">
+<section class="bg-dark text-white pt-[calc(var(--px)*92)] pb-[calc(var(--px)*155)]">
 	<div class="container">
-		
+		<div class="mb-[calc(var(--px)*100)]" id="features">
+			<div class="mb-[calc(var(--px)*40)]">
+				<div class="label"> 
+					FEATURES
+				</div>
+			</div>
+			<div>
+				<h2 class="heading_h3 font_suisse">
+					No change on your <br>
+					communication workflow
+				</h2>
+			</div>
+		</div>
+		<div>
+			<div class="flex">
+				<div class="w-[calc(var(--px)*806)] pr-[calc(var(--px)*80)] flex items-center justify-center">
+					<img class="max-w-full mx-auto h-auto rounded-[calc(var(--px)*8)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/feature_1.svg" alt="">
+					<!-- <img class="max-w-full mx-auto h-auto rounded-[calc(var(--px)*8)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/feature_2.svg" alt=""> -->
+				</div>
+				<div class="w-[calc(100%-(var(--px)*806))] pr-[calc(var(--px)*60)] accordion_section">
+					<div class="space-y-[calc(var(--px)*30)]">
+						<div class="js_accordion__group">
+							<div class="pl-[calc(var(--px)*72)] cursor-pointer js_accordion__menu relative text-white/60 hover:text-white transition duration-300">
+								<div class="inside_toggl_acr font_suisse text-[calc(var(--px)*24)] leading-[129%] relative">
+									Handle scope decisions right <br>
+									from your inbox
+								</div>
+								<span class="absolute left-0 top-[calc(var(--px)*1)] t-top-[calc(var(--px)*6)] text-[calc(var(--px)*15)]">01</span>
+							</div>
+							<div class="h-0 overflow-hidden js_accordion__content">
+								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] pt-[calc(var(--px)*69)] pb-[calc(var(--px)*69)] text-white/70">
+									<p>
+										Boundr stays in the loop through your <br>
+										emails and quietly checks requests <br>
+										as they happen.
+									</p>
+									<p>
+										You don’t need to remember scope <br>
+										details, revision limits, or contract <br>
+										terms — clarity is always there when <br>
+										you need it.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="js_accordion__group">
+							<div class="pl-[calc(var(--px)*72)] cursor-pointer js_accordion__menu relative text-white/60 hover:text-white transition duration-300">
+								<div class="inside_toggl_acr font_suisse text-[calc(var(--px)*24)] leading-[129%] relative">
+									Email Notifications
+								</div>
+								<span class="absolute left-0 top-[calc(var(--px)*1)] t-top-[calc(var(--px)*6)] text-[calc(var(--px)*15)]">02</span>
+							</div>
+							<div class="h-0 overflow-hidden js_accordion__content">
+								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] pb-[calc(var(--px)*69)] pt-[calc(var(--px)*69)] text-white/70">
+									<p>
+										Boundr stays in the loop through your <br>
+										emails and quietly checks requests <br>
+										as they happen.
+									</p>
+									<p>
+										You don’t need to remember scope <br>
+										details, revision limits, or contract <br>
+										terms — clarity is always there when <br>
+										you need it.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="js_accordion__group">
+							<div class="pl-[calc(var(--px)*72)] cursor-pointer js_accordion__menu relative text-white/60 hover:text-white transition duration-300">
+								<div class="inside_toggl_acr font_suisse text-[calc(var(--px)*24)] leading-[129%] relative">
+									Explanation Ready
+								</div>
+								<span class="absolute left-0 top-[calc(var(--px)*1)] t-top-[calc(var(--px)*6)] text-[calc(var(--px)*15)]">03</span>
+							</div>
+							<div class="h-0 overflow-hidden js_accordion__content">
+								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] pb-[calc(var(--px)*69)] pt-[calc(var(--px)*69)] text-white/70">
+									<p>
+										Boundr stays in the loop through your <br>
+										emails and quietly checks requests <br>
+										as they happen.
+									</p>
+									<p>
+										You don’t need to remember scope <br>
+										details, revision limits, or contract <br>
+										terms — clarity is always there when <br>
+										you need it.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="js_accordion__group">
+							<div class="pl-[calc(var(--px)*72)] cursor-pointer js_accordion__menu relative text-white/60 hover:text-white transition duration-300">
+								<div class="inside_toggl_acr font_suisse text-[calc(var(--px)*24)] leading-[129%] relative">
+									Analytics Dashboard
+								</div>
+								<span class="absolute left-0 top-[calc(var(--px)*1)] t-top-[calc(var(--px)*6)] text-[calc(var(--px)*15)]">04</span>
+							</div>
+							<div class="h-0 overflow-hidden js_accordion__content">
+								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] pb-[calc(var(--px)*69)] pt-[calc(var(--px)*69)] text-white/70">
+									<p>
+										You don’t need to remember scope <br>
+										details, revision limits, or contract <br>
+										terms — clarity is always there when <br>
+										you need it.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -451,6 +563,141 @@ get_header();
 						</div>
 						<div class="text_base">
 							No lock-in commitment.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mt-[calc(var(--px)*73)]">
+			<div class="grid grid-cols-2 gap-[calc(var(--px)*96)]">
+				<div class="flex flex-col justify-between">
+					<div>
+						<div class="bg-[#F8F5F5] rounded-[calc(var(--px)*8)] px-[calc(var(--px)*60)] py-[calc(var(--px)*40)]">
+							<div class="flex items-center gap-[calc(var(--px)*60)]">
+								<div class="font_suisse font-bold text-[calc(var(--px)*24)]">
+									Free
+								</div>
+								<div class="font-semibold text_base">
+									Explorer
+								</div>
+							</div>
+							<div class="text_base min-h-[calc(var(--px)*84)] mt-[calc(var(--px)*35)] flex flex-col justify-end">
+								Use Boundr on one active project and discover where requests start slipping outside scope.
+							</div>
+						</div>
+						<div class="mt-[calc(var(--px)*65)] pl-[calc(var(--px)*114)] flex flex-col justify-between">
+							<div class="mb-[calc(var(--px)*68)]">
+								<ul class="plan_list_compar text_base">
+									<li>
+										<strong>1 project assessment</strong>
+									</li>
+									<li>
+										<strong>Around 50 requests</strong>
+									</li>
+									<li>
+										Full scope baseline parsing
+										<!-- <span class="wrap_tooltip">
+											<span class="text_tooltip">parsing</span>
+											<span class="tooltip_wrapper">
+												1 Scope strenghened <br>
+												25-50 requests ect
+											</span>
+										</span> -->
+									</li>
+									<li>
+										Scope drift pattern detection
+									</li>
+									<li>
+										Revision logic
+									</li>
+									<li>
+										Internal decisions explanations
+									</li>
+									<li>
+										Time estimates
+									</li>
+									<li>
+										Client-ready explanations 
+									</li>
+									<li>
+										Email loop (forwarding / CC)
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="pl-[calc(var(--px)*78)]">
+						<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site bg_cta min-w-[calc(var(--px)*247)]">
+							Join the waitlist
+						</a>
+					</div>
+				</div>
+				<div>
+					<div>
+						<div class="bg-[#F8F5F5] rounded-[calc(var(--px)*8)] px-[calc(var(--px)*60)] py-[calc(var(--px)*40)]">
+							<div class="flex items-center gap-[calc(var(--px)*60)]">
+								<div class="font_suisse font-bold text-[calc(var(--px)*24)]">
+									Starter
+								</div>
+								<div class="font-semibold text_base">
+									Scope Guard
+								</div>
+							</div>
+							<div class="text_base min-h-[calc(var(--px)*84)] mt-[calc(var(--px)*35)] flex flex-col justify-end">
+								Protect margins across active client work <br>
+								Boundr keeps scope clear as requests come in — so small <br>
+								changes don’t quietly turn into unpaid work.
+							</div>
+						</div>
+						<div class="mt-[calc(var(--px)*65)] pl-[calc(var(--px)*114)]">
+							<div class="mb-[calc(var(--px)*68)]">
+								<ul class="plan_list_compar text_base">
+									<li>
+										Up to <strong>3 active projects</strong>
+									</li>
+									<li>
+										<strong>Up to 100 AI request analyses / month</strong>
+									</li>
+									<li>
+										Full scope baseline parsing
+									</li>
+									<li>
+										Scope drift pattern detection
+									</li>
+									<li>
+										Revision logic 
+									</li>
+									<li>
+										Time estimates
+									</li>
+									<li>
+										Client-ready explanations 
+									</li>
+									<li>
+										Email loop (forwarding / CC)
+									</li>
+									<li>
+										Hard monthly token budget guardrail
+									</li>
+									<li>
+										Scope summary
+									</li>
+									<li>
+										Deliverables state overview
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="pl-[calc(var(--px)*78)]">
+						<div class="font_suisse text_base mb-[calc(var(--px)*36)]">
+							Prevent one unpaid revision, <br>
+							and it pays for itself.
+						</div>
+						<div>
+							<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site bg_cta min-w-[calc(var(--px)*247)]">
+								Join the waitlist
+							</a>
 						</div>
 					</div>
 				</div>
