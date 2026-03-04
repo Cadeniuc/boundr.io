@@ -250,7 +250,10 @@ function initPageTransitions()  {
             }
         }, 50)
 
-        scroll = new Lenis()
+        scroll = new Lenis({
+            lerp: .2,
+            duration: .8
+        })
         scroll.on('scroll', ScrollTrigger.update)
 
         gsap.ticker.add((time)=>{

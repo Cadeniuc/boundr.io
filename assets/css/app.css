@@ -10,6 +10,8 @@
     url("../fonts/SuisseWorksTrial/SuisseWorksTrial.ttf") format("truetype");
 }
 :root {
+    --px: 0.06944444444444445vw;
+    --size-20: 1.3888888888888888vw;
     --cubic-default: cubic-bezier(0.625, 0.05, 0, 1);
     --duration-default-double: 1.2s;
     --duration-default-onehalf: 0.9s;
@@ -24,7 +26,6 @@
     --animation-ease: 0.2s ease;
     --animation-ease-double: 0.4s ease;
     --cubic-bounce: linear(0, 0.5737 7.6%, 0.8382 11.87%, 0.9463 14.19%, 1.0292 16.54%, 1.0886 18.97%, 1.1258 21.53%, 1.137 22.97%, 1.1424 24.48%, 1.1423 26.1%, 1.1366 27.86%, 1.1165 31.01%, 1.0507 38.62%, 1.0219 42.57%, 0.9995 46.99%, 0.9872 51.63%, 0.9842 58.77%, 1.0011 81.26%, 1);
-    --sticky-headings: 120px;
 }
 @theme {
     --color-primary: #DBC5FF;
@@ -39,42 +40,42 @@ a:focus {
 body {
     -webkit-font-smoothing: antialiased;
     font-family: "Inter", sans-serif;
-    @apply text-[20px] leading-[26px] text-black bg-bg;
+    @apply text-[calc(var(--px)*20)] leading-[calc(var(--px)*26)] text-black bg-bg;
 }
 .font_suisse {
     font-family: "Suisse Works Trial", sans-serif;
 }
 .container {
-    @apply mx-auto max-w-[1340px];
+    @apply px-[calc(var(--px)*50)] max-w-full;
 }
 .wrapper_line {
     overflow: hidden;
 }
 .text_base {
-    @apply text-[16px] leading-[131%];
+    @apply text-[length:calc(var(--px)*16)] leading-[131%];
 }
 .heading_h1 {
-    @apply text-[85px] leading-[113%];
+    @apply text-[calc(var(--px)*85)] leading-[113%];
 }
 .heading_h2 {
-    @apply text-[64px] leading-[129%];
+    @apply text-[calc(var(--px)*64)] leading-[129%];
 }
 .heading_h3 {
-    @apply text-[32px] leading-[131%];
+    @apply text-[calc(var(--px)*32)] leading-[131%];
     &.bigger {
-        @apply text-[36px];
+        @apply text-[calc(var(--px)*36)];
     }
 }
 .heading_h4 {
-    @apply text-[24px] leading-[121%];
+    @apply text-[calc(var(--px)*24)] leading-[121%];
 }
 .input_foott {
-    @apply border-b text-[16px] pr-[35px] h-[70px] placeholder:text-black font-light block w-full outline-0;
+    @apply border-b text-[calc(var(--px)*16)] pr-[calc(var(--px)*35)] h-[calc(var(--px)*70)] placeholder:text-black font-light block w-full outline-0;
 }
 .btn_site {
-    @apply text-[16px] h-[59px] px-10 rounded-[5px] font-medium text-white flex justify-center items-center inline-flex;
+    @apply text-[calc(var(--px)*16)] h-[calc(var(--px)*59)] px-[calc(var(--px)*40)] rounded-[calc(var(--px)*5)] font-medium text-white flex justify-center items-center inline-flex;
     &.small {
-        @apply px-4 h-[42px];
+        @apply px-[calc(var(--px)*16)] h-[calc(var(--px)*42)];
     }
 }
 .header_top {
@@ -84,17 +85,20 @@ body {
     }
     &.is_scrolled {
         .bg_header {
-            @apply inset-y-2 inset-x-1;
+            @apply inset-y-[calc(var(--px)*8)] inset-x-[calc(var(--px)*4)];
         }
         .in_to_header {
-            @apply -translate-y-4;
+            @apply max-w-[85%] -translate-y-[calc(var(--px)*24)];
         }
     }
 }
+.top_sticky_section {
+    @apply top-[calc(var(--px)*120)];
+}
 .menu_header {
-    @apply flex gap-6 items-center justify-center;
+    @apply flex gap-[calc(var(--px)*24)] items-center justify-center;
     a {
-        @apply px-2.5 inline-flex items-center h-[39px] rounded-[5px] hover:bg-gray/10 transition duration-300;
+        @apply px-[calc(var(--px)*10)] inline-flex items-center h-[calc(var(--px)*39)] rounded-[calc(var(--px)*5)] hover:bg-gray/10 transition duration-300;
     }
 }
 .bg_cta {
@@ -103,7 +107,7 @@ body {
 .item_accordion {
     @apply border-b border-gray;
     .toggle_accordion {
-        @apply relative font-medium pt-[30px] pb-4 cursor-pointer;
+        @apply relative font-medium pt-[calc(var(--px)*30)] pb-[calc(var(--px)*16)] cursor-pointer;
         .inside_toggl_acr {
             @apply relative;
         }
@@ -111,12 +115,12 @@ body {
     .arrow_accord {
         background-size: 100%;
         background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='7.5' y1='2.18557e-08' x2='7.5' y2='15' stroke='white'/%3E%3Cline x1='15' y1='7.5' x2='-4.37114e-08' y2='7.5' stroke='white'/%3E%3C/svg%3E");
-        @apply absolute right-0 top-[3px] opacity-50 w-[15px] h-[15px] bg-center bg-no-repeat;
+        @apply absolute right-0 top-[calc(var(--px)*3)] opacity-50 w-[calc(var(--px)*15)] h-[calc(var(--px)*15)] bg-center bg-no-repeat;
     }
     .accordion_description {
         @apply h-0 overflow-hidden;
         .inside_acc_descr {
-            @apply pt-1 pb-4 opacity-60;
+            @apply pt-[calc(var(--px)*4)] pb-[calc(var(--px)*16)] opacity-60;
         }
     }
 }
@@ -126,23 +130,15 @@ body {
     }
 }
 .label {
-    @apply text-[15px] px-4 h-[38px] uppercase bg-primary inline-flex items-center;
+    @apply text-[calc(var(--px)*15)] px-[calc(var(--px)*16)] h-[calc(var(--px)*38)] uppercase bg-primary inline-flex items-center;
 }
 .item_solution {
-    @apply border;
+    @apply border-[calc(var(--px)*0.5)];
 }
 .remove_bg {
     filter: contrast(120%) brightness(105%);
     mix-blend-mode: multiply;
 }
-/*.item_solution {
-    &:nth-child(3n) {
-        @apply border-r-0;
-    }
-    &:nth-child(6) {
-        @apply border-r-0;
-    }
-}*/
 @media(min-width: 1024px) {
     [data-parallax-projects] img[default-resize-parallax] {
         transform: translateY(-10%);

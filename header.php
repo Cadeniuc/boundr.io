@@ -29,18 +29,18 @@
 
 <!-- <div class="preloader_backdrop fixed inset-0 bg-white z-[100] pointer-events-none"></div> -->
 
-<header class="fixed top-9 inset-x-0 pointer-events-none px-4 z-50 header_top">
-	<div class="mx-auto max-w-[1340px] in_to_header">
+<header class="fixed top-[calc(var(--px)*36)] inset-x-0 pointer-events-none px-[calc(var(--px)*16)] z-50 header_top">
+	<div class="container in_to_header mx-auto">
 		<div class="relative z-[1]">
-			<div class="bg_header absolute inset-y-0 -inset-x-3 bg-[#DBDBDB]/40 rounded-[5px] backdrop-blur-[60px] z-[-1]"></div>
-			<div class="wrapper_header px-4 flex items-center h-20 pointer-events-auto">
+			<div class="bg_header absolute inset-y-0 -inset-x-[calc(var(--px)*12)] bg-[#DBDBDB]/40 rounded-[calc(var(--px)*5)] backdrop-blur-[60px] z-[-1]"></div>
+			<div class="wrapper_header px-[calc(var(--px)*16)] flex items-center h-[calc(var(--px)*80)] pointer-events-auto">
 				<div class="flex-none">
 					<a href="#top" class="go_to_screen">
-						<img class="w-[110px] h-auto" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="">
+						<img class="w-[calc(var(--px)*110)] h-auto" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="">
 					</a>
 				</div>
 				<div class="flex-1">
-					<ul class="menu_header text-base font-medium">
+					<ul class="menu_header text_base font-medium">
 						<li>
 							<a href="#mission">
 								Our Mission
