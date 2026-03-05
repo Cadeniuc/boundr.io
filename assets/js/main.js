@@ -294,7 +294,7 @@ function scrollTriggerAnimations() {
         });
 
         gsap.set(items, {
-            transformOrigin: "0% 50%",
+            transformOrigin: "top left",
             transformStyle: "preserve-3d",
             willChange: "transform, filter, opacity"
         });
@@ -391,13 +391,14 @@ function scrollTriggerAnimations() {
 	        if (image.dataset.imageContServBound === '1') return;
 	        image.dataset.imageContServBound = '1';
 
-	        gsap.set(image, { transformOrigin: 'center left', transformStyle: 'preserve-3d' });
+	        gsap.set(image, { transformOrigin: 'center top', transformStyle: 'preserve-3d' });
 	        gsap.from(image, {
-	            scale: 0.3,
-	            rotateY: 110,
-	            rotateX: -30,
-	            duration: 1.2,
-	            ease: 'osmo',
+                scale: 2,
+                yPercent: 20,
+                rotateY: -110,
+                rotateX: 30,
+                duration: 1.2,
+                ease: 'osmo',
 	            scrollTrigger: {
 	                trigger: image,
 	                start: 'top 80%',

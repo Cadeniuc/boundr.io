@@ -125,8 +125,8 @@ get_header();
 					</h2>
 				</div>
 			</div>
-			<div class="w-[calc(var(--px)*660)]">
-				<div class="space-y-[calc(var(--px)*16)] mt-[calc(var(--px)*100)] max-w-[calc(var(--px)*550)]" id="wrapper_problem">
+			<div class="w-[calc(var(--px)*660)] mt-[calc(var(--px)*150)]">
+				<div class="perspective-[600px] space-y-[calc(var(--px)*16)] mt-[calc(var(--px)*100)] max-w-[calc(var(--px)*550)]" id="wrapper_problem">
 					<div class="item_problem rounded-[calc(var(--px)*5)] min-h-[calc(var(--px)*130)] px-[calc(var(--px)*40)] text-center flex items-center justify-center bg-white">
 						<div>
 							The <strong>contract</strong> fades into the background

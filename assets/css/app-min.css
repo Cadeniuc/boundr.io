@@ -305,6 +305,9 @@
   .mt-\[calc\(var\(--px\)\*150\)\] {
     margin-top: calc(var(--px) * 150);
   }
+  .mt-\[calc\(var\(--px\)\*200\)\] {
+    margin-top: calc(var(--px) * 200);
+  }
   .mb-\[calc\(var\(--px\)\*23\)\] {
     margin-bottom: calc(var(--px) * 23);
   }
@@ -825,6 +828,9 @@
     --tw-backdrop-blur: blur(60px);
     -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
     backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  }
+  .perspective-\[600px\] {
+    perspective: 600px;
   }
   .last\:mb-0 {
     &:last-child {
