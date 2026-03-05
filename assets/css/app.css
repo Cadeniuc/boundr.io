@@ -175,7 +175,8 @@ body {
             @apply inset-y-[calc(var(--px)*8)] inset-x-[calc(var(--px)*4)];
         }
         .in_to_header {
-            @apply max-w-[85%] -translate-y-[calc(var(--px)*24)];
+            /*@apply max-w-[85%] -translate-y-[calc(var(--px)*24)];*/
+            @apply max-w-[80%] -translate-y-[calc(var(--px)*24)];
             .menu_header {
                 li {
                     @apply px-[calc(var(--px)*8)];
