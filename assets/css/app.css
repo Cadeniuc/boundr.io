@@ -164,6 +164,8 @@ body {
     }
 }
 .header_top {
+    .menu_header li,
+    .menu_header a,
     .bg_header,
     .in_to_header {
         @apply duration-[var(--duration-default)] ease-[var(--cubic-default)] duration-300;
@@ -174,6 +176,14 @@ body {
         }
         .in_to_header {
             @apply max-w-[85%] -translate-y-[calc(var(--px)*24)];
+            .menu_header {
+                li {
+                    @apply px-[calc(var(--px)*8)];
+                }
+                a {
+                    @apply text-[calc(var(--px)*14)] h-[calc(var(--px)*35)];
+                }
+            }
         }
     }
 }
@@ -181,7 +191,10 @@ body {
     @apply top-[calc(var(--px)*120)];
 }
 .menu_header {
-    @apply flex gap-[calc(var(--px)*24)] items-center justify-center;
+    @apply flex items-center justify-center;
+    li {
+        @apply px-[calc(var(--px)*12)];
+    }
     a {
         /*@apply px-[calc(var(--px)*10)] inline-flex items-center h-[calc(var(--px)*39)] rounded-[calc(var(--px)*5)] hover:bg-gray/10 transition duration-300;*/
         @apply px-[calc(var(--px)*10)] inline-flex items-center h-[calc(var(--px)*39)] rounded-[calc(var(--px)*5)];
