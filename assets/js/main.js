@@ -1251,85 +1251,87 @@ function animateSliderTopHome() {
         root.__emailTl = null;
     }
 
-	    gsap.set(root, { perspective: 500 });
-	
-	    const inDur = 0.95;
-	    const hold = 1.5;
-	    const outDur = 0.7;
-	    const yFrom = 120;
-	    const yTo = -120;
-	
-	    const fromState = {
-	        autoAlpha: 0,
-	        y: yFrom,
-	        scale: 0.985,
-	        rotateY: 40,
-	        skewY: 18,
-	        filter: 'blur(10px)',
-	    };
-	
-	    const activeState = {
-	        autoAlpha: 1,
-	        y: 0,
-	        scale: 1,
-	        rotateY: 0,
-	        skewY: 0,
-	        filter: 'blur(0px)',
-	    };
-	
-	    slides.forEach((slide) => {
-	        gsap.set(slide, {
-	            zIndex: 1,
-	            ...fromState,
-	            transformOrigin: 'top left',
-	            transformStyle: 'preserve-3d',
-	            force3D: true,
-	            willChange: 'transform, opacity, filter',
-	        });
-	    });
-	
-	    const tl = gsap.timeline({ repeat: -1 });
-	
-	    gsap.set(slides[0], { ...activeState, zIndex: 3 });
-	
-	    slides.forEach((current, i) => {
-	        const next = slides[(i + 1) % slides.length];
-	        const swapDur = Math.max(inDur, outDur);
-	
-	        tl.to({}, { duration: hold });
-	        const start = tl.duration();
-	        tl.set(next, { ...fromState, zIndex: 4 }, start);
-	
-	        tl.to(
-	            current,
-	            {
-	                autoAlpha: 0,
-	                y: yTo,
-	                scale: 0.985,
-	                rotateY: 40,
-	                skewY: 18,
-	                filter: 'blur(10px)',
-	                duration: outDur,
-	                ease: 'power2.inOut',
-	                overwrite: 'auto',
-	            },
-	            start
-	        );
+    gsap.set(root, { perspective: 500 });
 
-	        tl.to(
-	            next,
-	            {
-	                ...activeState,
-	                duration: inDur,
-	                ease: 'osmo',
-	                overwrite: 'auto',
-	            },
-	            start
-	        );
-	
-	        tl.set(current, { ...fromState, zIndex: 1 }, start + swapDur);
-	        tl.set(next, { zIndex: 3 }, start + swapDur);
-	    });
-	
-	    root.__emailTl = tl;
-	}
+    const inDur = 0.95;
+    const hold = 2.5;
+    const outDur = 0.7;
+    const yFrom = 120;
+    const yTo = -120;
+
+    const fromState = {
+        autoAlpha: 0,
+        y: yFrom,
+        scale: 0.985,
+        rotateY: 40,
+        skewY: 18,
+        filter: 'blur(10px)',
+    };
+
+    const activeState = {
+        autoAlpha: 1,
+        y: 0,
+        scale: 1,
+        rotateY: 0,
+        skewY: 0,
+        filter: 'blur(0px)',
+    };
+
+    slides.forEach((slide) => {
+        gsap.set(slide, {
+            zIndex: 1,
+            ...fromState,
+            transformOrigin: 'top left',
+            transformStyle: 'preserve-3d',
+            force3D: true,
+            willChange: 'transform, opacity, filter',
+        });
+    });
+
+    const tl = gsap.timeline({ repeat: -1 });
+
+    gsap.set(slides[0], { ...activeState, zIndex: 3 });
+
+    slides.forEach((current, i) => {
+        const next = slides[(i + 1) % slides.length];
+        const swapDur = Math.max(inDur, outDur);
+        const extraDelay = (i === slides.length - 1) ? 2.5 : 0;
+
+        tl.to({}, { duration: hold + extraDelay });
+        
+        const start = tl.duration();
+        tl.set(next, { ...fromState, zIndex: 4 }, start);
+
+        tl.to(
+            current,
+            {
+                autoAlpha: 0,
+                y: yTo,
+                scale: 0.985,
+                rotateY: 40,
+                skewY: 18,
+                filter: 'blur(10px)',
+                duration: outDur,
+                ease: 'power2.inOut',
+                overwrite: 'auto',
+            },
+            start
+            );
+
+        tl.to(
+            next,
+            {
+                ...activeState,
+                duration: inDur,
+                ease: 'osmo',
+                overwrite: 'auto',
+            },
+            start
+            );
+
+        tl.set(current, { ...fromState, zIndex: 1 }, start + swapDur);
+        tl.set(next, { zIndex: 3 }, start + swapDur);
+    });
+
+    root.__emailTl = tl;
+}
