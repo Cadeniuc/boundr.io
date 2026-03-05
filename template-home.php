@@ -369,7 +369,7 @@ get_header();
 								<span class="counter_feature">01</span>
 							</div>
 							<div class="h-0 overflow-hidden js_accordion__content">
-								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] py-[calc(var(--px)*45)] text-white/70">
+								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] py-[calc(var(--px)*45)] text-white/70 text_base">
 									<p>
 										Boundr stays in the loop through your <br>
 										emails and quietly checks requests <br>
@@ -392,7 +392,7 @@ get_header();
 								<span class="counter_feature">02</span>
 							</div>
 							<div class="h-0 overflow-hidden js_accordion__content">
-								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] py-[calc(var(--px)*45)] text-white/70">
+								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] py-[calc(var(--px)*45)] text-white/70 text_base">
 									<p>
 										Boundr stays in the loop through your <br>
 										emails and quietly checks requests <br>
@@ -415,7 +415,7 @@ get_header();
 								<span class="counter_feature">03</span>
 							</div>
 							<div class="h-0 overflow-hidden js_accordion__content">
-								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] py-[calc(var(--px)*45)] text-white/70">
+								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] py-[calc(var(--px)*45)] text-white/70 text_base">
 									<p>
 										Boundr stays in the loop through your <br>
 										emails and quietly checks requests <br>
@@ -438,7 +438,7 @@ get_header();
 								<span class="counter_feature">04</span>
 							</div>
 							<div class="h-0 overflow-hidden js_accordion__content">
-								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] py-[calc(var(--px)*45)] text-white/70">
+								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] py-[calc(var(--px)*45)] text-white/70 text_base">
 									<p>
 										You don’t need to remember scope <br>
 										details, revision limits, or contract <br>

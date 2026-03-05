@@ -661,10 +661,14 @@ function headerMenuActive() {
 	    if (!wrapper.__followMenuState) {
 	        wrapper.__followMenuState = {
 	            isHovering: false,
+	            hoverLink: null,
 	            currentLink: null,
 	            scrollInstance: null,
 	            scrollHandler: null,
 	            resizeHandler: null,
+	            resizeObserver: null,
+	            mutationObserver: null,
+	            pendingSyncRaf: 0,
 	            hashHandler: null,
 	            linksBound: false,
 	            didInitStyles: false,
@@ -676,8 +680,10 @@ function headerMenuActive() {
     const topThreshold = 10;
 
 	    gsap.set(follow, {
-	        willChange: 'transform,width',
+	        willChange: 'transform,width,height,top',
 	        transformOrigin: 'center center',
+	        top: 0,
+	        bottom: 'auto',
 	    });
 	
 	    if (!state.didInitStyles) {
@@ -685,6 +691,7 @@ function headerMenuActive() {
 	        gsap.set(follow, {
 	            autoAlpha: 0,
 	            width: 0,
+	            height: 0,
 	            scaleY: 0,
 	        });
 	    }
@@ -746,17 +753,19 @@ function headerMenuActive() {
 	        const wrapRect = wrapper.getBoundingClientRect();
 
 	        const x = linkRect.left - wrapRect.left;
+	        const top = linkRect.top - wrapRect.top;
 	        const w = linkRect.width;
+	        const h = linkRect.height;
 
 	        if (immediate) {
 	            gsap.killTweensOf(follow);
-	            gsap.set(follow, { x, width: w });
+	            gsap.set(follow, { x, top, width: w, height: h });
 	            showFollow(true);
 	            return;
 	        }
 	
 	        if (isFollowHidden()) {
-	            gsap.set(follow, { x, width: w });
+	            gsap.set(follow, { x, top, width: w, height: h });
 	            showFollow(false);
 	            return;
 	        }
@@ -765,10 +774,25 @@ function headerMenuActive() {
 
 	        gsap.to(follow, {
 	            x,
+	            top,
 	            width: w,
+	            height: h,
 	            duration: 0.35,
 	            ease: 'power3.out',
 	            overwrite: 'auto',
+	        });
+	    }
+
+	    function scheduleSyncFollow() {
+	        if (state.pendingSyncRaf) return;
+	        state.pendingSyncRaf = requestAnimationFrame(() => {
+	            state.pendingSyncRaf = 0;
+	            const targetLink = state.hoverLink || state.currentLink;
+	            if (targetLink) {
+	                moveFollowTo(targetLink, true);
+	                return;
+	            }
+	            if (!state.isHovering) hideFollow(true);
 	        });
 	    }
 
@@ -858,6 +882,7 @@ function headerMenuActive() {
         });
         wrapper.addEventListener('pointerleave', () => {
             state.isHovering = false;
+            state.hoverLink = null;
             const scrollY = scroll?.scroll ?? window.scrollY;
             if (scrollY <= topThreshold) {
                 hideFollow(false);
@@ -867,8 +892,17 @@ function headerMenuActive() {
         });
 
         links.forEach((link) => {
-            link.addEventListener('pointerenter', () => moveFollowTo(link, false));
-            link.addEventListener('focus', () => moveFollowTo(link, false));
+            link.addEventListener('pointerenter', () => {
+                state.hoverLink = link;
+                moveFollowTo(link, false);
+            });
+            link.addEventListener('pointerleave', () => {
+                if (state.hoverLink === link) state.hoverLink = null;
+            });
+            link.addEventListener('focus', () => {
+                state.hoverLink = link;
+                moveFollowTo(link, false);
+            });
 
             link.addEventListener('click', () => {
                 setActiveLink(link, { immediateFollow: true });
@@ -887,11 +921,26 @@ function headerMenuActive() {
 
 	        state.resizeHandler = () => {
 	            recomputeSections();
-	            if (state.currentLink) moveFollowTo(state.currentLink, true);
-	            else hideFollow(true);
+	            scheduleSyncFollow();
 	            updateActiveFromScroll(scroll?.scroll ?? window.scrollY, { immediateFollow: true });
 	        };
 	        window.addEventListener('resize', state.resizeHandler);
+
+	        if ('ResizeObserver' in window && !state.resizeObserver) {
+	            state.resizeObserver = new ResizeObserver(() => {
+	                scheduleSyncFollow();
+	            });
+	            state.resizeObserver.observe(wrapper);
+	            state.resizeObserver.observe(menu);
+	        }
+
+	        const headerTop = document.querySelector('.header_top');
+	        if ('MutationObserver' in window && headerTop && !state.mutationObserver) {
+	            state.mutationObserver = new MutationObserver(() => {
+	                scheduleSyncFollow();
+	            });
+	            state.mutationObserver.observe(headerTop, { attributes: true, attributeFilter: ['class'] });
+	        }
 	    }
 
 	    // initial active
