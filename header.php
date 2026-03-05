@@ -39,8 +39,8 @@
 						<img class="w-[calc(var(--px)*110)] h-auto" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="">
 					</a>
 				</div>
-				<div class="flex-1 flex justify-center relative wrap_menu_head">
-					<div class="relative">
+				<div class="flex-1 flex justify-center relative">
+					<div class="relative wrap_menu_head">
 						<div class="follow_menu_active"></div>
 						<ul class="menu_header site_menu text_base font-medium">
 							<li>

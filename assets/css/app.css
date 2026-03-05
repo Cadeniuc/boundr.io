@@ -202,7 +202,7 @@ body {
     @apply text-black text-[calc(var(--px)*15)] px-[calc(var(--px)*16)] h-[calc(var(--px)*38)] uppercase bg-primary inline-flex items-center;
 }
 .item_solution {
-    @apply border-[calc(var(--px)*0.5)];
+    @apply relative z-[1] border-[calc(var(--px)*0.5)] hover:text-black duration-[var(--duration-default)] ease-[var(--cubic-default)] duration-300;
 }
 .remove_bg {
     filter: contrast(120%) brightness(105%);
@@ -333,10 +333,12 @@ body {
     transform: scaleX(0) rotate(0.001deg);
     transition-delay: 0s;
 }
+.item_accordion[data-underline-link]:before {
+    @apply -bottom-[calc(var(--px)*1)]
+}
 [data-underline-link] {
     text-decoration: none;
     position: relative;
-    cursor: pointer;
 }
 @media(min-width: 1024px) {
     [data-parallax-projects] img[default-resize-parallax] {

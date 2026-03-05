@@ -349,6 +349,8 @@ function initBarbaNavUpdate(data) {
 
 function initOther() {
 
+    cardsActiveSolution()
+    headerMenuActive()
     initRotateButtonsCalc()
     initRotateButtonsAnim()
     initFeaturePhotoswipeSingle();
@@ -675,6 +677,374 @@ function initRotateButtonsAnim() {
 
         trigger.addEventListener("pointerenter", onEnter);
         trigger.addEventListener("pointerleave", onLeave);
+    });
+}
+
+function headerMenuActive() {
+    const wrapper = document.querySelector('.wrap_menu_head');
+    if (!wrapper) return;
+
+    const follow = wrapper.querySelector('.follow_menu_active');
+    const menu = wrapper.querySelector('.menu_header');
+    if (!follow || !menu) return;
+
+    const links = gsap.utils.toArray(menu.querySelectorAll('a'));
+    if (!links.length) return;
+
+	    if (!wrapper.__followMenuState) {
+	        wrapper.__followMenuState = {
+	            isHovering: false,
+	            currentLink: null,
+	            scrollInstance: null,
+	            scrollHandler: null,
+	            resizeHandler: null,
+	            hashHandler: null,
+	            linksBound: false,
+	            didInitStyles: false,
+	        };
+	    }
+
+    const state = wrapper.__followMenuState;
+
+    const topThreshold = 10;
+
+	    gsap.set(follow, {
+	        willChange: 'transform,width',
+	        transformOrigin: 'center center',
+	    });
+	
+	    if (!state.didInitStyles) {
+	        state.didInitStyles = true;
+	        gsap.set(follow, {
+	            autoAlpha: 0,
+	            width: 0,
+	            scaleY: 0,
+	        });
+	    }
+	
+	    function isFollowHidden() {
+	        return (
+	            (gsap.getProperty(follow, 'autoAlpha') || 0) < 0.01 ||
+	            (gsap.getProperty(follow, 'scaleY') || 0) < 0.01
+	        );
+	    }
+
+	    function hideFollow(immediate = false) {
+	        gsap.killTweensOf(follow, 'autoAlpha,scaleY');
+	        if (immediate) {
+	            gsap.set(follow, { autoAlpha: 0, scaleY: 0 });
+	            return;
+	        }
+	        gsap.to(follow, {
+	            autoAlpha: 0,
+	            scaleY: 0,
+	            duration: 0.2,
+	            ease: 'power2.out',
+	            overwrite: 'auto',
+	        });
+	    }
+
+	    function showFollow(immediate = false) {
+	        gsap.killTweensOf(follow, 'autoAlpha,scaleY');
+	        if (immediate) {
+	            gsap.set(follow, { autoAlpha: 1, scaleY: 1 });
+	            return;
+	        }
+	        if (isFollowHidden()) {
+	            gsap.fromTo(
+	                follow,
+	                { autoAlpha: 0, scaleY: 0.2 },
+	                {
+	                    autoAlpha: 1,
+	                    scaleY: 1,
+	                    duration: 0.24,
+	                    ease: 'power3.out',
+	                    overwrite: 'auto',
+	                }
+	            );
+	            return;
+	        }
+
+	        gsap.to(follow, {
+	            autoAlpha: 1,
+	            duration: 0.18,
+	            ease: 'power2.out',
+	            overwrite: 'auto',
+	        });
+	    }
+
+	    function moveFollowTo(link, immediate = false) {
+	        if (!link) return;
+	        const linkRect = link.getBoundingClientRect();
+	        const wrapRect = wrapper.getBoundingClientRect();
+
+	        const x = linkRect.left - wrapRect.left;
+	        const w = linkRect.width;
+
+	        if (immediate) {
+	            gsap.killTweensOf(follow);
+	            gsap.set(follow, { x, width: w });
+	            showFollow(true);
+	            return;
+	        }
+	
+	        if (isFollowHidden()) {
+	            gsap.set(follow, { x, width: w });
+	            showFollow(false);
+	            return;
+	        }
+	
+	        showFollow(false);
+
+	        gsap.to(follow, {
+	            x,
+	            width: w,
+	            duration: 0.35,
+	            ease: 'power3.out',
+	            overwrite: 'auto',
+	        });
+	    }
+
+    function setActiveLink(link, { immediateFollow = false } = {}) {
+        if (state.currentLink === link) return;
+        state.currentLink = link;
+
+        links.forEach((a) => {
+            const isActive = link && a === link;
+            a.classList.toggle('is-active', isActive);
+            if (isActive) a.setAttribute('aria-current', 'true');
+            else a.removeAttribute('aria-current');
+        });
+
+        if (!link) {
+            if (!state.isHovering) hideFollow(immediateFollow);
+            return;
+        }
+
+        if (!state.isHovering) moveFollowTo(link, immediateFollow);
+    }
+
+    function buildSections() {
+        return links
+            .map((a) => {
+                const href = a.getAttribute('href') || '';
+                if (!href.startsWith('#')) return null;
+                const section = document.querySelector(href);
+                if (!section) return null;
+                return { link: a, section };
+            })
+            .filter(Boolean);
+    }
+
+    let sections = buildSections();
+
+	    function recomputeSections() {
+	        sections = buildSections();
+	    }
+
+	    function updateActiveFromScroll(scrollY, { immediateFollow = false } = {}) {
+	        if (!sections.length) return;
+	        if (scrollY <= topThreshold) {
+	            setActiveLink(null, { immediateFollow });
+	            return;
+	        }
+
+	        const headerOffset = (wrapper.getBoundingClientRect().height || 0) + 16;
+	        const probe = scrollY + headerOffset;
+
+	        let active = null;
+	        let bestTop = -Infinity;
+	        for (const item of sections) {
+	            const top = item.section.getBoundingClientRect().top + scrollY;
+	            if (top <= probe && top > bestTop) {
+	                bestTop = top;
+	                active = item.link;
+	            }
+	        }
+
+	        setActiveLink(active, { immediateFollow });
+	    }
+
+    function bindToLenisScroll() {
+        if (!scroll || typeof scroll.on !== 'function') return;
+        if (state.scrollInstance === scroll && state.scrollHandler) return;
+
+        if (state.scrollInstance && typeof state.scrollInstance.off === 'function' && state.scrollHandler) {
+            state.scrollInstance.off('scroll', state.scrollHandler);
+        }
+
+	        state.scrollInstance = scroll;
+	        state.scrollHandler = ({ scroll: scrollY }) => updateActiveFromScroll(scrollY, { immediateFollow: false });
+	        scroll.on('scroll', state.scrollHandler);
+
+	        updateActiveFromScroll(scroll.scroll || window.scrollY, { immediateFollow: true });
+	    }
+
+    if (!state.linksBound) {
+        state.linksBound = true;
+
+        wrapper.addEventListener('pointerenter', () => {
+            state.isHovering = true;
+        });
+        wrapper.addEventListener('pointerleave', () => {
+            state.isHovering = false;
+            const scrollY = scroll?.scroll ?? window.scrollY;
+            if (scrollY <= topThreshold) {
+                hideFollow(false);
+                return;
+            }
+            if (state.currentLink) moveFollowTo(state.currentLink, false);
+        });
+
+        links.forEach((link) => {
+            link.addEventListener('pointerenter', () => moveFollowTo(link, false));
+            link.addEventListener('focus', () => moveFollowTo(link, false));
+
+            link.addEventListener('click', () => {
+                setActiveLink(link, { immediateFollow: true });
+            });
+        });
+
+        state.hashHandler = () => {
+            if (window.location.hash === '#top' || window.location.hash === '') {
+                setActiveLink(null, { immediateFollow: true });
+                return;
+            }
+            const next = links.find((a) => a.getAttribute('href') === window.location.hash);
+            if (next) setActiveLink(next, { immediateFollow: true });
+        };
+        window.addEventListener('hashchange', state.hashHandler);
+
+	        state.resizeHandler = () => {
+	            recomputeSections();
+	            if (state.currentLink) moveFollowTo(state.currentLink, true);
+	            else hideFollow(true);
+	            updateActiveFromScroll(scroll?.scroll ?? window.scrollY, { immediateFollow: true });
+	        };
+	        window.addEventListener('resize', state.resizeHandler);
+	    }
+
+	    // initial active
+	    const initialScrollY = scroll?.scroll ?? window.scrollY;
+	    if (window.location.hash === '#top' || window.location.hash === '' || initialScrollY <= topThreshold) {
+	        setActiveLink(null, { immediateFollow: true });
+	        hideFollow(true);
+	    } else {
+	        const initial = links.find((a) => a.getAttribute('href') === window.location.hash);
+	        if (initial) {
+	            setActiveLink(initial, { immediateFollow: true });
+	            moveFollowTo(state.currentLink, true);
+	        } else {
+	            updateActiveFromScroll(initialScrollY, { immediateFollow: true });
+	            if (!state.currentLink) hideFollow(true);
+	        }
+	    }
+
+    bindToLenisScroll();
+}
+
+function cardsActiveSolution() {
+    const items = gsap.utils.toArray(document.querySelectorAll('.item_solution'));
+    if (!items.length) return;
+
+    if (window.matchMedia && !window.matchMedia('(hover: hover)').matches) return;
+
+    function sideFromPoint(clientX, clientY, rect) {
+        if (clientY < rect.top) return 'top';
+        if (clientY > rect.bottom) return 'bottom';
+        if (clientX < rect.left) return 'left';
+        if (clientX > rect.right) return 'right';
+
+        const x = clientX - rect.left;
+        const y = clientY - rect.top;
+        const top = y;
+        const bottom = rect.height - y;
+        const left = x;
+        const right = rect.width - x;
+
+        const min = Math.min(top, bottom, left, right);
+        if (min === top) return 'top';
+        if (min === right) return 'right';
+        if (min === bottom) return 'bottom';
+        return 'left';
+    }
+
+    function collapsedBox(side, rect) {
+        switch (side) {
+            case 'right':
+                return { x: rect.width, y: 0, width: 0, height: rect.height };
+            case 'bottom':
+                return { x: 0, y: rect.height, width: rect.width, height: 0 };
+            case 'left':
+                return { x: 0, y: 0, width: 0, height: rect.height };
+            case 'top':
+            default:
+                return { x: 0, y: 0, width: rect.width, height: 0 };
+        }
+    }
+
+    items.forEach((item) => {
+        const follow = item.querySelector('.follow_active_cars');
+        if (!follow) return;
+
+        if (item.dataset.solutionFollowBound === '1') return;
+        item.dataset.solutionFollowBound = '1';
+
+        // Ensure the negative z-index stays behind the card content (stacking context).
+        gsap.set(item, { position: 'relative', zIndex: 0, overflow: 'hidden' });
+
+        gsap.set(follow, {
+            pointerEvents: 'none',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: 0,
+            height: 0,
+            x: 0,
+            y: 0,
+            willChange: 'transform,width,height',
+        });
+
+        function enterFrom(side) {
+            const rect = item.getBoundingClientRect();
+            const from = collapsedBox(side, rect);
+            const to = { x: 0, y: 0, width: rect.width, height: rect.height };
+            gsap.killTweensOf(follow);
+            gsap.set(follow, from);
+            gsap.to(follow, {
+                ...to,
+                duration: 0.45,
+                ease: 'osmo',
+                overwrite: 'auto',
+            });
+        }
+
+        function leaveTo(side) {
+            const rect = item.getBoundingClientRect();
+            const to = collapsedBox(side, rect);
+            gsap.killTweensOf(follow);
+            gsap.to(follow, {
+                duration: 0.32,
+                ease: 'osmo',
+                overwrite: 'auto',
+                ...to,
+            });
+        }
+
+        item.addEventListener('pointerenter', (ev) => {
+            const rect = item.getBoundingClientRect();
+            const side = sideFromPoint(ev.clientX, ev.clientY, rect);
+            enterFrom(side);
+        });
+
+        item.addEventListener('pointerleave', (ev) => {
+            const rect = item.getBoundingClientRect();
+            const side = sideFromPoint(ev.clientX, ev.clientY, rect);
+            leaveTo(side);
+        });
+
+        item.addEventListener('focusin', () => enterFrom('bottom'));
+        item.addEventListener('focusout', () => leaveTo('bottom'));
     });
 }
 

@@ -206,6 +206,9 @@
   .inset-y-0 {
     inset-block: calc(var(--spacing) * 0);
   }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
   .top-1\/2 {
     top: calc(1/2 * 100%);
   }
@@ -220,6 +223,9 @@
   }
   .-left-\[calc\(var\(--px\)\*31\)\] {
     left: calc(calc(var(--px) * 31) * -1);
+  }
+  .left-0 {
+    left: calc(var(--spacing) * 0);
   }
   .z-50 {
     z-index: 50;
@@ -346,9 +352,6 @@
   }
   .hidden {
     display: none;
-  }
-  .inline {
-    display: inline;
   }
   .inline-block {
     display: inline-block;
@@ -485,9 +488,6 @@
   .-translate-y-1\/2 {
     --tw-translate-y: calc(calc(1/2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .transform {
-    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .resize {
     resize: both;
@@ -629,6 +629,9 @@
   }
   .bg-dark {
     background-color: var(--color-dark);
+  }
+  .bg-primary {
+    background-color: var(--color-primary);
   }
   .bg-white {
     background-color: var(--color-white);
@@ -1065,8 +1068,21 @@ body {
   text-transform: uppercase;
 }
 .item_solution {
+  position: relative;
+  z-index: 1;
   border-style: var(--tw-border-style);
   border-width: calc(var(--px) * 0.5);
+  --tw-duration: 300ms;
+  transition-duration: 300ms;
+  --tw-duration: var(--duration-default);
+  transition-duration: var(--duration-default);
+  --tw-ease: var(--cubic-default);
+  transition-timing-function: var(--cubic-default);
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-black);
+    }
+  }
 }
 .remove_bg {
   filter: contrast(120%) brightness(105%);
@@ -1292,10 +1308,12 @@ body {
   transform: scaleX(0) rotate(0.001deg);
   transition-delay: 0s;
 }
+.item_accordion[data-underline-link]:before {
+  bottom: calc(calc(var(--px) * 1) * -1);
+}
 [data-underline-link] {
   text-decoration: none;
   position: relative;
-  cursor: pointer;
 }
 @media (min-width: 1024px) {
   [data-parallax-projects] img[default-resize-parallax] {
@@ -1348,26 +1366,6 @@ html.lenis, html.lenis body {
   syntax: "*";
   inherits: false;
   initial-value: 0;
-}
-@property --tw-rotate-x {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-rotate-y {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-rotate-z {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-skew-x {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-skew-y {
-  syntax: "*";
-  inherits: false;
 }
 @property --tw-space-y-reverse {
   syntax: "*";
@@ -1515,11 +1513,6 @@ html.lenis, html.lenis body {
       --tw-translate-x: 0;
       --tw-translate-y: 0;
       --tw-translate-z: 0;
-      --tw-rotate-x: initial;
-      --tw-rotate-y: initial;
-      --tw-rotate-z: initial;
-      --tw-skew-x: initial;
-      --tw-skew-y: initial;
       --tw-space-y-reverse: 0;
       --tw-border-style: solid;
       --tw-leading: initial;
