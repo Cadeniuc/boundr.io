@@ -1275,8 +1275,8 @@ function animateSliderTopHome() {
 	    const inDur = 0.95;
 	    const hold = 1.5;
 	    const outDur = 0.7;
-	    const yFrom = 220;
-	    const yTo = -220;
+	    const yFrom = 120;
+	    const yTo = -120;
 	
 	    const fromState = {
 	        autoAlpha: 0,
