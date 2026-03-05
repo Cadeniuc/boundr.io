@@ -334,13 +334,13 @@ function scrollTriggerAnimations() {
                 opacity: 1 - t * 0.702,
                 scale: 1.031 - t * 0.343 + rand.s,
                 x: -t * 15.6 + rand.x,
-                y: 12.5 + t * 134.2 + rand.y,
+                y: 50 + t * 134.2 + rand.y,
                 z: -(124.8 + t * 405.6),
-                rotationX: 6.2 + t * 21.8 + rand.rx,
-                rotationY: -3.1 - t * 6.2 + rand.ry,
-                rotationZ: -t * 14.0 + rand.rz,
-                skewX: -t * 25.0 + rand.skx,
-                skewY: t * 4.7 + rand.sky,
+                rotationX: 20 + t * 21.8 + rand.rx,
+                rotationY: -20 - t * 6.2 + rand.ry,
+                rotationZ: -t * 24.0 + rand.rz,
+                skewX: -t * 35.0 + rand.skx,
+                skewY: t * 10 + rand.sky,
                 filter: `blur(${blurPx}px)`,
             });
         });
@@ -350,8 +350,8 @@ function scrollTriggerAnimations() {
                 scrollTrigger: {
                     trigger: wrapper_problem,
                     start: "top bottom",
-                    end: "bottom bottom",
-                    scrub: 0.5
+                    end: "bottom bottom-=15%",
+                    scrub: true
                 }
             });
 
@@ -384,39 +384,19 @@ function scrollTriggerAnimations() {
                     introHold + i * 0.22
                     );
             });
-	        }
-	    }
-
-	    gsap.utils.toArray('.image_cont_serv').forEach((image) => {
-	        if (image.dataset.imageContServBound === '1') return;
-	        image.dataset.imageContServBound = '1';
-
-	        gsap.set(image, { transformOrigin: 'center top', transformStyle: 'preserve-3d' });
-	        gsap.from(image, {
-                scale: 2,
-                yPercent: 20,
-                rotateY: -110,
-                rotateX: 30,
-                duration: 1.2,
-                ease: 'osmo',
-	            scrollTrigger: {
-	                trigger: image,
-	                start: 'top 80%',
-	                toggleActions: 'play none none reverse',
-	            },
-	        });
-	    });
-	
-	    gsap.to('.anim_star_decor', {
-	        rotate: 500,
-	        ease: 'none',
-        scrollTrigger: {
-            trigger: '.anim_star_decor',
-            start: 'top bottom+=5%',
-            end: '+=300%',
-            scrub: 1
         }
-    });
+    }
+	
+        gsap.to('.anim_star_decor', {
+            rotate: 500,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.anim_star_decor',
+                start: 'top bottom+=5%',
+                end: '+=300%',
+                scrub: 1
+            }
+        });
 
     gsap.utils.toArray('.group_line_item').forEach(item => {
 
