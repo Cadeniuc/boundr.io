@@ -55,20 +55,25 @@
 							</ul>
 						</div>
 						<div class="w-[calc(var(--px)*433)]">
-							<div class="font_suisse mb-[calc(var(--px)*23)]">
-								Newsletter
-							</div>
-							<form>
-								<div class="relative">
-									<input class="input_foott" type="email" placeholder="Email Address">
-									<button class="absolute right-0 top-1/2 -translate-y-1/2" type="submit">
-										<svg class="w-[calc(var(--px)*22)] h-auto" width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M21.6309 10.0098L13.0371 18.6035C12.7441 18.8965 12.207 18.8965 11.9141 18.6035C11.6211 18.3105 11.6211 17.7734 11.9141 17.4805L19.1895 10.2051H0.78125C0.341797 10.2051 0 9.86328 0 9.42383C0 9.0332 0.341797 8.64258 0.78125 8.64258H19.1895L11.9141 1.41602C11.6211 1.12305 11.6211 0.585938 11.9141 0.292969C12.207 0 12.7441 0 13.0371 0.292969L21.6309 8.88672C21.9238 9.17969 21.9238 9.7168 21.6309 10.0098Z" fill="black"/>
-										</svg>
-									</button>
+							<div class="font_suisse mb-[calc(var(--px)*23)] flex items-center gap-[calc(var(--px)*16)]">
+								Newsletter 
+								<div>
+									<svg class="loading_form w-[calc(var(--px)*18)] h-auto" width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#000">
+										<g fill="none" fill-rule="evenodd">
+											<g transform="translate(1 1)" stroke-width="2">
+												<circle stroke-opacity=".1" cx="18" cy="18" r="18"></circle>
+												<path d="M36 18c0-9.94-8.06-18-18-18">
+													<animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"></animateTransform>
+												</path>
+											</g>
+										</g>
+									</svg>
 								</div>
-							</form>
-							<div class="mt-[calc(var(--px)*70)] flex gap-[calc(var(--px)*24)]">
+							</div>
+							<div class="form_contact min-h-[calc(var(--px)*103)] relative">
+								<?php echo do_shortcode('[contact-form-7 id="204fa81" title="Newsletter"]'); ?>
+							</div>
+							<div class="mt-[calc(var(--px)*38)] flex gap-[calc(var(--px)*24)]">
 								<a data-underline-link="alt" class="inline-block" href="http://linkedin.com/" target="_blank">
 									Linkedin
 								</a>

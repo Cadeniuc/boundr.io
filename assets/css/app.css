@@ -81,11 +81,18 @@ body {
     @apply text-[calc(var(--px)*24)] leading-[121%];
 }
 .input_foott {
-    @apply border-b text-[calc(var(--px)*16)] pr-[calc(var(--px)*35)] h-[calc(var(--px)*70)] placeholder:text-black font-light block w-full outline-0;
+    @apply border-b border-black focus:placeholder:text-black/60 text-[calc(var(--px)*16)] pr-[calc(var(--px)*35)] h-[calc(var(--px)*70)] placeholder:text-black font-light block w-full outline-0;
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+        -webkit-text-fill-color: #000;
+        transition: background-color 5000s ease-in-out 0s;
+        box-shadow: 0 0 0px 1000px #EFEFEA inset;
+    }
 }
 .btn_site {
     --r: 20deg;
-    @apply text-[calc(var(--px)*16)] h-[calc(var(--px)*59)] px-[calc(var(--px)*40)] rounded-[calc(var(--px)*5)] font-medium text-white flex justify-center items-center inline-flex;
+    @apply text-[calc(var(--px)*16)] h-[calc(var(--px)*59)] px-[calc(var(--px)*40)] rounded-[calc(var(--px)*5)] font-medium cursor-pointer text-white flex justify-center items-center inline-flex;
     position: relative;
     overflow: hidden;
     &:hover {
@@ -136,6 +143,9 @@ body {
     }
     &.small {
         @apply px-[calc(var(--px)*16)] h-[calc(var(--px)*42)];
+    }
+    &.submit_newslett {
+        @apply !absolute right-0 top-1/2 -translate-y-1/2 !px-0 !h-full;
     }
 }
 .header_top {
@@ -340,6 +350,12 @@ body {
     text-decoration: none;
     position: relative;
 }
+.input_under[data-underline-link]:before {
+    height: 1px;
+}
+.home_title {
+    display: block;
+}
 @media(min-width: 1024px) {
     [data-parallax-projects] img[default-resize-parallax] {
         transform: translateY(-10%);
@@ -378,4 +394,61 @@ html.lenis body {
     &::-webkit-scrollbar {
         display: none;
     }
+}
+.loading_form {
+    @apply opacity-0 invisible scale-90 transition duration-400;
+}
+body {
+    &.form_submitting {
+        .loading_form {
+            @apply opacity-100 visible scale-100;
+        }
+    }
+}
+.thank_wrapper {
+    @apply mt-3 opacity-0 invisible transition duration-300;
+    strong {
+        @apply font-semibold block;
+    }
+}
+.wpcf7-form {
+    &.sent {
+        @apply max-md:pb-[45px];
+        .thank_wrapper {
+            @apply opacity-100 visible translate-y-0;
+        }
+    }
+}
+.form_contact {
+    .wpcf7-response-output,
+    .wpcf7-not-valid-tip {
+        @apply hidden;
+    }
+}
+.form_contact .wpcf7-not-valid {
+    @apply placeholder:text-[red] focus:placeholder:text-[red]/60 text-[red];
+}
+.wrapper_heading_top {
+    @apply flex gap-[var(--size-40)] justify-between;
+    .wrapper_anim_star {
+        @apply pt-[18px] lg:pt-[3.0555555555555554vw];
+        .decor_heading {
+            @apply max-md:w-[29px] max-md:h-[29px];
+        }
+    }
+}
+.wpcf7-not-valid-tip {
+    @apply pt-1.5 lg:pt-[.5vw] font-medium !hidden;
+}
+.wpcf7 form:not(.sent) .wpcf7-response-output {
+    display: none !important;
+}
+.wpcf7 form .wpcf7-response-output {
+    @apply text-[length:var(--size-20)] m-0 border-0 p-0 mt-8 lg:mt-[1.4vw] text-primary;
+}
+.form_footer {
+    @apply mb-5 lg:mb-[1.0416666666666665vw];
+}
+.wpcf7-form-control-wrap span {
+    display: block;
 }

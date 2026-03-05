@@ -8,12 +8,13 @@ get_header();
 <section class="pb-[calc(var(--px)*93)] pt-[calc(var(--px)*171)]" id="top">
 	<div class="container">
 		<div class="mb-[calc(var(--px)*120)]">
-			<h1 class="text-[calc(var(--px)*75)] leading-[129%] font_suisse text-center">
-				Every request clarified instantly. Scope creep, contained.
+			<h1 class="home_title text-[calc(var(--px)*75)] perspective-midrang leading-[129%] font_suisse text-center">
+				<p>Every request clarified instantly.</p> 
+				<p>Scope creep, contained.</p>
 			</h1>
 		</div>
 		<div>
-			<div class="flex max-w-[calc(var(--px)*945)] mx-auto">
+			<div class="flex max-w-[calc(var(--px)*945)] mx-auto content_top">
 				<div class="w-[calc(var(--px)*433)]">
 					<div class="pr-[calc(var(--px)*50)] font-medium">
 						Boundr lives inside your project <br>
@@ -131,23 +132,23 @@ get_header();
 				</div>
 			</div>
 			<div class="w-[calc(var(--px)*660)]">
-				<div class="space-y-[calc(var(--px)*16)] mt-[calc(var(--px)*100)]">
-					<div class="rounded-[calc(var(--px)*5)] min-h-[calc(var(--px)*154)] px-[calc(var(--px)*40)] text-center flex items-center justify-center bg-white">
+				<div class="space-y-[calc(var(--px)*16)] mt-[calc(var(--px)*100)]" id="wrapper_problem">
+					<div class="item_problem rounded-[calc(var(--px)*5)] min-h-[calc(var(--px)*154)] px-[calc(var(--px)*40)] text-center flex items-center justify-center bg-white">
 						<div>
 							The <strong>contract</strong> fades into the background
 						</div>
 					</div>
-					<div class="rounded-[calc(var(--px)*5)] min-h-[calc(var(--px)*154)] px-[calc(var(--px)*40)] text-center flex items-center justify-center bg-[#F8F5F5]">
+					<div class="item_problem rounded-[calc(var(--px)*5)] min-h-[calc(var(--px)*154)] px-[calc(var(--px)*40)] text-center flex items-center justify-center bg-[#F8F5F5]">
 						<div>
 							Misunderstandings <strong>start</strong> to occur
 						</div>
 					</div>
-					<div class="rounded-[calc(var(--px)*5)] min-h-[calc(var(--px)*154)] px-[calc(var(--px)*40)] text-center flex items-center justify-center bg-white">
+					<div class="item_problem rounded-[calc(var(--px)*5)] min-h-[calc(var(--px)*154)] px-[calc(var(--px)*40)] text-center flex items-center justify-center bg-white">
 						<div>
 							Your team <strong>absorbs</strong>, without proof
 						</div>
 					</div>
-					<div class="rounded-[calc(var(--px)*5)] min-h-[calc(var(--px)*154)] px-[calc(var(--px)*40)] text-center flex items-center justify-center bg-[#F8F5F5]">
+					<div class="item_problem rounded-[calc(var(--px)*5)] min-h-[calc(var(--px)*154)] px-[calc(var(--px)*40)] text-center flex items-center justify-center bg-[#F8F5F5]">
 						<div>
 							Extra <strong>hours</strong> vanish into goodwill.
 						</div>
@@ -225,7 +226,7 @@ get_header();
 			<div class="border-r border-r-[0.5px] border-white/40 item_solution">
 				<div class="follow_active_cars bg-primary absolute top-0 left-0 z-[-1]"></div>
 				<div class="p-[calc(var(--px)*50)] min-h-[calc(var(--px)*364)] flex items-center min-h-full justify-center">
-					<svg class="w-[calc(var(--px)*165)] h-auto" width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<svg class="anim_star_decor w-[calc(var(--px)*165)] h-auto" width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path fill="#1B434B" d="M64.0014 19.1942L45.7514 0.956388C44.4753 -0.318796 42.4057 -0.318796 41.1297 0.956388L35.7618 6.32297C33.9492 8.13437 31.0116 8.13437 29.199 6.32297L23.8288 0.956388C22.5527 -0.318796 20.4831 -0.318796 19.2071 0.956388L0.957029 19.1942C-0.31901 20.4694 -0.31901 22.5376 0.957029 23.8128L6.32946 29.1817C8.14207 30.9931 8.14207 33.9287 6.32946 35.7378L0.957029 41.1044C-0.31901 42.3796 -0.31901 44.4478 0.957029 45.723L19.2071 63.9609C20.4831 65.236 22.5527 65.236 23.8288 63.9609L29.2012 58.5943C31.0138 56.7851 33.9492 56.7851 35.7618 58.5943L41.1297 63.9586C42.4057 65.2338 44.4753 65.2338 45.7514 63.9586L64.0014 45.7208C65.2775 44.4456 65.2775 42.3773 64.0014 41.1022L58.629 35.7356C56.8164 33.9242 56.8164 30.9886 58.629 29.1794L64.0014 23.8106C65.2797 22.5376 65.2797 20.4694 64.0014 19.1942ZM54.9609 32.7166C43.6074 34.4401 34.4699 43.5737 32.752 54.8971L32.4815 55.172L32.2222 54.9242C31.3678 49.3143 28.7841 44.218 24.7463 40.1897C20.7131 36.1546 15.6157 33.5705 10.0268 32.7324L9.75628 32.462L10.0155 32.2029C21.3579 30.4681 30.484 21.3481 32.22 10.0133L32.4837 9.75426L32.743 10.0133C33.6042 15.6165 36.1879 20.706 40.2166 24.732C44.2454 28.7626 49.3383 31.3468 54.9474 32.2007L55.2067 32.4598L54.9609 32.7166Z" />
 					</svg>
 				</div>
@@ -483,7 +484,8 @@ get_header();
 				</div>
 			</div>
 			<div class="w-[calc(100%-(var(--px)*457))]">
-				<div class="flex items-center mb-[calc(var(--px)*68)] last:mb-0 pb-[calc(var(--px)*68)] border-b border-gray">
+				<div class="group_line_item flex items-center relative mb-[calc(var(--px)*68)] last:mb-0 pb-[calc(var(--px)*68)] relative">
+					<div class="line_item_group h-px bg-gray absolute left-0 bottom-0"></div>
 					<div class="flex-1">
 						<div class="heading_h4 font-semibold min-h-[calc(var(--px)*87)]">
 							Peace of mind
@@ -499,7 +501,8 @@ get_header();
 						<img class="remove_bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/how_benefit_1.png" alt="">
 					</div>
 				</div>
-				<div class="flex items-center mb-[calc(var(--px)*68)] last:mb-0 pb-[calc(var(--px)*68)] border-b border-gray">
+				<div class="group_line_item flex items-center relative mb-[calc(var(--px)*68)] last:mb-0 pb-[calc(var(--px)*68)] relative">
+					<div class="line_item_group h-px bg-gray absolute left-0 bottom-0"></div>
 					<div class="flex-1">
 						<div class="heading_h4 font-semibold min-h-[calc(var(--px)*87)]">
 							Work clarity
@@ -513,7 +516,8 @@ get_header();
 						<img class="remove_bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/how_benefit_2.png" alt="">
 					</div>
 				</div>
-				<div class="flex items-center mb-[calc(var(--px)*68)] last:mb-0 pb-[calc(var(--px)*68)] border-b border-gray">
+				<div class="group_line_item flex items-center relative mb-[calc(var(--px)*68)] last:mb-0 pb-[calc(var(--px)*68)] relative">
+					<div class="line_item_group h-px bg-gray absolute left-0 bottom-0"></div>
 					<div class="flex-1">
 						<div class="heading_h4 font-semibold min-h-[calc(var(--px)*87)]">
 							Margin protection
@@ -528,7 +532,8 @@ get_header();
 						<img class="remove_bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/how_benefit_3.png" alt="">
 					</div>
 				</div>
-				<div class="flex items-center mb-[calc(var(--px)*68)] last:mb-0 pb-[calc(var(--px)*68)] border-b border-gray">
+				<div class="group_line_item flex items-center relative mb-[calc(var(--px)*68)] last:mb-0 pb-[calc(var(--px)*68)] relative">
+					<div class="line_item_group h-px bg-gray absolute left-0 bottom-0"></div>
 					<div class="flex-1">
 						<div class="heading_h4 font-semibold min-h-[calc(var(--px)*87)]">
 							Project alignement
