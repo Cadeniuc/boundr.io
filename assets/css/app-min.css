@@ -368,6 +368,9 @@
   .aspect-\[2\.39\] {
     aspect-ratio: 2.39;
   }
+  .aspect-\[16\/9\] {
+    aspect-ratio: 16/9;
+  }
   .h-0 {
     height: calc(var(--spacing) * 0);
   }
@@ -487,6 +490,12 @@
   }
   .max-w-\[calc\(var\(--px\)\*312\)\] {
     max-width: calc(var(--px) * 312);
+  }
+  .max-w-\[calc\(var\(--px\)\*420\)\] {
+    max-width: calc(var(--px) * 420);
+  }
+  .max-w-\[calc\(var\(--px\)\*440\)\] {
+    max-width: calc(var(--px) * 440);
   }
   .max-w-\[calc\(var\(--px\)\*550\)\] {
     max-width: calc(var(--px) * 550);

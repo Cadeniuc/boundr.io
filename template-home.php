@@ -29,12 +29,15 @@ get_header();
 					</div>
 				</div>
 				<div class="w-[calc(100%-(var(--px)*433))]">
-					<div class="aspect-[2.39]" id="slider_emails">
+					<div class="aspect-[16/9] max-w-[calc(var(--px)*420)]" id="slider_emails">
 						<div class="item_email_anim absolute inset-0 flex items-center">
 							<img class="max-w-full h-auto max-h-full w-auto" src="<?php echo get_template_directory_uri(); ?>/assets/img/home_message_1.jpg" alt="">
 						</div>
 						<div class="item_email_anim absolute inset-0 flex items-center">
 							<img class="max-w-full h-auto max-h-full w-auto" src="<?php echo get_template_directory_uri(); ?>/assets/img/home_message_2.jpg" alt="">
+						</div>
+						<div class="item_email_anim absolute inset-0 flex items-center">
+							<img class="max-w-full h-auto max-h-full w-auto" src="<?php echo get_template_directory_uri(); ?>/assets/img/home_message_3.jpg" alt="">
 						</div>
 					</div>
 				</div>
