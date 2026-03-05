@@ -314,9 +314,9 @@ get_header();
 	</div>
 </section>
 
-<section class="bg-dark text-white pt-[calc(var(--px)*92)] pb-[calc(var(--px)*155)]">
+<section class="bg-dark text-white pt-[calc(var(--px)*92)] pb-[calc(var(--px)*120)]">
 	<div class="container">
-		<div class="mb-[calc(var(--px)*100)]" id="features">
+		<div class="mb-[calc(var(--px)*60)]" id="features">
 			<div class="mb-[calc(var(--px)*40)]">
 				<div class="label"> 
 					FEATURES
@@ -366,7 +366,7 @@ get_header();
 								<span class="counter_feature">01</span>
 							</div>
 							<div class="h-0 overflow-hidden js_accordion__content">
-								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] pt-[calc(var(--px)*69)] pb-[calc(var(--px)*69)] text-white/70">
+								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] py-[calc(var(--px)*45)] text-white/70">
 									<p>
 										Boundr stays in the loop through your <br>
 										emails and quietly checks requests <br>
@@ -389,7 +389,7 @@ get_header();
 								<span class="counter_feature">02</span>
 							</div>
 							<div class="h-0 overflow-hidden js_accordion__content">
-								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] pb-[calc(var(--px)*69)] pt-[calc(var(--px)*69)] text-white/70">
+								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] py-[calc(var(--px)*45)] text-white/70">
 									<p>
 										Boundr stays in the loop through your <br>
 										emails and quietly checks requests <br>
@@ -412,7 +412,7 @@ get_header();
 								<span class="counter_feature">03</span>
 							</div>
 							<div class="h-0 overflow-hidden js_accordion__content">
-								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] pb-[calc(var(--px)*69)] pt-[calc(var(--px)*69)] text-white/70">
+								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] py-[calc(var(--px)*45)] text-white/70">
 									<p>
 										Boundr stays in the loop through your <br>
 										emails and quietly checks requests <br>
@@ -435,7 +435,7 @@ get_header();
 								<span class="counter_feature">04</span>
 							</div>
 							<div class="h-0 overflow-hidden js_accordion__content">
-								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] pb-[calc(var(--px)*69)] pt-[calc(var(--px)*69)] text-white/70">
+								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] py-[calc(var(--px)*45)] text-white/70">
 									<p>
 										You don’t need to remember scope <br>
 										details, revision limits, or contract <br>
@@ -461,7 +461,7 @@ get_header();
 						Experience the <br>
 						benefits	
 					</h2>
-					<div class="mt-[calc(var(--px)*100)]">
+					<div class="mt-[calc(var(--px)*50)]">
 						<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]">
 							Join the waitlist
 						</a>
@@ -881,10 +881,5 @@ get_header();
 		</div>
 	</div>
 </div>
-	<button class="btn_site submit_newslett cursor-pointer" type="submit">
-		<svg class="w-[calc(var(--px)*22)] h-auto" width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<path d="M21.6309 10.0098L13.0371 18.6035C12.7441 18.8965 12.207 18.8965 11.9141 18.6035C11.6211 18.3105 11.6211 17.7734 11.9141 17.4805L19.1895 10.2051H0.78125C0.341797 10.2051 0 9.86328 0 9.42383C0 9.0332 0.341797 8.64258 0.78125 8.64258H19.1895L11.9141 1.41602C11.6211 1.12305 11.6211 0.585938 11.9141 0.292969C12.207 0 12.7441 0 13.0371 0.292969L21.6309 8.88672C21.9238 9.17969 21.9238 9.7168 21.6309 10.0098Z" fill="black"/>
-		</svg>
-	</button>
 
 <?php get_footer(); ?>

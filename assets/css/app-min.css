@@ -281,6 +281,9 @@
   .mt-\[calc\(var\(--px\)\*48\)\] {
     margin-top: calc(var(--px) * 48);
   }
+  .mt-\[calc\(var\(--px\)\*50\)\] {
+    margin-top: calc(var(--px) * 50);
+  }
   .mt-\[calc\(var\(--px\)\*65\)\] {
     margin-top: calc(var(--px) * 65);
   }
@@ -316,6 +319,12 @@
   }
   .mb-\[calc\(var\(--px\)\*40\)\] {
     margin-bottom: calc(var(--px) * 40);
+  }
+  .mb-\[calc\(var\(--px\)\*50\)\] {
+    margin-bottom: calc(var(--px) * 50);
+  }
+  .mb-\[calc\(var\(--px\)\*60\)\] {
+    margin-bottom: calc(var(--px) * 60);
   }
   .mb-\[calc\(var\(--px\)\*68\)\] {
     margin-bottom: calc(var(--px) * 68);
@@ -677,8 +686,14 @@
   .py-\[calc\(var\(--px\)\*40\)\] {
     padding-block: calc(var(--px) * 40);
   }
+  .py-\[calc\(var\(--px\)\*45\)\] {
+    padding-block: calc(var(--px) * 45);
+  }
   .py-\[calc\(var\(--px\)\*56\)\] {
     padding-block: calc(var(--px) * 56);
+  }
+  .py-\[calc\(var\(--px\)\*92\)\] {
+    padding-block: calc(var(--px) * 92);
   }
   .py-\[calc\(var\(--px\)\*130\)\] {
     padding-block: calc(var(--px) * 130);
@@ -733,6 +748,12 @@
   }
   .pb-\[calc\(var\(--px\)\*93\)\] {
     padding-bottom: calc(var(--px) * 93);
+  }
+  .pb-\[calc\(var\(--px\)\*100\)\] {
+    padding-bottom: calc(var(--px) * 100);
+  }
+  .pb-\[calc\(var\(--px\)\*120\)\] {
+    padding-bottom: calc(var(--px) * 120);
   }
   .pb-\[calc\(var\(--px\)\*155\)\] {
     padding-bottom: calc(var(--px) * 155);
