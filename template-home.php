@@ -126,23 +126,23 @@ get_header();
 				</div>
 			</div>
 			<div class="w-[calc(var(--px)*660)]">
-				<div class="space-y-[calc(var(--px)*16)] mt-[calc(var(--px)*100)]" id="wrapper_problem">
-					<div class="item_problem rounded-[calc(var(--px)*5)] min-h-[calc(var(--px)*154)] px-[calc(var(--px)*40)] text-center flex items-center justify-center bg-white">
+				<div class="space-y-[calc(var(--px)*16)] mt-[calc(var(--px)*100)] max-w-[calc(var(--px)*550)]" id="wrapper_problem">
+					<div class="item_problem rounded-[calc(var(--px)*5)] min-h-[calc(var(--px)*130)] px-[calc(var(--px)*40)] text-center flex items-center justify-center bg-white">
 						<div>
 							The <strong>contract</strong> fades into the background
 						</div>
 					</div>
-					<div class="item_problem rounded-[calc(var(--px)*5)] min-h-[calc(var(--px)*154)] px-[calc(var(--px)*40)] text-center flex items-center justify-center bg-[#F8F5F5]">
+					<div class="item_problem rounded-[calc(var(--px)*5)] min-h-[calc(var(--px)*130)] px-[calc(var(--px)*40)] text-center flex items-center justify-center bg-[#F8F5F5]">
 						<div>
 							Misunderstandings <strong>start</strong> to occur
 						</div>
 					</div>
-					<div class="item_problem rounded-[calc(var(--px)*5)] min-h-[calc(var(--px)*154)] px-[calc(var(--px)*40)] text-center flex items-center justify-center bg-white">
+					<div class="item_problem rounded-[calc(var(--px)*5)] min-h-[calc(var(--px)*130)] px-[calc(var(--px)*40)] text-center flex items-center justify-center bg-white">
 						<div>
 							Your team <strong>absorbs</strong>, without proof
 						</div>
 					</div>
-					<div class="item_problem rounded-[calc(var(--px)*5)] min-h-[calc(var(--px)*154)] px-[calc(var(--px)*40)] text-center flex items-center justify-center bg-[#F8F5F5]">
+					<div class="item_problem rounded-[calc(var(--px)*5)] min-h-[calc(var(--px)*130)] px-[calc(var(--px)*40)] text-center flex items-center justify-center bg-[#F8F5F5]">
 						<div>
 							Extra <strong>hours</strong> vanish into goodwill.
 						</div>

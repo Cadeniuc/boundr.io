@@ -386,6 +386,9 @@
   .min-h-\[calc\(var\(--px\)\*103\)\] {
     min-height: calc(var(--px) * 103);
   }
+  .min-h-\[calc\(var\(--px\)\*130\)\] {
+    min-height: calc(var(--px) * 130);
+  }
   .min-h-\[calc\(var\(--px\)\*154\)\] {
     min-height: calc(var(--px) * 154);
   }
@@ -472,6 +475,9 @@
   }
   .max-w-\[calc\(var\(--px\)\*312\)\] {
     max-width: calc(var(--px) * 312);
+  }
+  .max-w-\[calc\(var\(--px\)\*550\)\] {
+    max-width: calc(var(--px) * 550);
   }
   .max-w-\[calc\(var\(--px\)\*660\)\] {
     max-width: calc(var(--px) * 660);
