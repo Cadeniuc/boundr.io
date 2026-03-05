@@ -296,14 +296,14 @@
   .mt-\[calc\(var\(--px\)\*100\)\] {
     margin-top: calc(var(--px) * 100);
   }
-  .mt-\[calc\(var\(--px\)\*130\)\] {
-    margin-top: calc(var(--px) * 130);
-  }
   .mt-\[calc\(var\(--px\)\*134\)\] {
     margin-top: calc(var(--px) * 134);
   }
   .mt-\[calc\(var\(--px\)\*150\)\] {
     margin-top: calc(var(--px) * 150);
+  }
+  .mt-\[calc\(var\(--px\)\*170\)\] {
+    margin-top: calc(var(--px) * 170);
   }
   .mb-\[calc\(var\(--px\)\*23\)\] {
     margin-bottom: calc(var(--px) * 23);
@@ -1025,7 +1025,7 @@ body {
       inset-block: calc(var(--px) * 8);
     }
     .in_to_header {
-      max-width: 85%;
+      max-width: 80%;
       --tw-translate-y: calc(calc(var(--px) * 24) * -1);
       translate: var(--tw-translate-x) var(--tw-translate-y);
       .menu_header {

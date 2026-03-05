@@ -43,7 +43,7 @@ get_header();
 				</div>
 			</div>
 		</div>
-		<div class="mt-[calc(var(--px)*96)]">
+		<!-- <div class="mt-[calc(var(--px)*96)]">
 			<div class="grid grid-cols-3 max-w-[calc(var(--px)*1114)] mx-auto">
 				<div class="py-[calc(var(--px)*27)] px-[calc(var(--px)*40)] gap-[calc(var(--px)*23)] flex items-center">
 					<div class="flex-none w-[calc(var(--px)*56)] h-[calc(var(--px)*56)] rounded-[calc(var(--px)*6)] bg-white flex items-center justify-center">
@@ -88,8 +88,8 @@ get_header();
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="mt-[calc(var(--px)*130)]" id="mission">
+		</div> -->
+		<div class="mt-[calc(var(--px)*170)]" id="mission">
 			<div class="max-w-[calc(var(--px)*660)] ml-auto">
 				<div class="mb-[calc(var(--px)*40)]">
 					<div class="label"> 
