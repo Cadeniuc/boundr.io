@@ -265,6 +265,10 @@ body {
 }
 .accordion_feature {
     .js_accordion__group {
+        @apply border-b border-gray pb-[calc(var(--px)*15)];
+        &:not(:first-child) {
+            @apply pt-[calc(var(--px)*15)];
+        }
         .js_accordion__menu {
             @apply pl-[calc(var(--px)*72)] cursor-pointer relative text-white/60 hover:text-white transition duration-300;
             .inside_toggl_acr {

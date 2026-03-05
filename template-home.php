@@ -359,7 +359,7 @@ get_header();
 					</div>
 				</div>
 				<div class="w-[calc(100%-(var(--px)*806))] pr-[calc(var(--px)*60)] flex items-center accordion_feature">
-					<div class="space-y-[calc(var(--px)*30)] w-full">
+					<div class="w-full">
 						<div class="js_accordion__group">
 							<div class="js_accordion__menu" data-id="1">
 								<div class="inside_toggl_acr font_suisse">
