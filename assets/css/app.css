@@ -350,9 +350,9 @@ body {
     text-decoration: none;
     position: relative;
 }
-.input_under[data-underline-link]:before {
+/*.input_under[data-underline-link]:before {
     height: 1px;
-}
+}*/
 .home_title {
     display: block;
 }

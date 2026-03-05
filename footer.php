@@ -71,8 +71,21 @@
 								</div>
 							</div>
 							<div class="form_contact min-h-[calc(var(--px)*103)] relative">
-								<?php // echo do_shortcode('[contact-form-7 id="204fa81" title="Newsletter"]'); ?>
-								<?php echo do_shortcode('[contact-form-7 id="c742c7e" title="Contact form 1"]'); ?>
+								<?php
+$whitelist = ['127.0.0.1', '::1'];
+
+$ip   = $_SERVER['REMOTE_ADDR'] ?? '';
+$host = $_SERVER['HTTP_HOST'] ?? ''; // ex: boundr.io:8888
+
+$isLocal = in_array($ip, $whitelist, true) || str_contains($host, ':8888');
+
+if ($isLocal) {
+  echo do_shortcode('[contact-form-7 id="204fa81" title="Newsletter"]');
+} else {
+  echo do_shortcode('[contact-form-7 id="c742c7e" title="Contact form 1"]');
+}
+?>
+
 							</div>
 							<div class="mt-[calc(var(--px)*38)] flex gap-[calc(var(--px)*24)]">
 								<a data-underline-link="alt" class="inline-block" href="http://linkedin.com/" target="_blank">
