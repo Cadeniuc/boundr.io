@@ -21,7 +21,7 @@
 							</div>
 						</div>
 						<div class="w-[calc(100%-(var(--px)*513)-(var(--px)*433))] pr-[calc(var(--px)*100)]">
-							<ul class="site_menu space-y-[calc(var(--px)*12)] menu_line_a">
+							<ul class="site_menu space-y-[calc(var(--px)*12)] menu_underline">
 								<li>
 									<a href="#mission">
 										Our Mission
@@ -68,8 +68,8 @@
 									</button>
 								</div>
 							</form>
-							<div class="mt-[calc(var(--px)*70)]">
-								<a class="border-b inline-block transition hover:border-b-transparent duration-300" href="http://linkedin.com/" target="_blank">
+							<div class="mt-[calc(var(--px)*70)] flex gap-[calc(var(--px)*24)]">
+								<a data-underline-link="alt" class="inline-block" href="http://linkedin.com/" target="_blank">
 									Linkedin
 								</a>
 							</div>
@@ -85,7 +85,7 @@
 							<div>
 								Boundr © <?php the_time('Y'); ?> All rights reserved.
 							</div>
-							<ul class="flex gap-[calc(var(--px)*32)]">
+							<ul class="flex gap-[calc(var(--px)*32)] menu_line_a">
 								<li>
 									<a href="#">Privacy policy</a>
 								</li>

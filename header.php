@@ -39,43 +39,55 @@
 						<img class="w-[calc(var(--px)*110)] h-auto" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="">
 					</a>
 				</div>
-				<div class="flex-1">
-					<ul class="menu_header site_menu text_base font-medium">
-						<li>
-							<a href="#mission">
-								Our Mission
-							</a>
-						</li>
-						<li>
-							<a href="#solution">
-								What it does
-							</a>
-						</li>
-						<li>
-							<a href="#how_works">
-								How it works
-							</a>
-						</li>
-						<li>
-							<a href="#features">
-								Features
-							</a>
-						</li>
-						<li>
-							<a href="#pricing">
-								Pricing
-							</a>
-						</li>
-						<li>
-							<a href="#faq">
-								FAQ
-							</a>
-						</li>
-					</ul>
+				<div class="flex-1 flex justify-center relative wrap_menu_head">
+					<div class="relative">
+						<div class="follow_menu_active"></div>
+						<ul class="menu_header site_menu text_base font-medium">
+							<li>
+								<a href="#mission">
+									Our Mission
+								</a>
+							</li>
+							<li>
+								<a href="#solution">
+									What it does
+								</a>
+							</li>
+							<li>
+								<a href="#how_works">
+									How it works
+								</a>
+							</li>
+							<li>
+								<a href="#features">
+									Features
+								</a>
+							</li>
+							<li>
+								<a href="#pricing">
+									Pricing
+								</a>
+							</li>
+							<li>
+								<a href="#faq">
+									FAQ
+								</a>
+							</li>
+						</ul>
+					</div>
 				</div>
 				<div class="flex-none">
-					<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site small bg_cta">
-						Join the waitlist
+					<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site small" data-button-rotate-hover data-button-rotate>
+						<div class="button_bg"></div>
+						<div class="button_label__wrap">
+							<div class="button_label">
+								<span>Join the waitlist</span>
+							</div>
+
+							<div class="button_label" aria-hidden="true">
+								<span>Join the waitlist</span>
+							</div>
+						</div>
 					</a>
 				</div>
 			</div>

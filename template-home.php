@@ -22,8 +22,17 @@ get_header();
 						decision.
 					</div>
 					<div class="mt-[calc(var(--px)*40)]">
-						<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site bg_cta min-w-[calc(var(--px)*247)]">
-							Join the waitlist
+						<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]" data-button-rotate-hover data-button-rotate>
+							<div class="button_bg"></div>
+							<div class="button_label__wrap">
+								<div class="button_label">
+									<span>Join the waitlist</span>
+								</div>
+
+								<div class="button_label" aria-hidden="true">
+									<span>Join the waitlist</span>
+								</div>
+							</div>
 						</a>
 					</div>
 				</div>
@@ -321,19 +330,39 @@ get_header();
 		</div>
 		<div>
 			<div class="flex">
-				<div class="w-[calc(var(--px)*806)] pr-[calc(var(--px)*80)] flex items-center justify-center">
-					<img class="max-w-full mx-auto h-auto rounded-[calc(var(--px)*8)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/feature_1.svg" alt="">
-					<!-- <img class="max-w-full mx-auto h-auto rounded-[calc(var(--px)*8)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/feature_2.svg" alt=""> -->
+				<div class="w-[calc(var(--px)*806)] pr-[calc(var(--px)*80)]">
+					<div class="min-h-[calc(var(--px)*631)] relative" id="gallery--zoom-transition" data-barba-prevent="all">
+						<div class="item_img_feature absolute inset-0" data-id="1">
+							<a href="<?php echo get_template_directory_uri(); ?>/assets/img/feature_1.png" class="h-full max-w-full flex items-center justify-center">
+								<img class="max-w-full max-h-full w-auto mx-auto h-auto rounded-[calc(var(--px)*8)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/feature_1.png" alt="">
+							</a>
+						</div>
+						<div class="item_img_feature absolute inset-0" data-id="2">
+							<a href="<?php echo get_template_directory_uri(); ?>/assets/img/feature_2.png" class="h-full max-w-full flex items-center justify-center">
+								<img class="max-w-full max-h-full w-auto mx-auto h-auto rounded-[calc(var(--px)*8)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/feature_2.png" alt="">
+							</a>
+						</div>
+						<div class="item_img_feature absolute inset-0" data-id="3">
+							<a href="<?php echo get_template_directory_uri(); ?>/assets/img/feature_1.png" class="h-full max-w-full flex items-center justify-center">
+								<img class="max-w-full max-h-full w-auto mx-auto h-auto rounded-[calc(var(--px)*8)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/feature_1.png" alt="">
+							</a>
+						</div>
+						<div class="item_img_feature absolute inset-0" data-id="4">
+							<a href="<?php echo get_template_directory_uri(); ?>/assets/img/feature_2.png" class="h-full max-w-full flex items-center justify-center">
+								<img class="max-w-full max-h-full w-auto mx-auto h-auto rounded-[calc(var(--px)*8)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/feature_2.png" alt="">
+							</a>
+						</div>
+					</div>
 				</div>
-				<div class="w-[calc(100%-(var(--px)*806))] pr-[calc(var(--px)*60)] accordion_section">
-					<div class="space-y-[calc(var(--px)*30)]">
+				<div class="w-[calc(100%-(var(--px)*806))] pr-[calc(var(--px)*60)] flex items-center accordion_feature">
+					<div class="space-y-[calc(var(--px)*30)] w-full">
 						<div class="js_accordion__group">
-							<div class="pl-[calc(var(--px)*72)] cursor-pointer js_accordion__menu relative text-white/60 hover:text-white transition duration-300">
-								<div class="inside_toggl_acr font_suisse text-[calc(var(--px)*24)] leading-[129%] relative">
+							<div class="js_accordion__menu" data-id="1">
+								<div class="inside_toggl_acr font_suisse">
 									Handle scope decisions right <br>
 									from your inbox
 								</div>
-								<span class="absolute left-0 top-[calc(var(--px)*1)] t-top-[calc(var(--px)*6)] text-[calc(var(--px)*15)]">01</span>
+								<span class="counter_feature">01</span>
 							</div>
 							<div class="h-0 overflow-hidden js_accordion__content">
 								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] pt-[calc(var(--px)*69)] pb-[calc(var(--px)*69)] text-white/70">
@@ -352,11 +381,11 @@ get_header();
 							</div>
 						</div>
 						<div class="js_accordion__group">
-							<div class="pl-[calc(var(--px)*72)] cursor-pointer js_accordion__menu relative text-white/60 hover:text-white transition duration-300">
-								<div class="inside_toggl_acr font_suisse text-[calc(var(--px)*24)] leading-[129%] relative">
+							<div class="js_accordion__menu" data-id="2">
+								<div class="inside_toggl_acr font_suisse">
 									Email Notifications
 								</div>
-								<span class="absolute left-0 top-[calc(var(--px)*1)] t-top-[calc(var(--px)*6)] text-[calc(var(--px)*15)]">02</span>
+								<span class="counter_feature">02</span>
 							</div>
 							<div class="h-0 overflow-hidden js_accordion__content">
 								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] pb-[calc(var(--px)*69)] pt-[calc(var(--px)*69)] text-white/70">
@@ -375,11 +404,11 @@ get_header();
 							</div>
 						</div>
 						<div class="js_accordion__group">
-							<div class="pl-[calc(var(--px)*72)] cursor-pointer js_accordion__menu relative text-white/60 hover:text-white transition duration-300">
-								<div class="inside_toggl_acr font_suisse text-[calc(var(--px)*24)] leading-[129%] relative">
+							<div class="js_accordion__menu" data-id="3">
+								<div class="inside_toggl_acr font_suisse">
 									Explanation Ready
 								</div>
-								<span class="absolute left-0 top-[calc(var(--px)*1)] t-top-[calc(var(--px)*6)] text-[calc(var(--px)*15)]">03</span>
+								<span class="counter_feature">03</span>
 							</div>
 							<div class="h-0 overflow-hidden js_accordion__content">
 								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] pb-[calc(var(--px)*69)] pt-[calc(var(--px)*69)] text-white/70">
@@ -398,11 +427,11 @@ get_header();
 							</div>
 						</div>
 						<div class="js_accordion__group">
-							<div class="pl-[calc(var(--px)*72)] cursor-pointer js_accordion__menu relative text-white/60 hover:text-white transition duration-300">
-								<div class="inside_toggl_acr font_suisse text-[calc(var(--px)*24)] leading-[129%] relative">
+							<div class="js_accordion__menu" data-id="4">
+								<div class="inside_toggl_acr font_suisse">
 									Analytics Dashboard
 								</div>
-								<span class="absolute left-0 top-[calc(var(--px)*1)] t-top-[calc(var(--px)*6)] text-[calc(var(--px)*15)]">04</span>
+								<span class="counter_feature">04</span>
 							</div>
 							<div class="h-0 overflow-hidden js_accordion__content">
 								<div class="space-y-[calc(var(--px)*18)] pl-[calc(var(--px)*72)] pb-[calc(var(--px)*69)] pt-[calc(var(--px)*69)] text-white/70">
@@ -432,8 +461,17 @@ get_header();
 						benefits	
 					</h2>
 					<div class="mt-[calc(var(--px)*100)]">
-						<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site bg_cta min-w-[calc(var(--px)*247)]">
-							Join the waitlist
+						<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]" data-button-rotate-hover data-button-rotate>
+							<div class="button_bg"></div>
+							<div class="button_label__wrap">
+								<div class="button_label">
+									<span>Join the waitlist</span>
+								</div>
+
+								<div class="button_label" aria-hidden="true">
+									<span>Join the waitlist</span>
+								</div>
+							</div>
 						</a>
 					</div>
 				</div>
@@ -627,8 +665,17 @@ get_header();
 						</div>
 					</div>
 					<div class="pl-[calc(var(--px)*78)]">
-						<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site bg_cta min-w-[calc(var(--px)*247)]">
-							Join the waitlist
+						<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]" data-button-rotate-hover data-button-rotate>
+							<div class="button_bg"></div>
+							<div class="button_label__wrap">
+								<div class="button_label">
+									<span>Join the waitlist</span>
+								</div>
+
+								<div class="button_label" aria-hidden="true">
+									<span>Join the waitlist</span>
+								</div>
+							</div>
 						</a>
 					</div>
 				</div>
@@ -695,8 +742,17 @@ get_header();
 							and it pays for itself.
 						</div>
 						<div>
-							<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site bg_cta min-w-[calc(var(--px)*247)]">
-								Join the waitlist
+							<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]" data-button-rotate-hover data-button-rotate>
+								<div class="button_bg"></div>
+								<div class="button_label__wrap">
+									<div class="button_label">
+										<span>Join the waitlist</span>
+									</div>
+
+									<div class="button_label" aria-hidden="true">
+										<span>Join the waitlist</span>
+									</div>
+								</div>
 							</a>
 						</div>
 					</div>
@@ -840,8 +896,17 @@ get_header();
 				changing how you work.
 			</h4>
 			<div class="mt-[calc(var(--px)*48)]">
-				<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site bg_cta min-w-[calc(var(--px)*247)]">
-					Join the waitlist
+				<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]" data-button-rotate-hover data-button-rotate>
+					<div class="button_bg"></div>
+					<div class="button_label__wrap">
+						<div class="button_label">
+							<span>Join the waitlist</span>
+						</div>
+
+						<div class="button_label" aria-hidden="true">
+							<span>Join the waitlist</span>
+						</div>
+					</div>
 				</a>
 			</div>
 		</div>

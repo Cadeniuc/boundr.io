@@ -4,6 +4,7 @@ $(window).on('resize', function() {
     windowWidth = $(window).width()
 })
 gsap.config({ nullTargetWarn: false })
+CustomEase.create("osmo","0.625, 0.05, 0, 1")
 let textSplit, linesSplit
 let transitionOffset = 600
 let scroll, localhost = (window.location.host === 'boundr.io:8888')
@@ -273,6 +274,7 @@ function initScript() {
     // initSplitText()
     scrollTriggerAnimations()
     initAccordion()
+    initAccordionFeature()
 }
 
 function animationOnPageLoad() {
@@ -346,6 +348,12 @@ function initBarbaNavUpdate(data) {
 }
 
 function initOther() {
+
+    initRotateButtonsCalc()
+    initRotateButtonsAnim()
+    initFeaturePhotoswipeSingle();
+
+    $('.menu_underline a').attr('data-underline-link', '')
 
     $('.site_menu a,.go_to_screen').on('click', function (e) {
         e.preventDefault()
@@ -490,6 +498,186 @@ function headingWithText() {
     })
 }
 
+function initFeaturePhotoswipeSingle() {
+  const root = document.querySelector('#gallery--zoom-transition');
+  if (!root) return;
+  if (root.dataset.pswpBound === '1') return;
+  root.dataset.pswpBound = '1';
+
+  const lightbox = new PhotoSwipeLightbox({
+    pswpModule: PhotoSwipe,
+    history: false,
+    showHideAnimationType: 'zoom',
+    paddingFn: (viewportSize) => {
+      const padY = viewportSize.x < 768 ? 16 : 24;
+      const padX = viewportSize.x < 768 ? 12 : 24;
+      return { top: padY, bottom: padY, left: padX, right: padX };
+    }
+  });
+
+  lightbox.addFilter('thumbEl', (thumbnail, itemData) => {
+    return itemData?.thumbEl || thumbnail;
+  });
+  lightbox.addFilter('placeholderSrc', (placeholderSrc, content) => {
+    return content?.data?.msrc || placeholderSrc;
+  });
+
+  lightbox.on('openingAnimationStart', () => {
+    scroll.stop();
+  });
+  lightbox.on('closingAnimationStart', () => {
+    scroll.start();
+  });
+
+  lightbox.init();
+
+  root.addEventListener(
+    'click',
+    (ev) => {
+      const a = ev.target.closest('a[href]');
+      if (!a) return;
+
+      const img = a.querySelector('img');
+      if (!img) return;
+
+      ev.preventDefault();
+
+      const w = img.naturalWidth || img.width || 1600;
+      const h = img.naturalHeight || img.height || 900;
+
+      const items = [
+        {
+          src: a.href,
+          width: w,
+          height: h,
+          msrc: img.currentSrc || img.src,
+          thumbEl: img,
+        },
+      ];
+
+      lightbox.loadAndOpen(0, items, { x: ev.clientX, y: ev.clientY });
+    },
+    true
+  );
+}
+
+function initRotateButtonsCalc() {
+    const buttons = document.querySelectorAll("[data-button-rotate]");
+
+    function calculate(button) {
+        const labels = button.querySelectorAll(".button_label");
+        if (!labels.length) return;
+
+        const maxLength = Math.max(
+            ...[...labels].map(l => (l.textContent || "").trim().length || 0)
+            );
+
+        let value = Math.round(100 + 30 * (12 + 6 * maxLength));
+
+        if (button.dataset.size === "full") {
+            value *= 3;
+        }
+
+        value = Math.max(100, Math.min(value, 10000));
+        button.style.setProperty("--y", value + "%");
+    }
+
+    buttons.forEach(button => {
+        calculate(button);
+
+        const observer = new MutationObserver(() => calculate(button));
+        button.querySelectorAll(".button_label").forEach(label => {
+            observer.observe(label, {
+                characterData: true,
+                subtree: true,
+                childList: true
+            });
+        });
+    });
+
+    window.addEventListener("resize", () => {
+        buttons.forEach(calculate);
+    });
+}
+
+function initRotateButtonsAnim() {
+    const triggers = document.querySelectorAll("[data-button-rotate-hover]");
+
+    triggers.forEach(trigger => {
+        const button = trigger.closest("[data-button-rotate]") || trigger;
+        let lastTime = 0;
+        let tween = null;
+        let isHovering = false;
+        let pending = false;
+
+        function canAnimate() {
+            const now = performance.now();
+            if (now - lastTime < 100) return false;
+            lastTime = now;
+            return true;
+        }
+
+        function getElements() {
+            return button.querySelectorAll(".button_label");
+        }
+
+        function cleanup(elements) {
+            gsap.set(elements, { clearProps: "rotation" });
+            tween = null;
+        }
+
+        function startRotate() {
+            const elements = getElements();
+            if (!elements.length) return;
+
+            const rotationValue =
+            parseFloat(getComputedStyle(button).getPropertyValue("--r")) || 120;
+
+            gsap.killTweensOf(elements);
+            tween = gsap.to(elements, {
+                rotation: "+=" + rotationValue,
+                duration: 0.5,
+                ease: "osmo",
+                stagger: 0.075,
+                overwrite: "auto",
+                onComplete: () => {
+                    cleanup(elements);
+                    if (pending && isHovering) {
+                        pending = false;
+                        startRotate();
+                    } else {
+                        pending = false;
+                    }
+                },
+                onInterrupt: () => {
+                    cleanup(elements);
+                    pending = false;
+                },
+            });
+        }
+
+        function onEnter() {
+            isHovering = true;
+            if (!canAnimate()) return;
+
+            if (tween && tween.isActive()) {
+                pending = true;
+                return;
+            }
+
+            startRotate();
+        }
+
+        function onLeave() {
+            isHovering = false;
+            pending = false;
+        }
+
+        trigger.addEventListener("pointerenter", onEnter);
+        trigger.addEventListener("pointerleave", onLeave);
+    });
+}
+
 function initAccordion() {
   const sections = gsap.utils.toArray('.accordion_section');
   if (!sections.length) return;
@@ -506,11 +694,19 @@ function initAccordion() {
     });
 
     function toggleAnimation(menu) {
-      const selectedReversedState = menu.animation.reversed();
+        const selectedReversedState = menu.animation.reversed();
+        const currentGroup = menu.closest('.js_accordion__group');
 
-      animations.forEach((anim) => anim.reverse());
+        animations.forEach((anim) => anim.reverse());
+        groups.forEach((group) => group.classList.remove('active'));
 
-      menu.animation.reversed(!selectedReversedState);
+        if (selectedReversedState) {
+            menu.animation.play();
+            currentGroup.classList.add('active');
+        } else {
+            menu.animation.reverse();
+            currentGroup.classList.remove('active');
+        }
     }
 
     function createAnimation(groupEl) {
@@ -549,4 +745,111 @@ function initAccordion() {
       animations.push(tlAccordion);
     }
   });
+}
+
+function initAccordionFeature() {
+  const section = document.querySelector('.accordion_feature');
+  if (!section) return;
+
+  const groups = gsap.utils.toArray(section.querySelectorAll('.js_accordion__group'));
+  const menus = gsap.utils.toArray(section.querySelectorAll('.js_accordion__menu'));
+  const images = gsap.utils.toArray(document.querySelectorAll('.item_img_feature'));
+  const animations = [];
+
+  groups.forEach(group => createAccordionAnimation(group));
+
+  menus.forEach(menu => {
+    menu.addEventListener('click', () => toggle(menu));
+  });
+
+  if (menus[0]?.animation) {
+    animations.forEach(a => a.progress(0).pause().reversed(true));
+    menus.forEach(m => m.closest('.js_accordion__group')?.classList.remove('active'));
+    menus[0].animation.progress(1).pause().reversed(false);
+    menus[0].closest('.js_accordion__group')?.classList.add('active');
+
+    showImageByMenu(menus[0], true);
+    ScrollTrigger.refresh();
+  }
+
+  function toggle(menu) {
+    const wasClosed = menu.animation.reversed();
+
+    animations.forEach(a => a.reverse());
+    menus.forEach(m => m.closest('.js_accordion__group')?.classList.remove('active'));
+
+    menu.animation.reversed(!wasClosed);
+
+    if (wasClosed) {
+      menu.closest('.js_accordion__group')?.classList.add('active');
+      showImageByMenu(menu, false);
+    }
+  }
+
+  function showImageByMenu(menu, immediate = false) {
+    let id = menu.dataset.id;
+    if (!id) id = String(menus.indexOf(menu) + 1);
+
+    const delay = immediate ? 0 : 0.12;
+    const showDuration = immediate ? 0 : 0.95;
+    const hideDuration = immediate ? 0 : 0.22;
+
+    const activeImg = images.find(img => img.dataset.id === id);
+    const inactiveImgs = images.filter(img => img.dataset.id !== id);
+
+    gsap.killTweensOf(images);
+
+    inactiveImgs.forEach(img => {
+      gsap.set(img, { zIndex: 1 });
+      gsap.to(img, {
+        autoAlpha: 0,
+        scale: 0.985,
+        duration: hideDuration,
+        ease: 'power2.in',
+        overwrite: true
+      });
+    });
+
+    if (!activeImg) return;
+
+    gsap.set(activeImg, { zIndex: 2 });
+
+    if (immediate) {
+      gsap.set(activeImg, { autoAlpha: 1, scale: 1, filter: 'blur(0px)' });
+      return;
+    }
+
+    gsap.fromTo(
+      activeImg,
+      { autoAlpha: 0, scale: 1.06, filter: 'blur(14px)' },
+      {
+        autoAlpha: 1,
+        scale: 1,
+        filter: 'blur(0px)',
+        duration: showDuration,
+        delay,
+        ease: 'power3.out',
+        overwrite: true
+      }
+    );
+  }
+
+  function createAccordionAnimation(group) {
+    const menu = group.querySelector('.js_accordion__menu');
+    const box = group.querySelector('.js_accordion__content');
+    if (!menu || !box) return;
+
+    gsap.set(box, { height: 'auto' });
+
+    const tl = gsap.timeline({
+      reversed: true,
+      paused: true,
+      onComplete: () => ScrollTrigger.refresh()
+    });
+
+    tl.from(box, { height: 0, duration: 0.5, ease: 'power3.inOut' });
+
+    menu.animation = tl;
+    animations.push(tl);
+  }
 }
