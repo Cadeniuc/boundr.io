@@ -715,9 +715,6 @@
   .pb-\[calc\(var\(--px\)\*15\)\] {
     padding-bottom: calc(var(--px) * 15);
   }
-  .pb-\[calc\(var\(--px\)\*40\)\] {
-    padding-bottom: calc(var(--px) * 40);
-  }
   .pb-\[calc\(var\(--px\)\*63\)\] {
     padding-bottom: calc(var(--px) * 63);
   }
@@ -1063,10 +1060,9 @@ body {
 }
 .follow_menu_active {
   position: absolute;
-  inset-block: calc(var(--spacing) * 0);
+  top: calc(var(--spacing) * 0);
   left: calc(var(--spacing) * 0);
   z-index: -1;
-  width: 300px;
   border-radius: calc(var(--px) * 5);
   background-color: color-mix(in srgb, #7F838B 10%, transparent);
   @supports (color: color-mix(in lab, red, red)) {

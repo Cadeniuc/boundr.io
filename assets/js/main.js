@@ -739,6 +739,18 @@ function headerMenuActive() {
 	            return;
 	        }
 
+	        const currentScaleY = parseFloat(gsap.getProperty(follow, 'scaleY')) || 1;
+	        if (currentScaleY < 0.999) {
+	            gsap.to(follow, {
+	                autoAlpha: 1,
+	                scaleY: 1,
+	                duration: 0.22,
+	                ease: 'power3.out',
+	                overwrite: 'auto',
+	            });
+	            return;
+	        }
+
 	        gsap.to(follow, {
 	            autoAlpha: 1,
 	            duration: 0.18,
@@ -759,14 +771,46 @@ function headerMenuActive() {
 
 	        if (immediate) {
 	            gsap.killTweensOf(follow);
+	            if (isFollowHidden()) {
+	                gsap.fromTo(
+	                    follow,
+	                    { autoAlpha: 0, scaleY: 0.6, x, top, width: 0, height: 0 },
+	                    {
+	                        autoAlpha: 1,
+	                        scaleY: 1,
+	                        x,
+	                        top,
+	                        width: w,
+	                        height: h,
+	                        duration: 0.28,
+	                        ease: 'power3.out',
+	                        overwrite: 'auto',
+	                    }
+	                );
+	                return;
+	            }
 	            gsap.set(follow, { x, top, width: w, height: h });
 	            showFollow(true);
 	            return;
 	        }
 	
 	        if (isFollowHidden()) {
-	            gsap.set(follow, { x, top, width: w, height: h });
-	            showFollow(false);
+	            gsap.killTweensOf(follow);
+	            gsap.fromTo(
+	                follow,
+	                { autoAlpha: 0, scaleY: 0.6, x, top, width: 0, height: 0 },
+	                {
+	                    autoAlpha: 1,
+	                    scaleY: 1,
+	                    x,
+	                    top,
+	                    width: w,
+	                    height: h,
+	                    duration: 0.32,
+	                    ease: 'power3.out',
+	                    overwrite: 'auto',
+	                }
+	            );
 	            return;
 	        }
 	
@@ -789,7 +833,7 @@ function headerMenuActive() {
 	            state.pendingSyncRaf = 0;
 	            const targetLink = state.hoverLink || state.currentLink;
 	            if (targetLink) {
-	                moveFollowTo(targetLink, true);
+	                moveFollowTo(targetLink, false);
 	                return;
 	            }
 	            if (!state.isHovering) hideFollow(true);
@@ -905,7 +949,7 @@ function headerMenuActive() {
             });
 
             link.addEventListener('click', () => {
-                setActiveLink(link, { immediateFollow: true });
+                setActiveLink(link, { immediateFollow: false });
             });
         });
 
@@ -915,7 +959,7 @@ function headerMenuActive() {
                 return;
             }
             const next = links.find((a) => a.getAttribute('href') === window.location.hash);
-            if (next) setActiveLink(next, { immediateFollow: true });
+            if (next) setActiveLink(next, { immediateFollow: false });
         };
         window.addEventListener('hashchange', state.hashHandler);
 

@@ -202,7 +202,7 @@ body {
     }
 }
 .follow_menu_active {
-    @apply absolute w-[300px] inset-y-0 left-0 bg-gray/10 z-[-1] rounded-[calc(var(--px)*5)];
+    @apply absolute left-0 top-0 bg-gray/10 z-[-1] rounded-[calc(var(--px)*5)];
 }
 .bg_cta {
     background: linear-gradient(90deg, #6F59E0 0%, #AE7DFD 100%);
