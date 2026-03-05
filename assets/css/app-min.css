@@ -712,6 +712,9 @@
   .pb-\[110px\] {
     padding-bottom: 110px;
   }
+  .pb-\[calc\(var\(--px\)\*15\)\] {
+    padding-bottom: calc(var(--px) * 15);
+  }
   .pb-\[calc\(var\(--px\)\*40\)\] {
     padding-bottom: calc(var(--px) * 40);
   }

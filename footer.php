@@ -11,7 +11,7 @@
 
 ?>
 
-		<footer class="pb-[calc(var(--px)*40)] pt-[calc(var(--px)*75)]">
+		<footer class="pb-[calc(var(--px)*15)] pt-[calc(var(--px)*75)]">
 			<div class="container">
 				<div class="mb-[calc(var(--px)*250)]">
 					<div class="flex">
