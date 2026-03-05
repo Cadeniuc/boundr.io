@@ -30,9 +30,10 @@ function initLoader() {
     tl.to('.home_title p', {yPercent:0,rotate:0,filter:'blur(0px)',stagger:.1,duration:1.4,ease: "expo.out",}, '<+=.2')
     tl.from('.content_top > div', {autoAlpha:0,y:10,filter:'blur(10px)',stagger:.2,duration:1.4,ease: "expo.out",}, '<+=.4')
 
-    tl.call(function() {
-        animationOnPageLoad()
-    }, null, '<-=.1')
+	    tl.call(function() {
+	        animateSliderTopHome()
+	        animationOnPageLoad()
+	    }, null, '<-=.1')
 
     tl.call(function() {
         scroll.start()
@@ -61,10 +62,10 @@ function pageTransitionOut() {
 
     initSplitText()
 
-    tl.to('.preloader_backdrop', {delay:.1,autoAlpha:0,duration:.6})    
-    tl.call(function() {
-        animationOnPageLoad()
-    }, null, '<')
+	    tl.to('.preloader_backdrop', {delay:.1,autoAlpha:0,duration:.6})    
+	    tl.call(function() {
+	        animationOnPageLoad()
+	    }, null, '<')
 
     tl.call(function() {
         scroll.start()
@@ -383,12 +384,31 @@ function scrollTriggerAnimations() {
                     introHold + i * 0.22
                     );
             });
-        }
-    }
+	        }
+	    }
 
-    gsap.to('.anim_star_decor', {
-        rotate: 500,
-        ease: 'none',
+	    gsap.utils.toArray('.image_cont_serv').forEach((image) => {
+	        if (image.dataset.imageContServBound === '1') return;
+	        image.dataset.imageContServBound = '1';
+
+	        gsap.set(image, { transformOrigin: 'center left', transformStyle: 'preserve-3d' });
+	        gsap.from(image, {
+	            scale: 0.3,
+	            rotateY: 110,
+	            rotateX: -30,
+	            duration: 1.2,
+	            ease: 'osmo',
+	            scrollTrigger: {
+	                trigger: image,
+	                start: 'top 80%',
+	                toggleActions: 'play none none reverse',
+	            },
+	        });
+	    });
+	
+	    gsap.to('.anim_star_decor', {
+	        rotate: 500,
+	        ease: 'none',
         scrollTrigger: {
             trigger: '.anim_star_decor',
             start: 'top bottom+=5%',
@@ -1236,4 +1256,92 @@ function initCf7BodySubmittingClass() {
         },
         true
     );
+}
+
+function animateSliderTopHome() {
+    const root = document.getElementById('slider_emails');
+    if (!root) return;
+
+    const slides = gsap.utils.toArray(root.querySelectorAll('.item_email_anim'));
+    if (slides.length < 2) return;
+
+    if (root.__emailTl) {
+        root.__emailTl.kill();
+        root.__emailTl = null;
+    }
+
+    gsap.set(root, { perspective: 500 });
+
+    const inDur = 0.95;
+    const hold = 1.9;
+    const outDur = 0.7;
+    const overlap = 0.25;
+    const step = inDur + hold;
+    const yFrom = 36;
+    const yTo = -28;
+
+    slides.forEach((slide, i) => {
+        const z = slides.length - i;
+        const rotZ = i % 2 === 0 ? -6 : 6;
+        const rotY = i % 2 === 0 ? -10 : 10;
+
+        gsap.set(slide, {
+            zIndex: z,
+            autoAlpha: 0,
+            y: yFrom,
+            scale: 0.985,
+            rotateY:40,
+            skewY: 18,
+            filter: 'blur(10px)',
+            transformOrigin: 'top left',
+            transformStyle: 'preserve-3d',
+            force3D: true,
+            willChange: 'transform, opacity, filter',
+        });
+    });
+
+    const tl = gsap.timeline({ repeat: -1 });
+
+    slides.forEach((slide, i) => {
+        const rotZ = i % 2 === 0 ? -6 : 6;
+        const rotY = i % 2 === 0 ? -10 : 10;
+        const t = i * step;
+
+        tl.fromTo(slide, {
+            autoAlpha: 0,
+            y: yFrom,
+            scale: 0.985,
+            rotateY: 40,
+            skewY: 18,
+            filter: 'blur(10px)',
+        }, {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1,
+            rotateY: 0,
+            skewY: 0,
+            filter: 'blur(0px)',
+            duration: inDur,
+            ease: 'osmo',
+            overwrite: 'auto',
+        }, t);
+
+        tl.to(
+            slide,
+            {
+                autoAlpha: 0,
+                y: yTo,
+                scale: 0.985,
+                rotateY:40,
+                skewY: 18,
+                filter: 'blur(10px)',
+                duration: outDur,
+                ease: 'power2.inOut',
+                overwrite: 'auto',
+            },
+            t + inDur + hold - overlap
+        );
+    });
+
+    root.__emailTl = tl;
 }

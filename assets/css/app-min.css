@@ -353,6 +353,9 @@
   .inline-block {
     display: inline-block;
   }
+  .aspect-\[2\.39\] {
+    aspect-ratio: 2.39;
+  }
   .h-0 {
     height: calc(var(--spacing) * 0);
   }
@@ -401,9 +404,6 @@
   .w-\[calc\(100\%-\(var\(--px\)\*433\)\)\] {
     width: calc(100% - (var(--px) * 433));
   }
-  .w-\[calc\(100\%-\(var\(--px\)\*439\)\)\] {
-    width: calc(100% - (var(--px) * 439));
-  }
   .w-\[calc\(100\%-\(var\(--px\)\*457\)\)\] {
     width: calc(100% - (var(--px) * 457));
   }
@@ -445,9 +445,6 @@
   }
   .w-\[calc\(var\(--px\)\*433\)\] {
     width: calc(var(--px) * 433);
-  }
-  .w-\[calc\(var\(--px\)\*439\)\] {
-    width: calc(var(--px) * 439);
   }
   .w-\[calc\(var\(--px\)\*457\)\] {
     width: calc(var(--px) * 457);
