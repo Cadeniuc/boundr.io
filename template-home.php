@@ -278,7 +278,7 @@ get_header();
 		</div>
 		<div class="grid grid-cols-3 gap-[calc(var(--px)*50)]">
 			<div>
-				<div class="heading_h3 font_suisse min-h-[calc(var(--px)*84)] mb-[calc(var(--px)*27)]">
+				<div class="heading_h4 font_suisse min-h-[calc(var(--px)*87)] mb-[calc(var(--px)*10)]">
 					Define your scope once 
 				</div>
 				<div class="text_base">
@@ -290,7 +290,7 @@ get_header();
 				</div>
 			</div>
 			<div>
-				<div class="heading_h3 font_suisse min-h-[calc(var(--px)*84)] mb-[calc(var(--px)*27)]">
+				<div class="heading_h4 font_suisse min-h-[calc(var(--px)*87)] mb-[calc(var(--px)*10)]">
 					Boundr tracks your project
 				</div>
 				<div class="text_base">
@@ -302,7 +302,7 @@ get_header();
 				</div>
 			</div>
 			<div>
-				<div class="heading_h3 font_suisse min-h-[calc(var(--px)*84)] mb-[calc(var(--px)*27)]">
+				<div class="heading_h4 font_suisse min-h-[calc(var(--px)*87)] mb-[calc(var(--px)*10)]">
 					See project scope health
 				</div>
 				<div class="text_base">

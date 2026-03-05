@@ -269,6 +269,9 @@
   .mt-\[calc\(var\(--px\)\*11\)\] {
     margin-top: calc(var(--px) * 11);
   }
+  .mt-\[calc\(var\(--px\)\*30\)\] {
+    margin-top: calc(var(--px) * 30);
+  }
   .mt-\[calc\(var\(--px\)\*35\)\] {
     margin-top: calc(var(--px) * 35);
   }
@@ -304,6 +307,9 @@
   }
   .mt-\[calc\(var\(--px\)\*170\)\] {
     margin-top: calc(var(--px) * 170);
+  }
+  .mb-\[calc\(var\(--px\)\*10\)\] {
+    margin-bottom: calc(var(--px) * 10);
   }
   .mb-\[calc\(var\(--px\)\*23\)\] {
     margin-bottom: calc(var(--px) * 23);
