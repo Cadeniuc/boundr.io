@@ -91,11 +91,26 @@ body {
     }
 }
 .btn_site {
-    --r: 20deg;
     @apply text-[calc(var(--px)*16)] h-[calc(var(--px)*59)] px-[calc(var(--px)*40)] rounded-[calc(var(--px)*5)] font-medium cursor-pointer text-white flex justify-center items-center inline-flex;
     position: relative;
+    z-index: 1;
     overflow: hidden;
+    &:not(.submit_newslett) {
+        background: linear-gradient(90deg, #6F59E0 0%, #AE7DFD 100%);
+        &:after {
+            content: '';
+            position: absolute;
+            background: #6F59E0;
+            inset: 0;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity var(--animation-default-half);
+        }
+    }
     &:hover {
+        &:after {
+            opacity: 1;
+        }
         .button_bg {
             &:after {
                 opacity: 1;
@@ -104,10 +119,10 @@ body {
     }
     .button_bg {
         z-index: 0;
-        background: linear-gradient(90deg, #6F59E0 0%, #AE7DFD 100%);
         pointer-events: none;
         position: absolute;
         inset: 0%;
+        background: linear-gradient(90deg, #6F59E0 0%, #AE7DFD 100%);
         &:after {
             content: '';
             position: absolute;

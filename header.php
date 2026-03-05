@@ -77,17 +77,8 @@
 					</div>
 				</div>
 				<div class="flex-none">
-					<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site small" data-button-rotate-hover data-button-rotate>
-						<div class="button_bg"></div>
-						<div class="button_label__wrap">
-							<div class="button_label">
-								<span>Join the waitlist</span>
-							</div>
-
-							<div class="button_label" aria-hidden="true">
-								<span>Join the waitlist</span>
-							</div>
-						</div>
+					<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site small">
+						Join the waitlist
 					</a>
 				</div>
 			</div>

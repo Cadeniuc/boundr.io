@@ -422,6 +422,9 @@
   .w-\[calc\(var\(--px\)\*18\)\] {
     width: calc(var(--px) * 18);
   }
+  .w-\[calc\(var\(--px\)\*22\)\] {
+    width: calc(var(--px) * 22);
+  }
   .w-\[calc\(var\(--px\)\*30\)\] {
     width: calc(var(--px) * 30);
   }
@@ -493,6 +496,9 @@
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .cursor-pointer {
+    cursor: pointer;
   }
   .resize {
     resize: both;
@@ -915,7 +921,6 @@ body {
   }
 }
 .btn_site {
-  --r: 20deg;
   display: flex;
   display: inline-flex;
   height: calc(var(--px) * 59);
@@ -929,8 +934,24 @@ body {
   font-weight: var(--font-weight-medium);
   color: var(--color-white);
   position: relative;
+  z-index: 1;
   overflow: hidden;
+  &:not(.submit_newslett) {
+    background: linear-gradient(90deg, #6F59E0 0%, #AE7DFD 100%);
+    &:after {
+      content: '';
+      position: absolute;
+      background: #6F59E0;
+      inset: 0;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity var(--animation-default-half);
+    }
+  }
   &:hover {
+    &:after {
+      opacity: 1;
+    }
     .button_bg {
       &:after {
         opacity: 1;
@@ -939,10 +960,10 @@ body {
   }
   .button_bg {
     z-index: 0;
-    background: linear-gradient(90deg, #6F59E0 0%, #AE7DFD 100%);
     pointer-events: none;
     position: absolute;
     inset: 0%;
+    background: linear-gradient(90deg, #6F59E0 0%, #AE7DFD 100%);
     &:after {
       content: '';
       position: absolute;

@@ -23,17 +23,8 @@ get_header();
 						decision.
 					</div>
 					<div class="mt-[calc(var(--px)*40)]">
-						<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]" data-button-rotate-hover data-button-rotate>
-							<div class="button_bg"></div>
-							<div class="button_label__wrap">
-								<div class="button_label">
-									<span>Join the waitlist</span>
-								</div>
-
-								<div class="button_label" aria-hidden="true">
-									<span>Join the waitlist</span>
-								</div>
-							</div>
+						<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]">
+							Join the waitlist
 						</a>
 					</div>
 				</div>
@@ -121,19 +112,17 @@ get_header();
 <section class="my-[calc(var(--px)*130)]">
 	<div class="container">
 		<div class="flex">
-			<div class="w-[calc(100%-(var(--px)*660))] pr-[calc(var(--px)*100)]">
-				<div class="sticky top_sticky_section">
-					<div class="mb-[calc(var(--px)*40)]">
-						<div class="label"> 
-							THE PROBLEM
-						</div>
+			<div class="w-[calc(100%-(var(--px)*660))] pr-[calc(var(--px)*50)]">
+				<div class="mb-[calc(var(--px)*40)]">
+					<div class="label"> 
+						THE PROBLEM
 					</div>
-					<div>
-						<h2 class="heading_h2 font_suisse">
-							The hidden cost of <br>
-							loose scope
-						</h2>
-					</div>
+				</div>
+				<div>
+					<h2 class="heading_h2 font_suisse">
+						The hidden cost of <br>
+						loose scope
+					</h2>
 				</div>
 			</div>
 			<div class="w-[calc(var(--px)*660)]">
@@ -231,7 +220,7 @@ get_header();
 			<div class="border-r border-r-[0.5px] border-white/40 item_solution">
 				<div class="follow_active_cars bg-primary absolute top-0 left-0 z-[-1]"></div>
 				<div class="p-[calc(var(--px)*50)] min-h-[calc(var(--px)*364)] flex items-center min-h-full justify-center">
-					<svg class="anim_star_decor w-[calc(var(--px)*165)] h-auto" width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<svg class="w-[calc(var(--px)*165)] h-auto" width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path fill="#1B434B" d="M64.0014 19.1942L45.7514 0.956388C44.4753 -0.318796 42.4057 -0.318796 41.1297 0.956388L35.7618 6.32297C33.9492 8.13437 31.0116 8.13437 29.199 6.32297L23.8288 0.956388C22.5527 -0.318796 20.4831 -0.318796 19.2071 0.956388L0.957029 19.1942C-0.31901 20.4694 -0.31901 22.5376 0.957029 23.8128L6.32946 29.1817C8.14207 30.9931 8.14207 33.9287 6.32946 35.7378L0.957029 41.1044C-0.31901 42.3796 -0.31901 44.4478 0.957029 45.723L19.2071 63.9609C20.4831 65.236 22.5527 65.236 23.8288 63.9609L29.2012 58.5943C31.0138 56.7851 33.9492 56.7851 35.7618 58.5943L41.1297 63.9586C42.4057 65.2338 44.4753 65.2338 45.7514 63.9586L64.0014 45.7208C65.2775 44.4456 65.2775 42.3773 64.0014 41.1022L58.629 35.7356C56.8164 33.9242 56.8164 30.9886 58.629 29.1794L64.0014 23.8106C65.2797 22.5376 65.2797 20.4694 64.0014 19.1942ZM54.9609 32.7166C43.6074 34.4401 34.4699 43.5737 32.752 54.8971L32.4815 55.172L32.2222 54.9242C31.3678 49.3143 28.7841 44.218 24.7463 40.1897C20.7131 36.1546 15.6157 33.5705 10.0268 32.7324L9.75628 32.462L10.0155 32.2029C21.3579 30.4681 30.484 21.3481 32.22 10.0133L32.4837 9.75426L32.743 10.0133C33.6042 15.6165 36.1879 20.706 40.2166 24.732C44.2454 28.7626 49.3383 31.3468 54.9474 32.2007L55.2067 32.4598L54.9609 32.7166Z" />
 					</svg>
 				</div>
@@ -473,17 +462,8 @@ get_header();
 						benefits	
 					</h2>
 					<div class="mt-[calc(var(--px)*100)]">
-						<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]" data-button-rotate-hover data-button-rotate>
-							<div class="button_bg"></div>
-							<div class="button_label__wrap">
-								<div class="button_label">
-									<span>Join the waitlist</span>
-								</div>
-
-								<div class="button_label" aria-hidden="true">
-									<span>Join the waitlist</span>
-								</div>
-							</div>
+						<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]">
+							Join the waitlist
 						</a>
 					</div>
 				</div>
@@ -681,17 +661,8 @@ get_header();
 						</div>
 					</div>
 					<div class="pl-[calc(var(--px)*78)]">
-						<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]" data-button-rotate-hover data-button-rotate>
-							<div class="button_bg"></div>
-							<div class="button_label__wrap">
-								<div class="button_label">
-									<span>Join the waitlist</span>
-								</div>
-
-								<div class="button_label" aria-hidden="true">
-									<span>Join the waitlist</span>
-								</div>
-							</div>
+						<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]">
+							Join the waitlist
 						</a>
 					</div>
 				</div>
@@ -758,17 +729,8 @@ get_header();
 							and it pays for itself.
 						</div>
 						<div>
-							<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]" data-button-rotate-hover data-button-rotate>
-								<div class="button_bg"></div>
-								<div class="button_label__wrap">
-									<div class="button_label">
-										<span>Join the waitlist</span>
-									</div>
-
-									<div class="button_label" aria-hidden="true">
-										<span>Join the waitlist</span>
-									</div>
-								</div>
+							<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]">
+								Join the waitlist
 							</a>
 						</div>
 					</div>
@@ -912,21 +874,17 @@ get_header();
 				changing how you work.
 			</h4>
 			<div class="mt-[calc(var(--px)*48)]">
-				<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]" data-button-rotate-hover data-button-rotate>
-					<div class="button_bg"></div>
-					<div class="button_label__wrap">
-						<div class="button_label">
-							<span>Join the waitlist</span>
-						</div>
-
-						<div class="button_label" aria-hidden="true">
-							<span>Join the waitlist</span>
-						</div>
-					</div>
+				<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]">
+					Join the waitlist
 				</a>
 			</div>
 		</div>
 	</div>
 </div>
+	<button class="btn_site submit_newslett cursor-pointer" type="submit">
+		<svg class="w-[calc(var(--px)*22)] h-auto" width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M21.6309 10.0098L13.0371 18.6035C12.7441 18.8965 12.207 18.8965 11.9141 18.6035C11.6211 18.3105 11.6211 17.7734 11.9141 17.4805L19.1895 10.2051H0.78125C0.341797 10.2051 0 9.86328 0 9.42383C0 9.0332 0.341797 8.64258 0.78125 8.64258H19.1895L11.9141 1.41602C11.6211 1.12305 11.6211 0.585938 11.9141 0.292969C12.207 0 12.7441 0 13.0371 0.292969L21.6309 8.88672C21.9238 9.17969 21.9238 9.7168 21.6309 10.0098Z" fill="black"/>
+		</svg>
+	</button>
 
 <?php get_footer(); ?>
