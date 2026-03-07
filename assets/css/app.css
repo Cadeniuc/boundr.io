@@ -247,7 +247,10 @@ body {
     @apply text-black text-[calc(var(--px)*15)] px-[calc(var(--px)*16)] h-[calc(var(--px)*38)] uppercase bg-primary inline-flex items-center;
 }
 .item_solution {
-    @apply relative z-[1] border-[calc(var(--px)*0.5)] hover:text-black duration-[var(--duration-default)] ease-[var(--cubic-default)] duration-300;
+    @apply relative z-[1] md:border-[calc(var(--px)*0.5)] hover:text-black duration-[var(--duration-default)] ease-[var(--cubic-default)] duration-300;
+    .bottom_active_line {
+        @apply h-px absolute left-0 bottom-0 bg-white/40;
+    }
 }
 .remove_bg {
     filter: contrast(120%) brightness(105%);

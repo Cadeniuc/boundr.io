@@ -176,7 +176,8 @@ get_header();
 	</div>
 	<div class="bg-dark text-white overflow-hidden">
 		<div class="grid md:grid-cols-2 lg:grid-cols-3 -mx-px relative z-[1]">
-			<div class="border-r border-r-[calc(var(--px)*0.5)] border-white/40 item_solution">
+			<div class="md:border-r md:border-r-[0.5px] md:border-white/40 item_solution">
+				<div class="bottom_active_line"></div>
 				<div class="follow_active_cars bg-primary absolute top-0 left-0 z-[-1]"></div>
 				<div class="py-[calc(var(--px)*56)] pr-[50px] lg:pr-[calc(var(--px)*30)] pl-[calc(var(--px)*77)] min-h-[calc(var(--px)*364)] flex flex-wrap flex-col min-h-full justify-between">
 					<div class="relative min-h-[calc(var(--px)*152)] mb-[calc(var(--px)*39)]">
@@ -192,7 +193,8 @@ get_header();
 					</div>
 				</div>
 			</div>
-			<div class="border-r border-r-[0.5px] border-white/40 item_solution">
+			<div class="md:border-r md:border-r-[0.5px] md:border-white/40 item_solution">
+				<div class="bottom_active_line"></div>
 				<div class="follow_active_cars bg-primary absolute top-0 left-0 z-[-1]"></div>
 				<div class="py-[calc(var(--px)*56)] pr-[50px] lg:pr-[calc(var(--px)*30)] pl-[calc(var(--px)*77)] min-h-[calc(var(--px)*364)] flex flex-wrap flex-col min-h-full justify-between">
 					<div class="relative min-h-[calc(var(--px)*152)] mb-[calc(var(--px)*39)]">
@@ -207,7 +209,8 @@ get_header();
 					</div>
 				</div>
 			</div>
-			<div class="border-r border-r-[0.5px] border-white/40 item_solution">
+			<div class="md:border-r md:border-r-[0.5px] md:border-white/40 item_solution">
+				<div class="bottom_active_line"></div>
 				<div class="follow_active_cars bg-primary absolute top-0 left-0 z-[-1]"></div>
 				<div class="py-[calc(var(--px)*56)] pr-[50px] lg:pr-[calc(var(--px)*30)] pl-[calc(var(--px)*77)] min-h-[calc(var(--px)*364)] flex flex-wrap flex-col min-h-full justify-between">
 					<div class="relative min-h-[calc(var(--px)*152)] mb-[calc(var(--px)*39)]">
@@ -222,7 +225,8 @@ get_header();
 					</div>
 				</div>
 			</div>
-			<div class="border-r border-r-[0.5px] border-white/40 item_solution">
+			<div class="md:border-r md:border-r-[0.5px] md:border-white/40 item_solution">
+				<div class="bottom_active_line"></div>
 				<div class="follow_active_cars bg-primary absolute top-0 left-0 z-[-1]"></div>
 				<div class="p-[64px] lg:p-[calc(var(--px)*50)] lg:min-h-[calc(var(--px)*364)] flex items-center min-h-full justify-center">
 					<svg class="w-[calc(var(--px)*165)] h-auto" width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -230,7 +234,8 @@ get_header();
 					</svg>
 				</div>
 			</div>
-			<div class="border-r border-r-[0.5px] border-white/40 item_solution">
+			<div class="md:border-r md:border-r-[0.5px] md:border-white/40 item_solution">
+				<div class="bottom_active_line"></div>
 				<div class="follow_active_cars bg-primary absolute top-0 left-0 z-[-1]"></div>
 				<div class="py-[calc(var(--px)*56)] pr-[50px] lg:pr-[calc(var(--px)*30)] pl-[calc(var(--px)*77)] min-h-[calc(var(--px)*364)] flex flex-wrap flex-col min-h-full justify-between">
 					<div class="relative min-h-[calc(var(--px)*152)] mb-[calc(var(--px)*39)]">
@@ -245,7 +250,8 @@ get_header();
 					</div>
 				</div>
 			</div>
-			<div class="border-r border-r-[0.5px] border-white/40 item_solution">
+			<div class="md:border-r md:border-r-[0.5px] md:border-white/40 item_solution">
+				<div class="bottom_active_line"></div>
 				<div class="follow_active_cars bg-primary absolute top-0 left-0 z-[-1]"></div>
 				<div class="py-[calc(var(--px)*56)] pr-[50px] lg:pr-[calc(var(--px)*30)] pl-[calc(var(--px)*77)] min-h-[calc(var(--px)*364)] flex flex-wrap flex-col min-h-full justify-between">
 					<div class="relative min-h-[calc(var(--px)*152)] mb-[calc(var(--px)*39)]">

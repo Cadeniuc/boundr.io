@@ -429,6 +429,25 @@ function scrollTriggerAnimations() {
 
     })
 
+    gsap.utils.toArray('.item_solution').forEach(item => {
+
+        const line = item.querySelector('.bottom_active_line')
+
+        gsap.fromTo(line,
+          { width: "0%" },
+          {
+            width: "100%",
+            duration: 1,
+            ease: "osmo",
+            scrollTrigger: {
+              trigger: item,
+              start: "bottom bottom",
+          }
+      }
+      )
+
+    })
+
 }
 
 function splittingLinesOverflow() {
