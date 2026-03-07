@@ -223,6 +223,7 @@ function initOther() {
            offset: -getHeaderScrollOffsetPx(),
            duration: 1.3
        })
+       closeMobileMenu()
    })
 
     const header_top = document.querySelector('.header_top')
@@ -234,7 +235,7 @@ function initOther() {
         });
 
         function updateHeader(scrollY) {
-            if (scrollY > 10) {
+            if (scrollY > 10 && windowWidth >= 1024) {
                 header_top.classList.add('is_scrolled');
             } else {
                 header_top.classList.remove('is_scrolled');
@@ -258,24 +259,20 @@ function initOther() {
         $(this).toggleClass('opened')
         if($(this).hasClass('opened')) {
             scroll.stop()
-            header_top.classList.remove('header-white');
-
             const tl = gsap.timeline()
-            tl.to('#menu_mobile', {autoAlpha:1,duration:.5,ease:'power4'})
-            tl.fromTo('#menu_mobile .menu-header li a, .menu_mob_foot > div', {scale:.95,autoAlpha:0},{scale:1,autoAlpha:1,duration:1,stagger:.05,ease:'power4',overwrite:true}, '<+.1')
-            tl.fromTo('.item_menu_line', {width:0,background:"#3A35B3"},{background:"#D7D6E0",width:'100%',duration:1,stagger:.05,ease:'power4',overwrite:true}, '<+.1')
+            tl.to('#menu_mobile', {autoAlpha:1,duration:.7,ease:'power2.out'})
+            tl.fromTo('#menu_mobile .menu-header li, .menu_mob_foot > div', {filter:'blur(5px)',scale:.95,autoAlpha:0},{scale:1,filter:'blur(0px)',autoAlpha:1,duration:1,stagger:.03,ease:'power4',overwrite:true}, '<+.1')
         }else {
-            scroll.start()
-            setTimeout(() => {
-                const scrollY = scroll?.scroll ?? 0;
-                if (header_white && header_top && scrollY < 10) {
-                    header_top.classList.add('header-white')
-                }
-            }, 50)
-
-            gsap.to('#menu_mobile', {autoAlpha:0,duration:.5,ease: 'power4'})
+            closeMobileMenu()
         }
     })
+}
+
+function closeMobileMenu() {
+    scroll.start()
+    const tl = gsap.timeline()
+    tl.to('#menu_mobile .menu-header li, .menu_mob_foot > div', {filter:'blur(5px)',scale:.95,autoAlpha:0,duration:.6,stagger:-.03,ease:'power4',overwrite:true}, '<')
+    tl.to('#menu_mobile', {autoAlpha:0,duration:.7,ease: 'power2.out'}, '<+.3')
 }
 
 function scrollTriggerAnimations() {

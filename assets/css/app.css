@@ -476,6 +476,21 @@ body {
         }
     }
 }
+.menu_burger {
+    @apply gap-[5px] relative;
+    span {
+        @apply h-0.5 bg-current w-full block transition-all rounded-full relative duration-[var(--duration-default)] ease-[var(--cubic-default)] duration-500;
+    }
+    &.opened > span:nth-child(1) {
+        @apply translate-y-[4px] rotate-[40deg];
+    }
+    &.opened > span:nth-child(2) {
+        @apply translate-y-[-3px] rotate-[-40deg];
+    }
+    &:before {
+        @apply content-[''] absolute -inset-4;
+    }
+}
 .wpcf7-not-valid-tip {
     @apply pt-1.5 lg:pt-[.5vw] font-medium !hidden;
 }

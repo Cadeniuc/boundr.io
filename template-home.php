@@ -5,7 +5,7 @@ Template Name: Home
 get_header();
 ?>
 
-<section class="lg:pb-[90px] lg:pb-[calc(var(--px)*93)] pt-[78px] lg:pt-[calc(var(--px)*171)] overflow-hidden" id="top">
+<section class="lg:pb-[90px] lg:pb-[calc(var(--px)*93)] pt-[54px] lg:pt-[calc(var(--px)*171)] overflow-hidden" id="top">
 	<div class="container">
 		<div class="mb-[49px] md:mb-[80px] lg:mb-[calc(var(--px)*120)]">
 			<h1 class="home_title text-[35px] lg:text-[calc(var(--px)*75)] perspective-midrang leading-[129%] font_suisse text-center">
