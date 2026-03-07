@@ -251,6 +251,12 @@ body {
     .bottom_active_line {
         @apply h-px absolute left-0 bottom-0 bg-white/40;
     }
+    &:before {
+        @apply content-[''] absolute top-1/2 -translate-y-1/2 w-[calc(var(--px)*1)] h-[calc(var(--px)*18)] left-[calc(var(--px)*30)] bg-white/25;
+    }
+    &:after {
+        @apply content-[''] absolute top-1/2 -translate-y-1/2 w-[calc(var(--px)*1)] h-[calc(var(--px)*18)] right-[calc(var(--px)*30)] bg-white/25;
+    }
 }
 .remove_bg {
     filter: contrast(120%) brightness(105%);
@@ -478,6 +484,15 @@ body {
             @apply max-md:w-[29px] max-md:h-[29px];
         }
     }
+}
+.icon_thrr_blk {
+    @apply w-[30px] lg:w-[calc(var(--px)*30)] h-auto;
+}
+.icon_logo_solution {
+    @apply w-[calc(var(--px)*165)] h-auto;
+}
+.icon_price {
+    @apply w-[calc(var(--px)*32)] h-auto;
 }
 .menu_burger {
     @apply gap-[5px] relative;
