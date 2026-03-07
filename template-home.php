@@ -180,7 +180,7 @@ get_header();
 				<div class="follow_active_cars bg-primary absolute top-0 left-0 z-[-1]"></div>
 				<div class="py-[calc(var(--px)*56)] pr-[50px] lg:pr-[calc(var(--px)*30)] pl-[calc(var(--px)*77)] min-h-[calc(var(--px)*364)] flex flex-wrap flex-col min-h-full justify-between">
 					<div class="relative min-h-[calc(var(--px)*152)] mb-[calc(var(--px)*39)]">
-						<div class="heading_h3 font_suisse">
+						<div class="text-[24px] lg:text-[calc(var(--px)*32)] leading-[131%] font_suisse">
 							Eliminates <br>
 							Scope guesswork
 						</div>
@@ -196,7 +196,7 @@ get_header();
 				<div class="follow_active_cars bg-primary absolute top-0 left-0 z-[-1]"></div>
 				<div class="py-[calc(var(--px)*56)] pr-[50px] lg:pr-[calc(var(--px)*30)] pl-[calc(var(--px)*77)] min-h-[calc(var(--px)*364)] flex flex-wrap flex-col min-h-full justify-between">
 					<div class="relative min-h-[calc(var(--px)*152)] mb-[calc(var(--px)*39)]">
-						<div class="heading_h3 font_suisse">
+						<div class="text-[24px] lg:text-[calc(var(--px)*32)] leading-[131%] font_suisse">
 							Understands client requests automatically
 						</div>
 						<div class="absolute -left-[calc(var(--px)*31)] top-[calc(var(--px)*8)] text-[calc(var(--px)*14)]">2</div>
@@ -211,7 +211,7 @@ get_header();
 				<div class="follow_active_cars bg-primary absolute top-0 left-0 z-[-1]"></div>
 				<div class="py-[calc(var(--px)*56)] pr-[50px] lg:pr-[calc(var(--px)*30)] pl-[calc(var(--px)*77)] min-h-[calc(var(--px)*364)] flex flex-wrap flex-col min-h-full justify-between">
 					<div class="relative min-h-[calc(var(--px)*152)] mb-[calc(var(--px)*39)]">
-						<div class="heading_h3 font_suisse">
+						<div class="text-[24px] lg:text-[calc(var(--px)*32)] leading-[131%] font_suisse">
 							Shows what’s in scope — instantly
 						</div>
 						<div class="absolute -left-[calc(var(--px)*31)] top-[calc(var(--px)*8)] text-[calc(var(--px)*14)]">3</div>
@@ -234,7 +234,7 @@ get_header();
 				<div class="follow_active_cars bg-primary absolute top-0 left-0 z-[-1]"></div>
 				<div class="py-[calc(var(--px)*56)] pr-[50px] lg:pr-[calc(var(--px)*30)] pl-[calc(var(--px)*77)] min-h-[calc(var(--px)*364)] flex flex-wrap flex-col min-h-full justify-between">
 					<div class="relative min-h-[calc(var(--px)*152)] mb-[calc(var(--px)*39)]">
-						<div class="heading_h3 font_suisse">
+						<div class="text-[24px] lg:text-[calc(var(--px)*32)] leading-[131%] font_suisse">
 							Explains scope decisions clearly
 						</div>
 						<div class="absolute -left-[calc(var(--px)*31)] top-[calc(var(--px)*8)] text-[calc(var(--px)*14)]">4</div>
@@ -249,7 +249,7 @@ get_header();
 				<div class="follow_active_cars bg-primary absolute top-0 left-0 z-[-1]"></div>
 				<div class="py-[calc(var(--px)*56)] pr-[50px] lg:pr-[calc(var(--px)*30)] pl-[calc(var(--px)*77)] min-h-[calc(var(--px)*364)] flex flex-wrap flex-col min-h-full justify-between">
 					<div class="relative min-h-[calc(var(--px)*152)] mb-[calc(var(--px)*39)]">
-						<div class="heading_h3 font_suisse">
+						<div class="text-[24px] lg:text-[calc(var(--px)*32)] leading-[131%] font_suisse">
 							Stops scope drift <br>
 							early
 						</div>
@@ -330,7 +330,7 @@ get_header();
 				</div>
 			</div>
 			<div>
-				<h2 class="text-[40px] lg:text-[calc(var(--px)*32)] leading-[131%] font_suisse hide_br_mobile">
+				<h2 class="heading_h3 font_suisse hide_br_mobile">
 					No change on your <br>
 					communication workflow
 				</h2>
@@ -476,10 +476,10 @@ get_header();
 				</div>
 			</div>
 			<div class="lg:w-[calc(100%-(var(--px)*457))]">
-				<div class="group_line_item md:flex items-center relative mb-[calc(var(--px)*68)] last:mb-0 pb-[calc(var(--px)*68)] relative">
+				<div class="group_line_item md:flex items-center relative mb-[calc(var(--px)*68)] last:mb-0 pb-[64px] md:pb-[calc(var(--px)*68)] relative">
 					<div class="line_item_group h-px bg-gray absolute left-0 bottom-0"></div>
 					<div class="flex-1">
-						<div class="heading_h4 font-semibold min-h-[calc(var(--px)*87)]">
+						<div class="heading_h4 font-semibold mb-[55px] md:mb-0 md:min-h-[calc(var(--px)*87)]">
 							Peace of mind
 						</div>
 						<div class="text_base mt-[calc(var(--px)*11)]">
@@ -489,14 +489,14 @@ get_header();
 							the project evolves.
 						</div>
 					</div>
-					<div class="md:w-[calc(var(--px)*243)] flex-none ml-[calc(var(--px)*20)]">
+					<div class="mt-[56px] md:mt-0 max-w-[calc(var(--px)*243)] flex-none mx-auto md:mr-0 md:ml-[calc(var(--px)*20)]">
 						<img class="remove_bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/how_benefit_1.png" alt="">
 					</div>
 				</div>
-				<div class="group_line_item md:flex items-center relative mb-[calc(var(--px)*68)] last:mb-0 pb-[calc(var(--px)*68)] relative">
+				<div class="group_line_item md:flex items-center relative mb-[calc(var(--px)*68)] last:mb-0 pb-[64px] md:pb-[calc(var(--px)*68)] relative">
 					<div class="line_item_group h-px bg-gray absolute left-0 bottom-0"></div>
 					<div class="flex-1">
-						<div class="heading_h4 font-semibold min-h-[calc(var(--px)*87)]">
+						<div class="heading_h4 font-semibold mb-[55px] md:mb-0 md:min-h-[calc(var(--px)*87)]">
 							Work clarity
 						</div>
 						<div class="text_base mt-[calc(var(--px)*11)]">
@@ -504,14 +504,14 @@ get_header();
 							requests before saying yes.
 						</div>
 					</div>
-					<div class="md:w-[calc(var(--px)*243)] flex-none ml-[calc(var(--px)*20)]">
+					<div class="mt-[56px] md:mt-0 max-w-[calc(var(--px)*243)] flex-none mx-auto md:mr-0 md:ml-[calc(var(--px)*20)]">
 						<img class="remove_bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/how_benefit_2.png" alt="">
 					</div>
 				</div>
-				<div class="group_line_item md:flex items-center relative mb-[calc(var(--px)*68)] last:mb-0 pb-[calc(var(--px)*68)] relative">
+				<div class="group_line_item md:flex items-center relative mb-[calc(var(--px)*68)] last:mb-0 pb-[64px] md:pb-[calc(var(--px)*68)] relative">
 					<div class="line_item_group h-px bg-gray absolute left-0 bottom-0"></div>
 					<div class="flex-1">
-						<div class="heading_h4 font-semibold min-h-[calc(var(--px)*87)]">
+						<div class="heading_h4 font-semibold mb-[55px] md:mb-0 md:min-h-[calc(var(--px)*87)]">
 							Margin protection
 						</div>
 						<div class="text_base mt-[calc(var(--px)*11)]">
@@ -520,14 +520,14 @@ get_header();
 							margins..
 						</div>
 					</div>
-					<div class="w-[calc(var(--px)*243)] flex-none ml-[calc(var(--px)*20)]">
+					<div class="mt-[56px] md:mt-0 max-w-[calc(var(--px)*243)] flex-none mx-auto md:mr-0 md:ml-[calc(var(--px)*20)]">
 						<img class="remove_bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/how_benefit_3.png" alt="">
 					</div>
 				</div>
-				<div class="group_line_item md:flex items-center relative mb-[calc(var(--px)*68)] last:mb-0 pb-[calc(var(--px)*68)] relative">
+				<div class="group_line_item md:flex items-center relative mb-[calc(var(--px)*68)] last:mb-0 pb-[64px] md:pb-[calc(var(--px)*68)] relative">
 					<div class="line_item_group h-px bg-gray absolute left-0 bottom-0"></div>
 					<div class="flex-1">
-						<div class="heading_h4 font-semibold min-h-[calc(var(--px)*87)]">
+						<div class="heading_h4 font-semibold mb-[55px] md:mb-0 md:min-h-[calc(var(--px)*87)]">
 							Project alignement
 						</div>
 						<div class="text_base mt-[calc(var(--px)*11)]">
@@ -536,7 +536,7 @@ get_header();
 							clients.
 						</div>
 					</div>
-					<div class="md:w-[calc(var(--px)*243)] flex-none ml-[calc(var(--px)*20)]">
+					<div class="mt-[56px] md:mt-0 max-w-[calc(var(--px)*243)] flex-none mx-auto md:mr-0 md:ml-[calc(var(--px)*20)]">
 						<img class="remove_bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/how_benefit_4.png" alt="">
 					</div>
 				</div>
@@ -561,7 +561,7 @@ get_header();
 			</div>
 		</div>
 		<div class="border-b border-gray/20 pb-12 lg:pb-[calc(var(--px)*63)]">
-			<div class="grid grid-cols-3 gap-[calc(var(--px)*50)]">
+			<div class="grid md:grid-cols-3 gap-[calc(var(--px)*50)]">
 				<div>
 					<div class="mb-[calc(var(--px)*23)]">
 						<svg class="w-[calc(var(--px)*32)] h-auto" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -609,12 +609,12 @@ get_header();
 				</div>
 			</div>
 		</div>
-		<div class="mt-[calc(var(--px)*73)]">
+		<div class="mt-[60px] md:mt-[calc(var(--px)*73)]">
 			<div class="grid lg:grid-cols-2 gap-[60px] lg:gap-[calc(var(--px)*96)]">
 				<div class="flex flex-col justify-between">
 					<div>
-						<div class="bg-[#F8F5F5] rounded-[calc(var(--px)*8)] px-[calc(var(--px)*60)] py-[calc(var(--px)*40)]">
-							<div class="flex items-center gap-[calc(var(--px)*60)]">
+						<div class="bg-[#F8F5F5] rounded-[calc(var(--px)*8)] px-5 md:px-[calc(var(--px)*60)] py-[34px] md:py-[calc(var(--px)*40)]">
+							<div class="flex items-center gap-[calc(var(--px)*62)]">
 								<div class="font_suisse font-bold text-[calc(var(--px)*24)]">
 									Free
 								</div>
@@ -622,12 +622,12 @@ get_header();
 									Explorer
 								</div>
 							</div>
-							<div class="text_base min-h-[calc(var(--px)*84)] mt-[calc(var(--px)*35)] flex flex-col justify-end">
+							<div class="text_base min-h-[calc(var(--px)*84)] mt-[22px] md:mt-[calc(var(--px)*35)] flex flex-col justify-end hide_br_mobile">
 								Use Boundr on one active project and discover where requests start slipping outside scope.
 							</div>
 						</div>
-						<div class="mt-[calc(var(--px)*65)] pl-[calc(var(--px)*114)] flex flex-col justify-between">
-							<div class="mb-[calc(var(--px)*68)]">
+						<div class="mt-[33px] md:mt-[calc(var(--px)*65)] pl-9 md:pl-[calc(var(--px)*114)] flex flex-col justify-between">
+							<div class="mb-[33px] md:mb-[calc(var(--px)*68)]">
 								<ul class="plan_list_compar text_base">
 									<li>
 										<strong>1 project assessment</strong>
@@ -667,16 +667,16 @@ get_header();
 							</div>
 						</div>
 					</div>
-					<div class="pl-[calc(var(--px)*78)]">
-						<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]">
+					<div class="md:pl-[calc(var(--px)*78)]">
+						<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site w-full md:w-auto md:min-w-[calc(var(--px)*247)]">
 							Join the waitlist
 						</a>
 					</div>
 				</div>
 				<div>
 					<div>
-						<div class="bg-[#F8F5F5] rounded-[calc(var(--px)*8)] px-[calc(var(--px)*60)] py-[calc(var(--px)*40)]">
-							<div class="flex items-center gap-[calc(var(--px)*60)]">
+						<div class="bg-[#F8F5F5] rounded-[calc(var(--px)*8)] px-5 md:px-[calc(var(--px)*60)] py-[34px] md:py-[calc(var(--px)*40)]">
+							<div class="flex items-center gap-[calc(var(--px)*62)]">
 								<div class="font_suisse font-bold text-[calc(var(--px)*24)]">
 									Starter
 								</div>
@@ -684,14 +684,14 @@ get_header();
 									Scope Guard
 								</div>
 							</div>
-							<div class="text_base min-h-[calc(var(--px)*84)] mt-[calc(var(--px)*35)] flex flex-col justify-end">
+							<div class="text_base min-h-[calc(var(--px)*84)] mt-[22px] md:mt-[calc(var(--px)*35)] flex flex-col justify-end hide_br_mobile">
 								Protect margins across active client work <br>
 								Boundr keeps scope clear as requests come in — so small <br>
 								changes don’t quietly turn into unpaid work.
 							</div>
 						</div>
-						<div class="mt-[calc(var(--px)*65)] pl-[calc(var(--px)*114)]">
-							<div class="mb-[calc(var(--px)*68)]">
+						<div class="mt-[33px] md:mt-[calc(var(--px)*65)] pl-9 md:pl-[calc(var(--px)*114)]">
+							<div class="mb-[33px] md:mb-[calc(var(--px)*68)]">
 								<ul class="plan_list_compar text_base">
 									<li>
 										Up to <strong>3 active projects</strong>
@@ -730,13 +730,13 @@ get_header();
 							</div>
 						</div>
 					</div>
-					<div class="pl-[calc(var(--px)*78)]">
+					<div class="md:pl-[calc(var(--px)*78)]">
 						<div class="font_suisse text_base mb-[calc(var(--px)*36)]">
 							Prevent one unpaid revision, <br>
 							and it pays for itself.
 						</div>
 						<div>
-							<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]">
+							<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site w-full md:w-auto md:min-w-[calc(var(--px)*247)]">
 								Join the waitlist
 							</a>
 						</div>
@@ -876,7 +876,7 @@ get_header();
 			</div>
 		</div>
 		<div class="mt-[100px] lg:mt-[calc(var(--px)*134)] text-center">
-			<h4 class="font_suisse text-[calc(var(--px)*32)] leading-[131%]">
+			<h4 class="font_suisse text-[calc(var(--px)*32)] leading-[131%] hide_br_mobile">
 				Start protecting scope without <br>
 				changing how you work.
 			</h4>

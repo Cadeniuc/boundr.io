@@ -78,7 +78,7 @@ body {
     @apply text-[40px] lg:text-[calc(var(--px)*64)] leading-[129%];
 }
 .heading_h3 {
-    @apply text-[24px] lg:text-[calc(var(--px)*32)] leading-[131%];
+    @apply text-[40px] lg:text-[calc(var(--px)*32)] leading-[131%];
     &.bigger {
         @apply text-[calc(var(--px)*36)];
     }
@@ -221,7 +221,7 @@ body {
     .toggle_accordion {
         @apply relative font-medium pt-[calc(var(--px)*30)] pb-[calc(var(--px)*16)] cursor-pointer;
         .inside_toggl_acr {
-            @apply relative;
+            @apply relative pr-[calc(var(--px)*30)];
         }
     }
     .arrow_accord {

@@ -96,11 +96,11 @@
 					</div>
 				</div>
 				<div>
-					<div class="grid lg:flex gap-10 lg:gap-0 items-end justify-between">
+					<div class="grid lg:flex gap-10 lg:gap-0 md:items-end md:justify-between">
 						<div class="order-[1] lg:order-none">
-							<img class="w-[calc(var(--px)*285)] h-auto" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="">
+							<img class="w-full md:w-[calc(var(--px)*285)] h-auto" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="">
 						</div>
-						<div class="flex gap-[calc(var(--px)*56)] items-center text_base">
+						<div class="grid md:flex gap-5 md:gap-[calc(var(--px)*56)] items-center text_base">
 							<div>
 								Boundr © <?php the_time('Y'); ?> All rights reserved.
 							</div>

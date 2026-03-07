@@ -27,7 +27,7 @@
 <body <?php body_class(); ?> data-barba="wrapper">
 <?php wp_body_open(); ?>
 
-<div class="preloader_backdrop fixed inset-0 bg-bg z-[100] pointer-events-none hidden"></div>
+<div class="preloader_backdrop fixed inset-0 bg-bg z-[100] pointer-events-none"></div>
 
 <header class="lg:fixed top-[calc(var(--px)*36)] inset-x-0 pointer-events-none lg:px-[calc(var(--px)*16)] z-50 header_top">
 	<div class="container in_to_header mx-auto">
