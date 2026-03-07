@@ -44,7 +44,7 @@ get_header();
 			</div>
 		</div>
 
-		<div class="mt-[100px] lg:mt-[calc(var(--px)*96)]">
+		<div class="mt-[100px] lg:mt-[calc(var(--px)*96)] content_top">
 			<div class="grid md:grid-cols-3 lg:max-w-[calc(var(--px)*1114)] mx-auto">
 				<div class="py-[27px] lg:py-[calc(var(--px)*27)] md:pl-5 lg:px-[calc(var(--px)*40)] gap-[23px] lg:gap-[calc(var(--px)*23)] flex items-center">
 					<div class="flex-none w-[56px] lg:w-[calc(var(--px)*56)] h-[56px] lg:h-[calc(var(--px)*56)] rounded-[6px] lg:rounded-[calc(var(--px)*6)] bg-white flex items-center justify-center">
@@ -91,7 +91,7 @@ get_header();
 			</div>
 		</div>
 
-		<div class="mt-[100px] lg:mt-[calc(var(--px)*170)]" id="mission">
+		<div class="mt-[100px] lg:mt-[calc(var(--px)*170)] content_top" id="mission">
 			<div class="lg:max-w-[calc(var(--px)*660)] ml-auto">
 				<div class="mb-10 lg:mb-[calc(var(--px)*40)]">
 					<div class="label"> 
