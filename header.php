@@ -29,9 +29,9 @@
 
 <div class="preloader_backdrop fixed inset-0 bg-bg z-[100] pointer-events-none hidden"></div>
 
-<header class="relative lg:fixed lg:top-[calc(var(--px)*36)] inset-x-0 pointer-events-none lg:px-[calc(var(--px)*16)] z-50 header_top">
+<header class="fixed top-0 lg:top-[calc(var(--px)*36)] inset-x-0 pointer-events-none lg:px-[calc(var(--px)*16)] z-50 header_top bg-[#EFEFEA]/90 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none">
 	<div class="container in_to_header mx-auto">
-		<div class="relative z-[1] py-6 lg:py-0 bg-[#EFEFEA] lg:bg-transparent">
+		<div class="relative z-[1] py-6 lg:py-0">
 			<div class="bg_header absolute inset-y-0 -inset-x-[calc(var(--px)*12)] bg-[#DBDBDB]/40 rounded-[calc(var(--px)*5)] backdrop-blur-[60px] z-[-1] hidden lg:block"></div>
 			<div class="wrapper_header lg:px-[calc(var(--px)*16)] flex items-center justify-between lg:justify-center lg:h-[calc(var(--px)*80)] pointer-events-auto">
 				<div class="flex-none">

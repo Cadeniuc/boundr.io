@@ -217,13 +217,27 @@ function initOther() {
     $('.site_menu a,.go_to_screen')
     .off('click.boundrScroll')
     .on('click.boundrScroll', function (e) {
+       const id = ($(this).attr('href') || '').trim()
+       if (!id || !id.startsWith('#')) return
+
+       const target = document.querySelector(id)
+       if (!target || !scroll || typeof scroll.scrollTo !== 'function') return
+
        e.preventDefault()
-       const id = $(this).attr('href')
-       scroll.scrollTo(id, {
-           offset: -getHeaderScrollOffsetPx(),
-           duration: 1.3
-       })
-       closeMobileMenu()
+       const doScrollToTarget = () => {
+           const offset = windowWidth < 768 ? -90 : -getHeaderScrollOffsetPx()
+           scroll.scrollTo(target, {
+               offset,
+               duration: 1.3
+           })
+       }
+
+       if (windowWidth < 768) {
+           closeMobileMenu()
+           gsap.delayedCall(0.08, doScrollToTarget)
+           return
+       }
+       doScrollToTarget()
    })
 
     const header_top = document.querySelector('.header_top')
@@ -269,6 +283,7 @@ function initOther() {
 }
 
 function closeMobileMenu() {
+    $('.menu_burger').removeClass('opened')
     scroll.start()
     const tl = gsap.timeline()
     tl.to('#menu_mobile .menu-header li, .menu_mob_foot > div', {filter:'blur(5px)',scale:.95,autoAlpha:0,duration:.6,stagger:-.03,ease:'power4',overwrite:true}, '<')

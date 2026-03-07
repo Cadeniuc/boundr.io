@@ -14,6 +14,7 @@
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
+    --blur-sm: 8px;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -617,6 +618,12 @@
   .bg-\[\#EFEFEA\] {
     background-color: #EFEFEA;
   }
+  .bg-\[\#EFEFEA\]\/80 {
+    background-color: color-mix(in oklab, #EFEFEA 80%, transparent);
+  }
+  .bg-\[\#EFEFEA\]\/90 {
+    background-color: color-mix(in oklab, #EFEFEA 90%, transparent);
+  }
   .bg-\[\#F8F5F5\] {
     background-color: #F8F5F5;
   }
@@ -676,6 +683,9 @@
   }
   .pt-\[100px\] {
     padding-top: 100px;
+  }
+  .pt-\[125px\] {
+    padding-top: 125px;
   }
   .pr-\[50px\] {
     padding-right: 50px;
@@ -764,6 +774,11 @@
   }
   .backdrop-blur-\[60px\] {
     --tw-backdrop-blur: blur(60px);
+    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  }
+  .backdrop-blur-sm {
+    --tw-backdrop-blur: blur(var(--blur-sm));
     -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
     backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
   }
@@ -1381,6 +1396,13 @@
   .lg\:text-\[calc\(var\(--px\)\*75\)\] {
     @media (width >= 64rem) {
       font-size: calc(var(--px) * 75);
+    }
+  }
+  .lg\:backdrop-blur-none {
+    @media (width >= 64rem) {
+      --tw-backdrop-blur:  ;
+      -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+      backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
     }
   }
 }
