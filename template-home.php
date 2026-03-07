@@ -31,13 +31,13 @@ get_header();
 				<div class="md:w-[calc(100%-250px)] lg:w-[calc(100%-(var(--px)*433))] -mr-6 md:mr-0">
 					<div class="aspect-[16/9] lg:max-w-[calc(var(--px)*420)] mx-auto lg:mx-0" id="slider_emails">
 						<div class="item_email_anim absolute inset-0 flex items-center">
-							<img class="max-w-full h-auto max-h-full w-auto" src="<?php echo get_template_directory_uri(); ?>/assets/img/home_message_1.jpg" alt="">
+							<img class="max-w-full h-auto max-h-full w-auto rounded-[calc(var(--px)*4)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/home_message_1.jpg" alt="">
 						</div>
 						<div class="item_email_anim absolute inset-0 flex items-center">
-							<img class="max-w-full h-auto max-h-full w-auto" src="<?php echo get_template_directory_uri(); ?>/assets/img/home_message_2.jpg" alt="">
+							<img class="max-w-full h-auto max-h-full w-auto rounded-[calc(var(--px)*4)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/home_message_2.jpg" alt="">
 						</div>
 						<div class="item_email_anim absolute inset-0 flex items-center">
-							<img class="max-w-full h-auto max-h-full w-auto" src="<?php echo get_template_directory_uri(); ?>/assets/img/home_message_3.jpg" alt="">
+							<img class="max-w-full h-auto max-h-full w-auto rounded-[calc(var(--px)*4)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/home_message_3.jpg" alt="">
 						</div>
 					</div>
 				</div>
@@ -337,9 +337,9 @@ get_header();
 			</div>
 		</div>
 		<div>
-			<div class="lg:flex">
-				<div class="hidden lg:block lg:w-[calc(var(--px)*806)] lg:pr-[calc(var(--px)*80)]">
-					<div class="min-h-[calc(var(--px)*631)] relative" id="gallery--zoom-transition" data-barba-prevent="all">
+			<div class="md:flex" data-barba-prevent="all">
+				<div class="hidden md:block md:w-1/2 lg:w-[calc(var(--px)*806)] pr-[50px] lg:pr-[calc(var(--px)*80)]">
+					<div class="min-h-[calc(var(--px)*631)] relative gallery--zoom-transition">
 						<div class="item_img_feature absolute inset-0" data-id="1">
 							<a href="<?php echo get_template_directory_uri(); ?>/assets/img/feature_1.png" class="h-full max-w-full flex items-center justify-center">
 								<img class="max-w-full max-h-full w-auto mx-auto h-auto rounded-[calc(var(--px)*8)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/feature_1.png" alt="">
@@ -362,8 +362,8 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="lg:w-[calc(100%-(var(--px)*806))] lg:pr-[calc(var(--px)*60)] flex items-center accordion_feature">
-					<div class="w-full">
+				<div class="md:w-1/2 lg:w-[calc(100%-(var(--px)*806))] lg:pr-[calc(var(--px)*60)] flex items-center accordion_feature">
+					<div class="w-full gallery--zoom-transition">
 						<div class="js_accordion__group">
 							<div class="js_accordion__menu" data-id="1">
 								<div class="inside_toggl_acr font_suisse">
@@ -385,6 +385,11 @@ get_header();
 										terms — clarity is always there when <br>
 										you need it.
 									</p>
+									<div class="md:hidden mt-[30px] image_mobile_feat">
+										<a href="<?php echo get_template_directory_uri(); ?>/assets/img/feature_1.png" class="h-full max-w-full flex items-center justify-center">
+											<img class="max-w-full max-h-[50vh] w-auto mx-auto h-auto rounded-[calc(var(--px)*8)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/feature_1.png" alt="">
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -408,6 +413,11 @@ get_header();
 										terms — clarity is always there when <br>
 										you need it.
 									</p>
+									<div class="md:hidden mt-[30px] image_mobile_feat">
+										<a href="<?php echo get_template_directory_uri(); ?>/assets/img/feature_2.png" class="h-full max-w-full flex items-center justify-center">
+											<img class="max-w-full max-h-[50vh] w-auto mx-auto h-auto rounded-[calc(var(--px)*8)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/feature_2.png" alt="">
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -431,6 +441,11 @@ get_header();
 										terms — clarity is always there when <br>
 										you need it.
 									</p>
+									<div class="md:hidden mt-[30px] image_mobile_feat">
+										<a href="<?php echo get_template_directory_uri(); ?>/assets/img/feature_1.png" class="h-full max-w-full flex items-center justify-center">
+											<img class="max-w-full max-h-[50vh] w-auto mx-auto h-auto rounded-[calc(var(--px)*8)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/feature_1.png" alt="">
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -449,6 +464,11 @@ get_header();
 										terms — clarity is always there when <br>
 										you need it.
 									</p>
+									<div class="md:hidden mt-[30px] image_mobile_feat">
+										<a href="<?php echo get_template_directory_uri(); ?>/assets/img/feature_2.png" class="h-full max-w-full flex items-center justify-center">
+											<img class="max-w-full max-h-[50vh] w-auto mx-auto h-auto rounded-[calc(var(--px)*8)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/feature_2.png" alt="">
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>

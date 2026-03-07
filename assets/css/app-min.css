@@ -272,6 +272,9 @@
   .mt-\[22px\] {
     margin-top: 22px;
   }
+  .mt-\[30px\] {
+    margin-top: 30px;
+  }
   .mt-\[33px\] {
     margin-top: 33px;
   }
@@ -383,6 +386,9 @@
   .h-px {
     height: 1px;
   }
+  .max-h-\[50vh\] {
+    max-height: 50vh;
+  }
   .max-h-full {
     max-height: 100%;
   }
@@ -425,9 +431,6 @@
   .w-\[calc\(var\(--px\)\*165\)\] {
     width: calc(var(--px) * 165);
   }
-  .w-\[calc\(var\(--px\)\*285\)\] {
-    width: calc(var(--px) * 285);
-  }
   .w-auto {
     width: auto;
   }
@@ -466,9 +469,6 @@
   }
   .items-center {
     align-items: center;
-  }
-  .items-end {
-    align-items: flex-end;
   }
   .justify-between {
     justify-content: space-between;
@@ -512,9 +512,6 @@
   .gap-\[calc\(var\(--px\)\*50\)\] {
     gap: calc(var(--px) * 50);
   }
-  .gap-\[calc\(var\(--px\)\*56\)\] {
-    gap: calc(var(--px) * 56);
-  }
   .gap-\[calc\(var\(--px\)\*62\)\] {
     gap: calc(var(--px) * 62);
   }
@@ -554,6 +551,9 @@
   }
   .rounded-\[6px\] {
     border-radius: 6px;
+  }
+  .rounded-\[calc\(var\(--px\)\*4\)\] {
+    border-radius: calc(var(--px) * 4);
   }
   .rounded-\[calc\(var\(--px\)\*5\)\] {
     border-radius: calc(var(--px) * 5);
@@ -793,14 +793,29 @@
       margin-left: calc(var(--px) * 20);
     }
   }
+  .md\:block {
+    @media (width >= 48rem) {
+      display: block;
+    }
+  }
   .md\:flex {
     @media (width >= 48rem) {
       display: flex;
     }
   }
+  .md\:hidden {
+    @media (width >= 48rem) {
+      display: none;
+    }
+  }
   .md\:min-h-\[calc\(var\(--px\)\*87\)\] {
     @media (width >= 48rem) {
       min-height: calc(var(--px) * 87);
+    }
+  }
+  .md\:w-1\/2 {
+    @media (width >= 48rem) {
+      width: calc(1/2 * 100%);
     }
   }
   .md\:w-\[140px\] {
@@ -1826,7 +1841,7 @@ body {
         font-size: calc(var(--px) * 15);
       }
     }
-    .js_accordion__content > div p {
+    .js_accordion__content > div :is(p,.image_mobile_feat) {
       --tw-translate-y: calc(var(--spacing) * 2);
       translate: var(--tw-translate-x) var(--tw-translate-y);
       opacity: 0%;
@@ -1853,7 +1868,7 @@ body {
         --tw-scale-z: 100%;
         scale: var(--tw-scale-x) var(--tw-scale-y);
       }
-      .js_accordion__content > div p {
+      .js_accordion__content > div :is(p,.image_mobile_feat) {
         --tw-translate-y: calc(var(--spacing) * 0);
         translate: var(--tw-translate-x) var(--tw-translate-y);
         opacity: 100%;
