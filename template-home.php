@@ -5,7 +5,7 @@ Template Name: Home
 get_header();
 ?>
 
-<section class="lg:pb-[90px] lg:pb-[calc(var(--px)*93)] pt-[78px] lg:pt-[calc(var(--px)*171)]" id="top">
+<section class="lg:pb-[90px] lg:pb-[calc(var(--px)*93)] pt-[78px] lg:pt-[calc(var(--px)*171)] overflow-hidden" id="top">
 	<div class="container">
 		<div class="mb-[49px] md:mb-[80px] lg:mb-[calc(var(--px)*120)]">
 			<h1 class="home_title text-[35px] lg:text-[calc(var(--px)*75)] perspective-midrang leading-[129%] font_suisse text-center">
@@ -31,13 +31,13 @@ get_header();
 				<div class="md:w-[calc(100%-250px)] lg:w-[calc(100%-(var(--px)*433))] -mr-6 md:mr-0">
 					<div class="aspect-[16/9] lg:max-w-[calc(var(--px)*420)] mx-auto lg:mx-0" id="slider_emails">
 						<div class="item_email_anim absolute inset-0 flex items-center">
-							<img class="max-w-full h-auto max-h-full w-auto rounded-[calc(var(--px)*4)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/home_message_1.jpg" alt="">
+							<img class="w-full h-auto rounded-[calc(var(--px)*4)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/home_message_1.jpg" alt="">
 						</div>
 						<div class="item_email_anim absolute inset-0 flex items-center">
-							<img class="max-w-full h-auto max-h-full w-auto rounded-[calc(var(--px)*4)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/home_message_2.jpg" alt="">
+							<img class="w-full h-auto rounded-[calc(var(--px)*4)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/home_message_2.jpg" alt="">
 						</div>
 						<div class="item_email_anim absolute inset-0 flex items-center">
-							<img class="max-w-full h-auto max-h-full w-auto rounded-[calc(var(--px)*4)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/home_message_3.jpg" alt="">
+							<img class="w-full h-auto rounded-[calc(var(--px)*4)]" src="<?php echo get_template_directory_uri(); ?>/assets/img/home_message_3.jpg" alt="">
 						</div>
 					</div>
 				</div>

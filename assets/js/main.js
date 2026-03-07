@@ -1133,6 +1133,7 @@ function initAccordion() {
   if (!sections.length) return;
 
   sections.forEach((section) => {
+    const accordionDuration = windowWidth < 768 ? 0.3 : 0.5;
     const groups = gsap.utils.toArray(section.querySelectorAll('.js_accordion__group'));
     const menus  = gsap.utils.toArray(section.querySelectorAll('.js_accordion__menu'));
     const animations = [];
@@ -1177,13 +1178,13 @@ function initAccordion() {
       tlAccordion
         .from(box, {
           height: 0,
-          duration: 0.5,
+          duration: accordionDuration,
           ease: 'power3.inOut',
         })
         .to(
           icon,
           {
-            duration: 0.5,
+            duration: accordionDuration,
             rotate: 135,
             ease: 'power3.inOut',
             autoAlpha: 1,
@@ -1201,10 +1202,12 @@ function initAccordionFeature() {
   const section = document.querySelector('.accordion_feature');
   if (!section) return;
 
+  const accordionDuration = windowWidth < 768 ? 0.3 : 0.5;
   const groups = gsap.utils.toArray(section.querySelectorAll('.js_accordion__group'));
   const menus = gsap.utils.toArray(section.querySelectorAll('.js_accordion__menu'));
   const images = gsap.utils.toArray(document.querySelectorAll('.item_img_feature'));
   const animations = [];
+  let delayedScrollToActive = null;
 
   groups.forEach(group => createAccordionAnimation(group));
 
@@ -1224,6 +1227,12 @@ function initAccordionFeature() {
 
   function toggle(menu) {
     const wasClosed = menu.animation.reversed();
+    const currentGroup = menu.closest('.js_accordion__group');
+
+    if (delayedScrollToActive) {
+      delayedScrollToActive.kill();
+      delayedScrollToActive = null;
+    }
 
     animations.forEach(a => a.reverse());
     menus.forEach(m => m.closest('.js_accordion__group')?.classList.remove('active'));
@@ -1231,9 +1240,24 @@ function initAccordionFeature() {
     menu.animation.reversed(!wasClosed);
 
     if (wasClosed) {
-      menu.closest('.js_accordion__group')?.classList.add('active');
+      currentGroup?.classList.add('active');
       showImageByMenu(menu, false);
+      if (windowWidth < 768) {
+        delayedScrollToActive = gsap.delayedCall(accordionDuration + 0.05, () => {
+          if (!currentGroup?.classList.contains('active')) return;
+          ScrollTrigger.refresh();
+          scrollToActiveGroup(currentGroup);
+        });
+      }
     }
+  }
+
+  function scrollToActiveGroup(group) {
+    if (!group || windowWidth >= 768 || !scroll || typeof scroll.scrollTo !== 'function') return;
+
+    scroll.scrollTo(group, {
+      duration: 1.1
+    });
   }
 
   function showImageByMenu(menu, immediate = false) {
@@ -1297,7 +1321,7 @@ function initAccordionFeature() {
       onComplete: () => ScrollTrigger.refresh()
     });
 
-    tl.from(box, { height: 0, duration: 0.5, ease: 'power3.inOut' });
+    tl.from(box, { height: 0, duration: accordionDuration, ease: 'power3.inOut' });
 
     menu.animation = tl;
     animations.push(tl);
@@ -1363,19 +1387,25 @@ function animateSliderTopHome() {
 
     gsap.set(root, { perspective: 500 });
 
+    const isMobile = windowWidth < 768;
     const inDur = 0.95;
     const hold = 2.5;
     const outDur = 0.7;
-    const yFrom = 120;
-    const yTo = -120;
+    const yFrom = isMobile ? 42 : 120;
+    const yTo = isMobile ? -42 : -120;
+    const rotateFrom = isMobile ? -12 : 40;
+    const skewFrom = isMobile ? -5 : 18;
+    const scaleFrom = isMobile ? 0.997 : 0.985;
+    const blurFrom = isMobile ? 'blur(4px)' : 'blur(10px)';
+    const transformOrigin = isMobile ? 'left center' : 'top left';
 
     const fromState = {
         autoAlpha: 0,
         y: yFrom,
-        scale: 0.985,
-        rotateY: 40,
-        skewY: 18,
-        filter: 'blur(10px)',
+        scale: scaleFrom,
+        rotateY: rotateFrom,
+        skewY: skewFrom,
+        filter: blurFrom,
     };
 
     const activeState = {
@@ -1391,7 +1421,7 @@ function animateSliderTopHome() {
         gsap.set(slide, {
             zIndex: 1,
             ...fromState,
-            transformOrigin: 'top left',
+            transformOrigin,
             transformStyle: 'preserve-3d',
             force3D: true,
             willChange: 'transform, opacity, filter',
@@ -1417,10 +1447,10 @@ function animateSliderTopHome() {
             {
                 autoAlpha: 0,
                 y: yTo,
-                scale: 0.985,
-                rotateY: 40,
-                skewY: 18,
-                filter: 'blur(10px)',
+                scale: scaleFrom,
+                rotateY: rotateFrom,
+                skewY: skewFrom,
+                filter: blurFrom,
                 duration: outDur,
                 ease: 'power2.inOut',
                 overwrite: 'auto',
