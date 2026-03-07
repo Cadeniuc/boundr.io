@@ -11,16 +11,16 @@
 
 ?>
 
-		<footer class="pb-[calc(var(--px)*15)] pt-[calc(var(--px)*75)]">
+		<footer class="pb-6 lg:pb-[calc(var(--px)*15)] pt-[100px] lg:pt-[calc(var(--px)*75)]">
 			<div class="container">
-				<div class="mb-[calc(var(--px)*250)]">
-					<div class="flex">
-						<div class="w-[calc(var(--px)*513)] pr-[calc(var(--px)*120)]">
+				<div class="mb-[80px] lg:mb-[calc(var(--px)*250)]">
+					<div class="grid gap-20 lg:gap-0 lg:flex">
+						<div class="lg:w-[calc(var(--px)*513)] lg:pr-[calc(var(--px)*120)]">
 							<div class="font_suisse">
 								Purus velit ac lacus pulvinar viverra gravida congue. Condimentum consectetur lorem a egestas tempus commodo facilisis magna.
 							</div>
 						</div>
-						<div class="w-[calc(100%-(var(--px)*513)-(var(--px)*433))] pr-[calc(var(--px)*100)]">
+						<div class="lg:w-[calc(100%-(var(--px)*513)-(var(--px)*433))] lg:pr-[calc(var(--px)*100)]">
 							<ul class="site_menu space-y-[calc(var(--px)*12)] menu_underline">
 								<li>
 									<a href="#mission">
@@ -54,8 +54,8 @@
 								</li>
 							</ul>
 						</div>
-						<div class="w-[calc(var(--px)*433)]">
-							<div class="font_suisse mb-[calc(var(--px)*23)] flex items-center gap-[calc(var(--px)*16)]">
+						<div class="lg:w-[calc(var(--px)*433)]">
+							<div class="font_suisse mb-3 lg:mb-[calc(var(--px)*23)] flex items-center gap-[calc(var(--px)*16)]">
 								Newsletter 
 								<div>
 									<svg class="loading_form w-[calc(var(--px)*18)] h-auto" width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#000">
@@ -96,8 +96,8 @@
 					</div>
 				</div>
 				<div>
-					<div class="flex items-end justify-between">
-						<div>
+					<div class="grid lg:flex gap-10 lg:gap-0 items-end justify-between">
+						<div class="order-[1] lg:order-none">
 							<img class="w-[calc(var(--px)*285)] h-auto" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="">
 						</div>
 						<div class="flex gap-[calc(var(--px)*56)] items-center text_base">

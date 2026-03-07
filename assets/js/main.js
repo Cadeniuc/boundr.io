@@ -226,7 +226,7 @@ function initOther() {
    })
 
     const header_top = document.querySelector('.header_top')
-    if (header_top && typeof scroll !== 'undefined') {
+    if (header_top && typeof scroll !== 'undefined' && windowWidth >= 1024) {
         updateHeader(scroll.scroll);
 
         scroll.on('scroll', ({ scroll: scrollY }) => {
@@ -345,7 +345,7 @@ function scrollTriggerAnimations() {
             });
         });
 
-        if (windowWidth >= 1024) {
+        // if (windowWidth >= 1024) {
             const tl_services = gsap.timeline({
                 scrollTrigger: {
                     trigger: wrapper_problem,
@@ -384,7 +384,7 @@ function scrollTriggerAnimations() {
                     introHold + i * 0.22
                     );
             });
-        }
+        // }
     }
 	
         gsap.to('.anim_star_decor', {

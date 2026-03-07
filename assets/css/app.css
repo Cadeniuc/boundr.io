@@ -20,8 +20,8 @@
     url("../fonts/SuisseWorksTrialBold/SuisseWorksTrialBold.ttf") format("truetype");
 }
 :root {
-    --px: 0.06944444444444445vw;
-    --size-20: 1.3888888888888888vw;
+        --px: 0.06944444444444445vw;
+        --size-20: 1.3888888888888888vw;
     --cubic-default: cubic-bezier(0.625, 0.05, 0, 1);
     --duration-default-double: 1.2s;
     --duration-default-onehalf: 0.9s;
@@ -37,6 +37,12 @@
     --animation-ease-double: 0.4s ease;
     --cubic-bounce: linear(0, 0.5737 7.6%, 0.8382 11.87%, 0.9463 14.19%, 1.0292 16.54%, 1.0886 18.97%, 1.1258 21.53%, 1.137 22.97%, 1.1424 24.48%, 1.1423 26.1%, 1.1366 27.86%, 1.1165 31.01%, 1.0507 38.62%, 1.0219 42.57%, 0.9995 46.99%, 0.9872 51.63%, 0.9842 58.77%, 1.0011 81.26%, 1);
 }
+@media(max-width: 1024px) {
+    :root {
+        --px: 1px;
+        --size-20: 20px;
+    }
+}
 @theme {
     --color-primary: #DBC5FF;
     --color-gray: #7F838B;
@@ -50,29 +56,29 @@ a:focus {
 body {
     -webkit-font-smoothing: antialiased;
     font-family: "Inter", sans-serif;
-    @apply text-[calc(var(--px)*20)] leading-[calc(var(--px)*26)] text-black bg-bg;
+    @apply text-[18px] lg:text-[calc(var(--px)*20)] leading-[22px] lg:leading-[calc(var(--px)*26)] text-black bg-bg;
     background-color: #EFEFEA;
 }
 .font_suisse {
     font-family: "Suisse Works Trial", sans-serif;
 }
 .container {
-    @apply px-[calc(var(--px)*50)] max-w-full;
+    @apply px-6 lg:px-[calc(var(--px)*50)] lg:max-w-full;
 }
 .wrapper_line {
     overflow: hidden;
 }
 .text_base {
-    @apply text-[length:calc(var(--px)*16)] leading-[131%];
+    @apply text-[16px] lg:text-[length:calc(var(--px)*16)] leading-[131%];
 }
 .heading_h1 {
-    @apply text-[calc(var(--px)*85)] leading-[113%];
+    @apply text-[75px] lg:text-[calc(var(--px)*85)] leading-[113%];
 }
 .heading_h2 {
-    @apply text-[calc(var(--px)*64)] leading-[129%];
+    @apply text-[40px] lg:text-[calc(var(--px)*64)] leading-[129%];
 }
 .heading_h3 {
-    @apply text-[calc(var(--px)*32)] leading-[131%];
+    @apply text-[24px] lg:text-[calc(var(--px)*32)] leading-[131%];
     &.bigger {
         @apply text-[calc(var(--px)*36)];
     }
@@ -210,7 +216,7 @@ body {
 .item_accordion {
     @apply border-b border-gray;
     &:first-child .toggle_accordion {
-        @apply pt-0;
+        @apply lg:pt-0;
     }
     .toggle_accordion {
         @apply relative font-medium pt-[calc(var(--px)*30)] pb-[calc(var(--px)*16)] cursor-pointer;
@@ -284,9 +290,9 @@ body {
             @apply pt-[calc(var(--px)*15)];
         }
         .js_accordion__menu {
-            @apply pl-[calc(var(--px)*72)] cursor-pointer relative text-white/60 hover:text-white transition duration-300;
+            @apply pl-10 md:pl-[calc(var(--px)*72)] cursor-pointer relative text-white/60 hover:text-white transition duration-300;
             .inside_toggl_acr {
-                @apply text-[calc(var(--px)*24)] leading-[129%] relative scale-[.85] transition duration-300 origin-left;
+                @apply text-[18px] md:text-[calc(var(--px)*24)] leading-[129%] relative scale-[.85] transition duration-300 origin-left;
             }
             .counter_feature {
                 @apply absolute left-0 top-[calc(var(--px)*1)] -top-[calc(var(--px)*6)] text-[calc(var(--px)*15)];
@@ -484,4 +490,15 @@ body {
 }
 .wpcf7-form-control-wrap span {
     display: block;
+}
+@media(max-width: 1023px) {
+    .hide_br_tablet br {
+        display: none;
+    }
+}
+@media(max-width: 767px) {
+    .inside_toggl_acr br,
+    .hide_br_mobile br {
+        display: none;
+    }
 }
