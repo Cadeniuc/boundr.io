@@ -202,6 +202,35 @@ function initSplitText() {
     // ScrollTrigger.refresh();
 }
 
+function normalizeMenuLinksForNonHome() {
+    const body = document.body;
+    if (!body) return;
+
+    const isHomeContext =
+        body.classList.contains('home') ||
+        body.classList.contains('page-template-template-home') ||
+        body.classList.contains('page-template-template-home-php');
+
+    if (isHomeContext) return;
+
+    const homeUrl = new URL('/', window.location.href).href;
+
+    document.querySelectorAll('.site_menu a[href^="#"]').forEach((link) => {
+        const hash = (link.getAttribute('href') || '').trim();
+        if (!hash || hash === '#') return;
+        link.setAttribute('href', homeUrl + hash);
+    });
+
+    document.querySelectorAll('a.go_to_screen[href^="#"]').forEach((link) => {
+        const hash = (link.getAttribute('href') || '').trim();
+        if (!hash || hash === '#' || hash === '#top') {
+            link.setAttribute('href', homeUrl);
+            return;
+        }
+        link.setAttribute('href', homeUrl + hash);
+    });
+}
+
 
 function initOther() {
 
@@ -211,6 +240,7 @@ function initOther() {
     initRotateButtonsAnim()
     initFeaturePhotoswipeSingle();
     initCf7BodySubmittingClass();
+    normalizeMenuLinksForNonHome();
 
     $('.home_title p').wrap('<div class="overflow-hidden"></div>');
     $('.menu_underline a').attr('data-underline-link', '')

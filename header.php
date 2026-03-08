@@ -34,17 +34,6 @@
 		?>
 	<?php endwhile; ?>
 <?php endif; ?>
-<?php
-$is_home_context = is_front_page() || is_page_template('template-home.php');
-$logo_href = $is_home_context ? '#top' : home_url('/');
-$normalize_menu_url = static function ($url) use ($is_home_context) {
-	$url = trim((string) $url);
-	if ($url === '') return '#';
-	if ($is_home_context) return $url;
-	if (substr($url, 0, 1) === '#') return home_url('/' . $url);
-	return $url;
-};
-?>
 
 <div class="preloader_backdrop fixed inset-0 bg-bg z-[100] pointer-events-none"></div>
 
@@ -54,31 +43,30 @@ $normalize_menu_url = static function ($url) use ($is_home_context) {
 			<div class="bg_header absolute inset-y-0 -inset-x-[calc(var(--px)*12)] bg-[#DBDBDB]/40 rounded-[calc(var(--px)*5)] backdrop-blur-[60px] z-[-1] hidden lg:block"></div>
 				<div class="wrapper_header lg:px-[calc(var(--px)*16)] flex items-center justify-between lg:justify-center lg:h-[calc(var(--px)*80)] pointer-events-auto">
 					<div class="flex-none">
-						<a href="<?php echo esc_url($logo_href); ?>" class="go_to_screen">
-							<?php
-							$logo_header = get_field('logo_header', 'options');
-							?>
-							<img class="w-[109px] md:w-[140px] lg:w-[calc(var(--px)*110)] h-auto" src="<?=$logo_header?>" alt="">
-					</a>
+						<a href="#top" class="go_to_screen">
+								<?php
+								$logo_header = get_field('logo_header', 'options');
+								?>
+								<img class="w-[109px] md:w-[140px] lg:w-[calc(var(--px)*110)] h-auto" src="<?=$logo_header?>" alt="">
+						</a>
 				</div>
 				<div class="flex-1 hidden lg:flex justify-center relative">
 					<div class="relative wrap_menu_head">
 						<div class="follow_menu_active"></div>
-						<?php if( have_rows('menu_global', 'options') ): ?>
+							<?php if( have_rows('menu_global', 'options') ): ?>
 								<ul class="menu_header site_menu text_base font-medium">
 									<?php while( have_rows('menu_global', 'options') ): the_row(); 
 										$text = get_sub_field('text');
 										$url = get_sub_field('url');
-										$menu_href = $normalize_menu_url($url);
 										?>
 										<li>
-											<a href="<?php echo esc_url($menu_href); ?>">
+											<a href="<?=$url?>">
 												<?=$text?>
 											</a>
 										</li>
 									<?php endwhile; ?>
-							</ul>
-						<?php endif; ?>
+								</ul>
+							<?php endif; ?>
 					</div>
 				</div>
 				<div class="flex-none hidden lg:block">
@@ -100,21 +88,20 @@ $normalize_menu_url = static function ($url) use ($is_home_context) {
 <div id="menu_mobile" class="lg:hidden fixed inset-0 z-[49] bg-[#EFEFEA] opacity-0 invisible">
 	<div class="w-full h-full flex py-[90px] px-6 overflow-y-auto" data-lenis-prevent>
 		<div class="my-auto w-full menu-header">
-			<?php if( have_rows('menu_global', 'options') ): ?>
+				<?php if( have_rows('menu_global', 'options') ): ?>
 					<ul class="heading_h4 site_menu font-medium space-y-6">
 						<?php while( have_rows('menu_global', 'options') ): the_row(); 
 							$text = get_sub_field('text');
 							$url = get_sub_field('url');
-							$menu_href = $normalize_menu_url($url);
 							?>
 							<li>
-								<a href="<?php echo esc_url($menu_href); ?>">
+								<a href="<?=$url?>">
 									<?=$text?>
 								</a>
 							</li>
 						<?php endwhile; ?>
-				</ul>
-			<?php endif; ?>
+					</ul>
+				<?php endif; ?>
 		</div>
 		<div class="absolute bottom-0 inset-x-0 p-6 menu_mob_foot">
 			<div>
@@ -128,4 +115,3 @@ $normalize_menu_url = static function ($url) use ($is_home_context) {
 
 <div data-barba="container" data-barba-namespace="<?=$namespace?>" class="wrapper_site">
     <div class="inner_site">
-
