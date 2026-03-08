@@ -5,6 +5,14 @@ Template Name: Home
 get_header();
 ?>
 
+<?php if( have_rows('cta_button', 'options') ): ?>
+	<?php while( have_rows('cta_button', 'options') ): the_row(); 
+		$cta_text = get_sub_field('text');
+		$cta_url = get_sub_field('action');
+		?>
+	<?php endwhile; ?>
+<?php endif; ?>
+
 <section class="lg:pb-[90px] lg:pb-[calc(var(--px)*93)] pt-[125px] lg:pt-[calc(var(--px)*171)] overflow-hidden" id="top">
 	<div class="container">
 		<div class="mb-[49px] md:mb-[80px] lg:mb-[calc(var(--px)*120)]">
@@ -29,8 +37,8 @@ get_header();
 								<?=$text?>
 							</div>
 							<div class="mt-[calc(var(--px)*40)]">
-								<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]">
-									Join the waitlist
+								<a href="<?=$cta_url?>" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]">
+									<?=$cta_text?>
 								</a>
 							</div>
 						</div>
@@ -552,8 +560,8 @@ get_header();
 									<?=$heading_title?>	
 								</h2>
 								<div class="mt-[calc(var(--px)*50)]">
-									<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]">
-										Join the waitlist
+									<a href="<?=$cta_url?>" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]">
+										<?=$cta_text?>
 									</a>
 								</div>
 							</div>
@@ -721,8 +729,8 @@ get_header();
 											</div>
 										</div>
 										<div class="md:pl-[calc(var(--px)*78)]">
-											<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site w-full md:w-auto md:min-w-[calc(var(--px)*247)]">
-												Join the waitlist
+											<a href="<?=$cta_url?>" target="_blank" class="btn_site w-full md:w-auto md:min-w-[calc(var(--px)*247)]">
+												<?=$cta_text?>
 											</a>
 										</div>
 									</div>
@@ -762,8 +770,8 @@ get_header();
 												<?=$text?>
 											</div>
 											<div>
-												<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site w-full md:w-auto md:min-w-[calc(var(--px)*247)]">
-													Join the waitlist
+												<a href="<?=$cta_url?>" target="_blank" class="btn_site w-full md:w-auto md:min-w-[calc(var(--px)*247)]">
+													<?=$cta_text?>
 												</a>
 											</div>
 										</div>
@@ -822,8 +830,8 @@ get_header();
 								<?=$description_bottom ?>
 							</h4>
 							<div class="mt-[calc(var(--px)*48)]">
-								<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]">
-									Join the waitlist
+								<a href="<?=$cta_url?>" target="_blank" class="btn_site min-w-[calc(var(--px)*247)]">
+									<?=$cta_text?>
 								</a>
 							</div>
 						</div>

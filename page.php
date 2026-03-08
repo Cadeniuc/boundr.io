@@ -15,24 +15,20 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
-
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
-	</main><!-- #main -->
+<div class="pt-[100px] md:pt-[calc(var(--px)*180)] md:mb-[calc(var(--px)*50)]">
+	<?php while ( have_posts() ) : the_post(); ?>
+		<div class="container">
+			<div class="max-w-[calc(var(--px)*800)] mx-auto">
+				<h1 class="text-[45px] lg:text-[calc(var(--px)*85)] leading-[113%] font_suisse">
+					<?php echo the_title(); ?>
+				</h1>
+				<div class="mt-10 md:mt-[calc(var(--px)*70)] prose max-w-full">
+					<?php echo the_content(); ?>
+				</div>
+			</div>
+		</div>
+	<?php endwhile; ?>
+</div>
 
 <?php
-get_sidebar();
 get_footer();

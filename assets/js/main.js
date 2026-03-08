@@ -88,6 +88,7 @@ function initPageTransitions()  {
     })
 
     barba.init({
+        prevent: () => true,
         sync: true,
         // debug: true,
         timeout: 7000,

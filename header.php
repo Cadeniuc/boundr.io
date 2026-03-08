@@ -27,58 +27,63 @@
 <body <?php body_class(); ?> data-barba="wrapper">
 <?php wp_body_open(); ?>
 
+<?php if( have_rows('cta_button', 'options') ): ?>
+	<?php while( have_rows('cta_button', 'options') ): the_row(); 
+		$cta_text = get_sub_field('text');
+		$cta_url = get_sub_field('action');
+		?>
+	<?php endwhile; ?>
+<?php endif; ?>
+<?php
+$is_home_context = is_front_page() || is_page_template('template-home.php');
+$logo_href = $is_home_context ? '#top' : home_url('/');
+$normalize_menu_url = static function ($url) use ($is_home_context) {
+	$url = trim((string) $url);
+	if ($url === '') return '#';
+	if ($is_home_context) return $url;
+	if (substr($url, 0, 1) === '#') return home_url('/' . $url);
+	return $url;
+};
+?>
+
 <div class="preloader_backdrop fixed inset-0 bg-bg z-[100] pointer-events-none"></div>
 
 <header class="fixed top-0 lg:top-[calc(var(--px)*36)] inset-x-0 pointer-events-none lg:px-[calc(var(--px)*16)] z-50 header_top bg-[#EFEFEA]/90 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none">
 	<div class="container in_to_header mx-auto">
 		<div class="relative z-[1] py-6 lg:py-0">
 			<div class="bg_header absolute inset-y-0 -inset-x-[calc(var(--px)*12)] bg-[#DBDBDB]/40 rounded-[calc(var(--px)*5)] backdrop-blur-[60px] z-[-1] hidden lg:block"></div>
-			<div class="wrapper_header lg:px-[calc(var(--px)*16)] flex items-center justify-between lg:justify-center lg:h-[calc(var(--px)*80)] pointer-events-auto">
-				<div class="flex-none">
-					<a href="#top" class="go_to_screen">
-						<img class="w-[109px] md:w-[140px] lg:w-[calc(var(--px)*110)] h-auto" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="">
+				<div class="wrapper_header lg:px-[calc(var(--px)*16)] flex items-center justify-between lg:justify-center lg:h-[calc(var(--px)*80)] pointer-events-auto">
+					<div class="flex-none">
+						<a href="<?php echo esc_url($logo_href); ?>" class="go_to_screen">
+							<?php
+							$logo_header = get_field('logo_header', 'options');
+							?>
+							<img class="w-[109px] md:w-[140px] lg:w-[calc(var(--px)*110)] h-auto" src="<?=$logo_header?>" alt="">
 					</a>
 				</div>
 				<div class="flex-1 hidden lg:flex justify-center relative">
 					<div class="relative wrap_menu_head">
 						<div class="follow_menu_active"></div>
-						<ul class="menu_header site_menu text_base font-medium">
-							<li>
-								<a href="#mission">
-									Our Mission
-								</a>
-							</li>
-							<li>
-								<a href="#solution">
-									What it does
-								</a>
-							</li>
-							<li>
-								<a href="#how_works">
-									How it works
-								</a>
-							</li>
-							<li>
-								<a href="#features">
-									Features
-								</a>
-							</li>
-							<li>
-								<a href="#pricing">
-									Pricing
-								</a>
-							</li>
-							<li>
-								<a href="#faq">
-									FAQ
-								</a>
-							</li>
-						</ul>
+						<?php if( have_rows('menu_global', 'options') ): ?>
+								<ul class="menu_header site_menu text_base font-medium">
+									<?php while( have_rows('menu_global', 'options') ): the_row(); 
+										$text = get_sub_field('text');
+										$url = get_sub_field('url');
+										$menu_href = $normalize_menu_url($url);
+										?>
+										<li>
+											<a href="<?php echo esc_url($menu_href); ?>">
+												<?=$text?>
+											</a>
+										</li>
+									<?php endwhile; ?>
+							</ul>
+						<?php endif; ?>
 					</div>
 				</div>
 				<div class="flex-none hidden lg:block">
-					<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site small">
-						Join the waitlist
+					<a href="<?=$cta_url?>" target="_blank" class="btn_site small">
+						<?=$cta_text?>
 					</a>
 				</div>
 				<div class="lg:hidden">
@@ -95,43 +100,26 @@
 <div id="menu_mobile" class="lg:hidden fixed inset-0 z-[49] bg-[#EFEFEA] opacity-0 invisible">
 	<div class="w-full h-full flex py-[90px] px-6 overflow-y-auto" data-lenis-prevent>
 		<div class="my-auto w-full menu-header">
-			<ul class="heading_h4 site_menu font-medium space-y-6">
-				<li>
-					<a href="#mission">
-						Our Mission
-					</a>
-				</li>
-				<li>
-					<a href="#solution">
-						What it does
-					</a>
-				</li>
-				<li>
-					<a href="#how_works">
-						How it works
-					</a>
-				</li>
-				<li>
-					<a href="#features">
-						Features
-					</a>
-				</li>
-				<li>
-					<a href="#pricing">
-						Pricing
-					</a>
-				</li>
-				<li>
-					<a href="#faq">
-						FAQ
-					</a>
-				</li>
-			</ul>
+			<?php if( have_rows('menu_global', 'options') ): ?>
+					<ul class="heading_h4 site_menu font-medium space-y-6">
+						<?php while( have_rows('menu_global', 'options') ): the_row(); 
+							$text = get_sub_field('text');
+							$url = get_sub_field('url');
+							$menu_href = $normalize_menu_url($url);
+							?>
+							<li>
+								<a href="<?php echo esc_url($menu_href); ?>">
+									<?=$text?>
+								</a>
+							</li>
+						<?php endwhile; ?>
+				</ul>
+			<?php endif; ?>
 		</div>
 		<div class="absolute bottom-0 inset-x-0 p-6 menu_mob_foot">
 			<div>
-				<a href="https://app.boundr.io/waitlist" target="_blank" class="btn_site small w-full lg:w-auto">
-					Join the waitlist
+				<a href="<?=$cta_url?>" target="_blank" class="btn_site small w-full lg:w-auto">
+					<?=$cta_text?>
 				</a>
 			</div>
 		</div>
@@ -139,8 +127,5 @@
 </div>
 
 <div data-barba="container" data-barba-namespace="<?=$namespace?>" class="wrapper_site">
-    <?php // get_template_part( 'template-parts/views/top-header'); ?>
-
     <div class="inner_site">
-
 
