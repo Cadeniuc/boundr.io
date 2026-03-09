@@ -528,7 +528,7 @@ $cta_url = '';
 																<div class="space-y-[calc(var(--px)*18)] pl-10 md:pl-[calc(var(--px)*72)] py-8 lg:py-[calc(var(--px)*45)] text-white/70 text_base">
 																	<?=$description?>
 																	<div class="md:hidden mt-[30px] image_mobile_feat">
-																		<a href="<?php echo get_template_directory_uri(); ?>/assets/img/feature_1.png" class="h-full max-w-full flex items-center justify-center">
+																		<a href="<?=$image?>" class="h-full max-w-full flex items-center justify-center">
 																			<img src="<?=$image?>" class="max-w-full max-h-[50vh] w-auto mx-auto h-auto rounded-[calc(var(--px)*8)]" alt="">
 																		</a>
 																	</div>
