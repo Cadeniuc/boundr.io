@@ -74,15 +74,42 @@ function pageTransitionOut() {
 }
 
 function initPageTransitions()  {
+    let pendingScrollHash = window.location.hash || '';
+
+    const isNavigableHash = (hash) => !!(hash && hash !== '#' && hash !== '#top');
+
+    const scrollToHashTarget = (hash, { immediate = false } = {}) => {
+        if (!isNavigableHash(hash)) return false;
+        const target = document.querySelector(hash);
+        if (!target || !scroll || typeof scroll.scrollTo !== 'function') return false;
+
+        const offset = windowWidth < 768 ? -90 : -getHeaderScrollOffsetPx();
+        scroll.scrollTo(target, {
+            offset,
+            duration: immediate ? 0 : 1.2
+        });
+        return true;
+    };
+
+    const applyPendingHashScroll = ({ immediate = false } = {}) => {
+        const hash = pendingScrollHash || window.location.hash || '';
+        const didScroll = scrollToHashTarget(hash, { immediate });
+        if (didScroll) pendingScrollHash = '';
+        return didScroll;
+    };
 
     if(!localhost) {
         history.scrollRestoration = 'manual'
-        window.scrollTo(0, 0)
+        if (!isNavigableHash(window.location.hash)) {
+            window.scrollTo(0, 0)
+        }
     }
 
     barba.hooks.enter((e) => {
         if(!localhost) {
-            window.scrollTo(0, 0)
+            if (!isNavigableHash(pendingScrollHash) && !isNavigableHash(window.location.hash)) {
+                window.scrollTo(0, 0)
+            }
         }
         ScrollTrigger.refresh()
     })
@@ -96,6 +123,7 @@ function initPageTransitions()  {
             {
                 name: 'default',
                 once(data) {
+                    pendingScrollHash = window.location.hash || '';
                     initSmoothScroll(data.next.container)
                     initScript()
                     initLoader()
@@ -108,8 +136,12 @@ function initPageTransitions()  {
                 },
                 async enter(data) {
                     pageTransitionOut(data.next)
+                    gsap.delayedCall(0.12, () => {
+                        applyPendingHashScroll();
+                    });
                 },
                 async beforeEnter(data) {
+                    pendingScrollHash = data?.next?.url?.hash || '';
                     const matches = data.next.html.match(/<body.+?class="([^""]*)"/i)
                     document.body.setAttribute('class', (matches && matches.at(1)) ?? '')
 
@@ -133,7 +165,9 @@ function initPageTransitions()  {
     function initSmoothScroll(container) {
         setTimeout(() => {
             if(!localhost) {
-                window.scrollTo(0, 0)
+                if (!applyPendingHashScroll({ immediate: true }) && !isNavigableHash(window.location.hash)) {
+                    window.scrollTo(0, 0)
+                }
             }
         }, 50)
 
