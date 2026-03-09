@@ -21,9 +21,11 @@ endif;
 				<div class="mb-[80px] lg:mb-[calc(var(--px)*250)]">
 					<div class="grid gap-20 lg:gap-0 lg:flex">
 						<div class="lg:w-[calc(var(--px)*513)] lg:pr-[calc(var(--px)*120)]">
-							<div class="font_suisse">
-								<?=$description_footer?>
-							</div>
+							<?php if($description_footer) : ?>
+								<div class="font_suisse">
+									<?=$description_footer?>
+								</div>
+							<?php endif ?>
 						</div>
 
 						<div class="lg:w-[calc(100%-(var(--px)*513)-(var(--px)*433))] lg:pr-[calc(var(--px)*100)]">

@@ -70,9 +70,11 @@
 					</div>
 				</div>
 				<div class="flex-none hidden lg:block">
-					<a href="<?=$cta_url?>" target="_blank" class="btn_site small">
-						<?=$cta_text?>
-					</a>
+					<?php if($cta_text) : ?>
+						<a href="<?=$cta_url?>" target="_blank" class="btn_site small">
+							<?=$cta_text?>
+						</a>
+					<?php endif ?>
 				</div>
 				<div class="lg:hidden">
 					<button class="menu_burger h-full w-[46px] flex flex-col items-center justify-center cursor-pointer">
@@ -105,9 +107,11 @@
 		</div>
 		<div class="absolute bottom-0 inset-x-0 p-6 menu_mob_foot">
 			<div>
-				<a href="<?=$cta_url?>" target="_blank" class="btn_site small w-full lg:w-auto">
-					<?=$cta_text?>
-				</a>
+				<?php if($cta_text) : ?>
+					<a href="<?=$cta_url?>" target="_blank" class="btn_site small w-full lg:w-auto">
+						<?=$cta_text?>
+					</a>
+				<?php endif ?>
 			</div>
 		</div>
 	</div>
