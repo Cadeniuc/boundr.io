@@ -9,6 +9,8 @@
  * @package Boundr
  */
 
+$description_footer = '';
+
 if( have_rows('footer_info', 'options') ): 
 	while( have_rows('footer_info', 'options') ): the_row(); 
 		$description_footer = get_sub_field('description');

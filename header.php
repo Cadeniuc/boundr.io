@@ -27,6 +27,11 @@
 <body <?php body_class(); ?> data-barba="wrapper">
 <?php wp_body_open(); ?>
 
+<?php
+$cta_text = '';
+$cta_url = '';
+?>
+
 <?php if( have_rows('cta_button', 'options') ): ?>
 	<?php while( have_rows('cta_button', 'options') ): the_row(); 
 		$cta_text = get_sub_field('text');

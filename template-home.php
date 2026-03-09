@@ -5,6 +5,11 @@ Template Name: Home
 get_header();
 ?>
 
+<?php
+$cta_text = '';
+$cta_url = '';
+?>
+
 <?php if( have_rows('cta_button', 'options') ): ?>
 	<?php while( have_rows('cta_button', 'options') ): the_row(); 
 		$cta_text = get_sub_field('text');
@@ -158,9 +163,13 @@ get_header();
 
 <?php if( have_rows('problem') ): ?>
 	<?php while( have_rows('problem') ): the_row(); ?>
+		<?php
+		$label = '';
+		$text = '';
+		?>
 
-		<?php if( have_rows('left') ): ?>
-			<?php while( have_rows('left') ): the_row(); 
+			<?php if( have_rows('left') ): ?>
+				<?php while( have_rows('left') ): the_row(); 
 				$label = get_sub_field('label');
 				$text = get_sub_field('text');
 				?>
@@ -542,9 +551,10 @@ get_header();
 
 <?php if( have_rows('experience_benefits') ): ?>
 	<?php while( have_rows('experience_benefits') ): the_row();  ?>
+		<?php $heading_title = ''; ?>
 
-		<?php if( have_rows('info') ): ?>
-			<?php while( have_rows('info') ): the_row();
+			<?php if( have_rows('info') ): ?>
+				<?php while( have_rows('info') ): the_row();
 				$heading_title = get_sub_field('heading');
 				?>
 			<?php endwhile; ?>
