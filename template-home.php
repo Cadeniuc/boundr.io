@@ -409,7 +409,7 @@ $cta_url = '';
 								$icon = get_sub_field('icon');
 								?>
 								<div>
-									<div class="heading_h4 font_suisse md:min-h-[calc(var(--px)*87)] mb-[55px] md:mb-[calc(var(--px)*10)]">
+									<div class="heading_h4 font_suisse md:min-h-[calc(var(--px)*73)] mb-10 md:mb-[calc(var(--px)*24)]">
 										<?=$title?>
 									</div>
 									<div class="text_base hide_br_mobile">
@@ -428,7 +428,7 @@ $cta_url = '';
 								$icon = get_sub_field('icon');
 								?>
 								<div>
-									<div class="heading_h4 font_suisse md:min-h-[calc(var(--px)*87)] mb-[55px] md:mb-[calc(var(--px)*10)]">
+									<div class="heading_h4 font_suisse md:min-h-[calc(var(--px)*73)] mb-10 md:mb-[calc(var(--px)*24)]">
 										<?=$title?>
 									</div>
 									<div class="text_base hide_br_mobile">
@@ -447,7 +447,7 @@ $cta_url = '';
 								$icon = get_sub_field('icon');
 								?>
 								<div>
-									<div class="heading_h4 font_suisse md:min-h-[calc(var(--px)*87)] mb-[55px] md:mb-[calc(var(--px)*10)]">
+									<div class="heading_h4 font_suisse md:min-h-[calc(var(--px)*73)] mb-10 md:mb-[calc(var(--px)*24)]">
 										<?=$title?>
 									</div>
 									<div class="text_base hide_br_mobile">

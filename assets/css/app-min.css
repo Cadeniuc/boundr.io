@@ -742,6 +742,9 @@
   .mb-\[33px\] {
     margin-bottom: 33px;
   }
+  .mb-\[40px\] {
+    margin-bottom: 40px;
+  }
   .mb-\[49px\] {
     margin-bottom: 49px;
   }
@@ -1236,6 +1239,11 @@
       margin-bottom: calc(var(--px) * 10);
     }
   }
+  .md\:mb-\[calc\(var\(--px\)\*24\)\] {
+    @media (width >= 48rem) {
+      margin-bottom: calc(var(--px) * 24);
+    }
+  }
   .md\:mb-\[calc\(var\(--px\)\*50\)\] {
     @media (width >= 48rem) {
       margin-bottom: calc(var(--px) * 50);
@@ -1264,6 +1272,11 @@
   .md\:hidden {
     @media (width >= 48rem) {
       display: none;
+    }
+  }
+  .md\:min-h-\[calc\(var\(--px\)\*73\)\] {
+    @media (width >= 48rem) {
+      min-height: calc(var(--px) * 73);
     }
   }
   .md\:min-h-\[calc\(var\(--px\)\*87\)\] {
