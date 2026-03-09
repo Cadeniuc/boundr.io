@@ -818,7 +818,7 @@ $cta_url = '';
 									?>
 									<div class="item_accordion js_accordion__group" data-underline-link>
 										<div class="toggle_accordion js_accordion__menu">
-											<div class="inside_toggl_acr">
+											<div class="inside_toggl_acr font_suisse">
 												<?=$title ?>
 												<div class="arrow_accord js_accordion__icon"></div>
 											</div>
