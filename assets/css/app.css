@@ -10,16 +10,6 @@
     url("../fonts/SuisseWorksTrialRegular/SuisseWorksTrialRegular.woff") format("woff"),
     url("../fonts/SuisseWorksTrialRegular/SuisseWorksTrialRegular.ttf") format("truetype");
 }
-@font-face {
-    font-family: "Suisse Works Trial";
-    font-display: swap;
-    font-style: normal;
-    font-weight: 700;
-    src: url("../fonts/SuisseWorksTrialBold/SuisseWorksTrialBold.eot");
-    src: url("../fonts/SuisseWorksTrialBold/SuisseWorksTrialBold.eot?#iefix")format("embedded-opentype"),
-    url("../fonts/SuisseWorksTrialBold/SuisseWorksTrialBold.woff") format("woff"),
-    url("../fonts/SuisseWorksTrialBold/SuisseWorksTrialBold.ttf") format("truetype");
-}
 :root {
         --px: 0.06944444444444445vw;
         --size-20: 1.3888888888888888vw;

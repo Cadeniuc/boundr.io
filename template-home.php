@@ -721,7 +721,7 @@ $cta_url = '';
 										<div>
 											<div class="bg-[#F8F5F5] rounded-[calc(var(--px)*8)] px-5 md:px-[calc(var(--px)*60)] py-[34px] md:py-[calc(var(--px)*40)]">
 												<div class="flex items-center gap-[calc(var(--px)*62)]">
-													<div class="font_suisse font-bold text-[calc(var(--px)*24)]">
+													<div class="font_suisse text-[calc(var(--px)*24)]">
 														<?=$text_1?>
 													</div>
 													<div class="font-semibold text_base">
@@ -758,7 +758,7 @@ $cta_url = '';
 										<div>
 											<div class="bg-[#F8F5F5] rounded-[calc(var(--px)*8)] px-5 md:px-[calc(var(--px)*60)] py-[34px] md:py-[calc(var(--px)*40)]">
 												<div class="flex items-center gap-[calc(var(--px)*62)]">
-													<div class="font_suisse font-bold text-[calc(var(--px)*24)]">
+													<div class="font_suisse text-[calc(var(--px)*24)]">
 														<?=$text_1?>
 													</div>
 													<div class="font-semibold text_base">

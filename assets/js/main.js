@@ -239,6 +239,7 @@ function initOther() {
     initRotateButtonsCalc()
     initRotateButtonsAnim()
     initFeaturePhotoswipeSingle();
+    initFeatureMobileImageHeight();
     initCf7BodySubmittingClass();
     normalizeMenuLinksForNonHome();
 
@@ -311,6 +312,51 @@ function initOther() {
             closeMobileMenu()
         }
     })
+}
+
+function initFeatureMobileImageHeight() {
+    const images = gsap.utils.toArray('.image_mobile_feat img');
+    if (!images.length) return;
+
+    const setMaxHeight = () => {
+        if (windowWidth >= 768) {
+            images.forEach((img) => img.style.removeProperty('max-height'));
+            return;
+        }
+
+        const currentHeight = Math.round((window.visualViewport?.height || window.innerHeight || document.documentElement.clientHeight) * 0.5);
+        images.forEach((img) => {
+            img.style.maxHeight = `${currentHeight}px`;
+        });
+    };
+
+    setMaxHeight();
+
+    if (window.__boundrFeatureImageHeightBound) return;
+    window.__boundrFeatureImageHeightBound = true;
+
+    let lastViewportHeight = window.visualViewport?.height || window.innerHeight || document.documentElement.clientHeight;
+    let rafId = 0;
+
+    const scheduleUpdate = () => {
+        if (rafId) return;
+        rafId = requestAnimationFrame(() => {
+            rafId = 0;
+            const nextHeight = window.visualViewport?.height || window.innerHeight || document.documentElement.clientHeight;
+            const changedEnough = Math.abs(nextHeight - lastViewportHeight) > 100;
+            const isDesktopSwitch = (windowWidth >= 768);
+
+            if (!changedEnough && !isDesktopSwitch) return;
+            lastViewportHeight = nextHeight;
+            setMaxHeight();
+        });
+    };
+
+    window.addEventListener('orientationchange', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate, { passive: true });
+    if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', scheduleUpdate, { passive: true });
+    }
 }
 
 function closeMobileMenu() {
