@@ -1271,6 +1271,7 @@ function initAccordionFeature() {
   const animations = [];
   let delayedScrollToActive = null;
 
+  bindContentImageLoadRefresh();
   groups.forEach(group => createAccordionAnimation(group));
 
   menus.forEach(menu => {
@@ -1282,6 +1283,8 @@ function initAccordionFeature() {
     menus.forEach(m => m.closest('.js_accordion__group')?.classList.remove('active'));
     menus[0].animation.progress(1).pause().reversed(false);
     menus[0].closest('.js_accordion__group')?.classList.add('active');
+    disableInitialContentTransitions(menus[0].closest('.js_accordion__group'));
+    ensureActiveGroupHeightAuto(menus[0].closest('.js_accordion__group'));
 
     showImageByMenu(menus[0], true);
     ScrollTrigger.refresh();
@@ -1303,6 +1306,7 @@ function initAccordionFeature() {
 
     if (wasClosed) {
       currentGroup?.classList.add('active');
+      ensureActiveGroupHeightAuto(currentGroup, accordionDuration);
       showImageByMenu(menu, false);
       if (windowWidth < 768) {
         delayedScrollToActive = gsap.delayedCall(accordionDuration + 0.05, () => {
@@ -1316,8 +1320,10 @@ function initAccordionFeature() {
 
   function scrollToActiveGroup(group) {
     if (!group || windowWidth >= 768 || !scroll || typeof scroll.scrollTo !== 'function') return;
+    const offset = -(getHeaderScrollOffsetPx() - 50);
 
     scroll.scrollTo(group, {
+      offset,
       duration: 1.1
     });
   }
@@ -1387,6 +1393,67 @@ function initAccordionFeature() {
 
     menu.animation = tl;
     animations.push(tl);
+  }
+
+  function ensureActiveGroupHeightAuto(group, delay = 0) {
+    if (!group) return;
+    const box = group.querySelector('.js_accordion__content');
+    if (!box) return;
+
+    if (!delay) {
+      gsap.set(box, { height: 'auto' });
+      ScrollTrigger.refresh();
+      return;
+    }
+
+    gsap.delayedCall(delay + 0.02, () => {
+      if (!group.classList.contains('active')) return;
+      gsap.set(box, { height: 'auto' });
+      ScrollTrigger.refresh();
+    });
+  }
+
+  function bindContentImageLoadRefresh() {
+    const contentImages = gsap.utils.toArray(section.querySelectorAll('.js_accordion__content img'));
+    if (!contentImages.length) return;
+
+    contentImages.forEach((img) => {
+      if (img.dataset.accordionLoadBound === '1') return;
+      img.dataset.accordionLoadBound = '1';
+
+      img.addEventListener('load', () => {
+        const group = img.closest('.js_accordion__group');
+        if (!group?.classList.contains('active')) return;
+        ensureActiveGroupHeightAuto(group);
+      });
+    });
+  }
+
+  function disableInitialContentTransitions(group) {
+    if (!group || windowWidth >= 768) return;
+
+    const nodes = gsap.utils.toArray(
+      group.querySelectorAll('.js_accordion__content > div p, .js_accordion__content > div .image_mobile_feat')
+    );
+    if (!nodes.length) return;
+
+    nodes.forEach((node) => {
+      node.style.transition = 'none';
+      node.style.transitionDelay = '0s';
+      node.style.opacity = '1';
+      node.style.transform = 'none';
+    });
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        nodes.forEach((node) => {
+          node.style.removeProperty('transition');
+          node.style.removeProperty('transition-delay');
+          node.style.removeProperty('opacity');
+          node.style.removeProperty('transform');
+        });
+      });
+    });
   }
 }
 
