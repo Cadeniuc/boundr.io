@@ -18,9 +18,9 @@ $cta_url = '';
 	<?php endwhile; ?>
 <?php endif; ?>
 
-<section class="lg:pb-[90px] lg:pb-[calc(var(--px)*93)] pt-[125px] lg:pt-[calc(var(--px)*171)] overflow-hidden" id="top">
+<section class="lg:pb-[90px] lg:pb-[calc(var(--px)*93)] pt-[125px] lg:pt-[calc(var(--px)*150)] overflow-hidden" id="top">
 	<div class="container">
-		<div class="mb-[49px] md:mb-[80px] lg:mb-[calc(var(--px)*120)]">
+		<div class="mb-[49px] md:mb-[80px] lg:mb-[calc(var(--px)*100)]">
 			<?php
 			$title_site = get_field('heading_text');
 			?>
